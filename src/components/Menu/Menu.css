@@ -1,0 +1,97 @@
+/* Menu 絕對定位在畫面上方 */
+.Menu {
+    position: absolute;
+    top: 5px;
+    /* 與上方距離，可自行調整 */
+    left: 20px;
+    /* 與左側距離，可自行調整 */
+    right: 20px;
+    /* 讓 Menu 在右側也有一定距離 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    /* 確保 Menu 在前方顯示 */
+}
+
+/* Logo 設定 */
+.Logo {
+    width: 300PX;
+    /* 可依需求調整 Logo 大小 */
+    height: auto;
+    cursor: pointer;
+
+}
+
+/* right_menu 專門容納選單文字 */
+.right_menu {
+    font-weight: 500;
+    display: flex;
+    gap: 30px;
+    /* 每個選項間距 */
+}
+
+/* Menu 選項基本樣式 */
+.About,
+.Work,
+.Contact {
+    margin: 0;
+    padding: 0;
+    color: black;
+    /* 與背景形成對比的顏色 */
+    font-size: 35px;
+    /* 字體大小可自行調整 */
+    cursor: pointer;
+    text-decoration: none;
+}.About,
+.Work,
+.Contact,
+.Logo {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.About.active::after,
+.Work.active::after,
+.Contact.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    /* 視實際需求調整 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 50px;
+    background-image: url('../imgs/tape2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+
+}
+
+.LogoWrapper {
+    position: relative;
+    display: inline-block;
+    /* 確保有基準可放置::after */
+    cursor: pointer;
+}
+
+.LogoWrapper.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    /* 調整膠帶的相對位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 125%;
+    height: 50px;
+    /* 膠帶高度，依需求可調整 */
+    background-image: url('../imgs//tape.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+
+}

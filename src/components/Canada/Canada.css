@@ -1,0 +1,333 @@
+.canada_background {
+    background-size: cover;
+    background-image: url('../imgs//BACKGROUND.png');
+    position: relative;
+    /* 移除 overflow: hidden; */
+    /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */
+}
+
+.A_memorable_trip {
+    display: flex;
+    /* 啟用 Flexbox */
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中對齊子元素 */
+    justify-content: center;
+    /* 垂直居中對齊子元素 */
+    height: 100vh;
+    /* 根據需求調整容器高度 */
+    width: 100%;
+    /* 佔滿父容器的寬度 */
+    box-sizing: border-box;
+    /* 包括內邊距和邊框在內 */
+    padding: 20px;
+    /* 可選：添加內邊距 */
+}
+
+.A_memorable_trip_title {
+    transition: 0.3s ease;
+}
+
+.A_memorable_trip_title:hover {
+    transform: scale(1.1);
+}
+
+.A_memorable_trip_text {
+    margin-top: 1.5%;
+}
+
+.Design_review {
+    display: flex;
+    /* 啟用 Flexbox */
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中對齊子元素 */
+    justify-content: center;
+    /* 垂直居中對齊子元素 */
+    /* 根據需求調整容器高度 */
+    width: 100%;
+    /* 佔滿父容器的寬度 */
+    box-sizing: border-box;
+    /* 包括內邊距和邊框在內 */
+    padding: 20px;
+    /* 可選：添加內邊距 */
+}
+
+
+.Design_review_cover {
+    transition: 0.3s ease;
+}
+
+.Design_review_cover:hover {
+    transform: scale(1.1);
+}
+
+.universe_container {
+    position: relative;
+    /* 使 universe_text 可以絕對定位 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    /* 根據需求調整寬度 */
+    max-width: 600px;
+    /* 設置容器的最大寬度 */
+}
+
+.universe {
+    transition: 0.5s ease;
+}
+
+.universe:hover {
+    transform: translateX(50%);
+}
+
+.universe_text {
+    position: absolute;
+    /* 絕對定位 */
+    right: 60%;
+    /* 初始位置在 universe 右側 */
+    top: 30%;
+    /* 垂直居中 */
+    transform: translateY(-50%);
+    /* 調整垂直位置 */
+    opacity: 0;
+    /* 初始不可見 */
+    transition: opacity 0.6s ease, left 0.3s ease;
+    /* 添加平滑過渡效果 */
+    width: 50%;
+    /* 根據需求調整 */
+    max-width: 300px;
+    /* 設置圖片的最大寬度 */
+    height: auto;
+    /* 保持圖片比例 */
+}
+
+.universe_container:hover .universe_text {
+    opacity: 1;
+    /* 顯示 universe_text */
+    /* universe_text 向右移動 */
+}
+
+
+.Good_vibe {
+    display: flex;
+    /* 啟用 Flexbox */
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中對齊子元素 */
+    justify-content: center;
+    /* 垂直居中對齊子元素 */
+    /* 根據需求調整容器高度 */
+    width: 100%;
+    /* 佔滿父容器的寬度 */
+    box-sizing: border-box;
+    /* 包括內邊距和邊框在內 */
+    padding: 20px;
+    /* 可選：添加內邊距 */
+    margin-top: 10%;
+}
+
+
+.Good_vibe_title {
+    transition: 0.3s ease;
+    margin-bottom: 1%;
+}
+
+.Good_vibe_title:hover {
+    transform: scale(1.1);
+}
+
+.Studying_container {
+    position: relative;
+    /* 使 universe_text 可以絕對定位 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    /* 根據需求調整寬度 */
+    max-width: 600px;
+    /* 設置容器的最大寬度 */
+}
+
+.Studying {
+    margin-top: 2%;
+    transition: 0.5s ease;
+}
+
+.Studying:hover {
+    transform: translateX(50%);
+}
+
+.Studying_text {
+    position: absolute;
+    /* 絕對定位 */
+    right: 60%;
+    /* 初始位置在 universe 右側 */
+    top: 30%;
+    /* 垂直居中 */
+    transform: translateY(-50%);
+    /* 調整垂直位置 */
+    opacity: 0;
+    /* 初始不可見 */
+    transition: opacity 0.6s ease, left 0.3s ease;
+    /* 添加平滑過渡效果 */
+    width: 50%;
+    /* 根據需求調整 */
+    max-width: 300px;
+    /* 設置圖片的最大寬度 */
+    height: auto;
+    /* 保持圖片比例 */
+}
+
+.Studying_container:hover .Studying_text {
+    opacity: 1;
+    /* 顯示 universe_text */
+    /* universe_text 向右移動 */
+}
+
+.Keep_Learning {
+    margin-top: 10%;
+
+    display: flex;
+    /* 啟用 Flexbox */
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中對齊子元素 */
+    justify-content: center;
+    /* 垂直居中對齊子元素 */
+    /* 根據需求調整容器高度 */
+    width: 100%;
+    /* 佔滿父容器的寬度 */
+    box-sizing: border-box;
+    /* 包括內邊距和邊框在內 */
+    padding: 20px;
+    /* 可選：添加內邊距 */
+}
+
+
+.Keep_Learning_title {
+    transition: 0.3s ease;
+}
+
+.Keep_Learning_title:hover {
+    transform: scale(1.1);
+}
+
+.design_container {
+    position: relative;
+    /* 使 universe_text 可以絕對定位 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    /* 根據需求調整寬度 */
+    max-width: 600px;
+    /* 設置容器的最大寬度 */
+}
+
+.me_designing {
+    margin-top: 2%;
+    transition: 0.5s ease;
+}
+
+.me_designing:hover {
+    transform: translateX(50%);
+}
+
+.me_and_kevin {
+    position: absolute;
+    /* 絕對定位 */
+    right: 60%;
+    /* 初始位置在 universe 右側 */
+    top: 30%;
+    /* 垂直居中 */
+    transform: translateY(-50%);
+    /* 調整垂直位置 */
+    opacity: 0;
+    /* 初始不可見 */
+    transition: opacity 0.6s ease, left 0.3s ease;
+    /* 添加平滑過渡效果 */
+    width: 50%;
+    /* 根據需求調整 */
+    max-width: 300px;
+    /* 設置圖片的最大寬度 */
+    height: auto;
+    /* 保持圖片比例 */
+}
+
+.design_container:hover .me_and_kevin {
+    opacity: 1;
+    /* 顯示 universe_text */
+    /* universe_text 向右移動 */
+}
+
+.mountain {
+    position: relative;
+    /* 方便絕對定位子元素 */
+    width: 100%;
+    height: 1000px;
+    /* 根據需求調整 */
+    overflow: hidden;
+    /* 防止圖片溢出容器 */
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中 */
+    justify-content: center;
+    /* 垂直居中 */
+    /* 移除 margin-top，避免影響布局 */
+    /* margin-top: 50%; */
+    margin-top: 0;
+}
+
+.mountain_img {
+    position: absolute; /* 絕對定位 */
+    bottom: 0; /* 定位於容器底部 */
+    width: 105%;
+    height: 500px;
+    display: block; /* 將圖片設置為 block 元素 */
+    margin: 0; /* 移除默認 margin */
+    padding: 0; /* 移除默認 padding */
+    transform: translateY(15px);
+
+}
+
+.NEXT {
+    transform: translateY(50px);
+    /* 根據需求調整或移除 */
+    display: block;
+    /* 將圖片設置為 block 元素 */
+    margin: 0;
+    /* 移除默認 margin */
+    padding: 0;
+    /* 移除默認 padding */
+    z-index: 100;
+}
+
+.mountain_img,
+.NEXT {
+    margin: 0;
+    padding: 0;
+    display: block;
+    /* 確保所有圖片都是 block 元素 */
+}
+.sun{
+    transform: translateY(100%);
+    transition: transform 0.6s ease;
+}
+.NEXT {
+    transition: transform 0.3s ease;
+}
+
+.NEXT:hover {
+    cursor: pointer;
+}
+.NEXT:hover ~ .sun {
+    transform: translateY(-35%);
+}

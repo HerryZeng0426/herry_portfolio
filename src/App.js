@@ -1,23 +1,22 @@
 import logo from './logo.svg';
+import Canada from './components/Canada/Canada';
+import Shoushan from './components/Shoushan/Shoushan';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Main_page from './components/Main_page/Main_page';
 import './App.css';
+import About from './components/About/About';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Navigate to="/herry" replace />} />
+        <Route path="/herry" element={<Main_page />} />
+        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/shoushan' element={<Shoushan></Shoushan>}></Route>
+        <Route path='/canada' element={<Canada></Canada>}></Route>
+      </Routes>
+
     </div>
   );
 }

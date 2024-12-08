@@ -1,0 +1,171 @@
+.shoushan_background {
+
+    background-size: cover;
+
+    background-image: url('../imgs//BACKGROUND.png');
+    position: relative;
+    /* 移除 overflow: hidden; */
+    /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */
+}
+
+.first_hiking {
+
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列內部元素 */
+    align-items: center;
+    /* 將所有子元素水平置中 */
+    justify-content: center;
+    /* （可選）將所有子元素垂直置中 */
+    /* 你可以根據需要添加其他樣式，例如高度、寬度、背景等 */
+}
+
+.first_hiking_img {
+    margin-top: 5%;
+    width: 50%;
+}
+
+.first_hiking_imgs {
+    display: flex;
+    flex-direction: row;
+    /* 水平排列圖片 */
+    gap: 50px;
+    /* 圖片之間的間距，可以根據需要調整 */
+    margin-top: 20px;
+    /* 主圖片與圖片列之間的間距 */
+}
+
+.first_hiking_imgs img {
+    /* 可選：設定圖片的大小或其他樣式 */
+    width: 250px;
+    /* 例如設定每張圖片的寬度為100px */
+    height: auto;
+    transition: transform 0.3s ease;
+    /* 添加過渡效果 */
+
+
+}
+
+.first_hiking_img1:hover {
+    transform: scale(1.1);
+    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
+}
+
+.first_hiking_img2:hover {
+    transform: scale(1.1);
+    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
+}
+
+.first_hiking_img3:hover {
+    transform: scale(1.1);
+    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
+}
+
+.kh {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列內部元素 */
+    align-items: center;
+    /* 將所有子元素水平置中 */
+    justify-content: center;
+    /* （可選）將所有子元素垂直置中 */
+    /* 你可以根據需要添加其他樣式，例如高度、寬度、背景等 */
+}
+
+
+/* 容器設定 */
+.kh_container {
+    position: relative;
+    width: 100%;
+    /* 根據最大圖片寬度調整 */
+    height: 500px;
+    /* 根據最大圖片高度調整 */
+    overflow: hidden;
+    /* 防止圖片放大後溢出容器 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 共用圖片樣式 */
+.kh_container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* 保持圖片比例 */
+    transition: opacity 1s ease, transform 0.3s ease;
+    cursor: pointer;
+    /* 可選：懸停時顯示手指圖示 */
+}
+
+/* 初始狀態 */
+.kh1_1 {
+    opacity: 1;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.kh2_1 {
+    opacity: 0;
+    z-index: 2;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 懸停效果 */
+.kh_container:hover .kh2_1 {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    /* 輕微放大 */
+}
+
+.kh_container:hover .kh1_1 {
+    opacity: 0;
+}
+
+.where {
+    bottom: 0;
+    /* 位於視窗底部 */
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列子元素 */
+    align-items: center;
+    /* 水平居中 */
+    justify-content: center;
+    /* 垂直居中 */
+    position: relative;
+    /* 方便絕對定位子元素 */
+    width: 100%;
+    height: 500px;
+    /* 根據背景圖片的高度調整 */
+    overflow: hidden;
+    /* 防止圖片放大後溢出容器 */
+}
+
+.where_img {
+    position: absolute;
+    width: 100%;
+}
+
+.go_CANADA {
+    transform: translateY(-25%);
+    z-index: 2;
+    /* 位於背景圖片上方 */
+    height: auto;
+    margin-bottom: 20px;
+    /* 與下方圖片的間距 */
+    cursor: pointer;
+}
+
+/* 下方圖片 */
+.go_WORK {
+    transform: translateY(-15%);
+    z-index: 2;
+    /* 位於背景圖片上方 */
+    height: auto;
+}
