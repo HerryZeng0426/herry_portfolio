@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/herry_portfolio/static/css/main.ec113be8.css",
+    "main.js": "/herry_portfolio/static/js/main.dd568c01.js",
+    "static/js/453.1407b060.chunk.js": "/herry_portfolio/static/js/453.1407b060.chunk.js",
+    "static/media/climb.png": "/herry_portfolio/static/media/climb.86583b6c81dc044a8674.png",
+    "static/media/ca1.png": "/herry_portfolio/static/media/ca1.cacf33583ccfc868f752.png",
+    "static/media/ca2.png": "/herry_portfolio/static/media/ca2.4c923c2fdb8c7fafd8a1.png",
+    "static/media/BACKGROUND.png": "/herry_portfolio/static/media/BACKGROUND.49d73d7d49e9711c0552.png",
+    "static/media/kh2_1.png": "/herry_portfolio/static/media/kh2_1.fcdfbb31b84676e264b3.png",
+    "static/media/me.png": "/herry_portfolio/static/media/me.32f2fe323c038ceceb68.png",
+    "static/media/me_designing.png": "/herry_portfolio/static/media/me_designing.062909a8913693fa8c80.png",
+    "static/media/me_and_kevin_together_img.png": "/herry_portfolio/static/media/me_and_kevin_together_img.561593eae9e34a256bcf.png",
+    "static/media/universe.png": "/herry_portfolio/static/media/universe.c6bc7416ad3c213f5fc1.png",
+    "static/media/first_hiking_img2.png": "/herry_portfolio/static/media/first_hiking_img2.64481f03e8106b7f39a7.png",
+    "static/media/studying_img.png": "/herry_portfolio/static/media/studying_img.1bbec9adf762367d58a6.png",
+    "static/media/first_hiking_img3.png": "/herry_portfolio/static/media/first_hiking_img3.d21ced2fce2edb766338.png",
+    "static/media/me_in_dime.png": "/herry_portfolio/static/media/me_in_dime.00109785c9d097ddbef9.png",
+    "static/media/intro.png": "/herry_portfolio/static/media/intro.eefad04bec7de20b91af.png",
+    "static/media/kh1_1.png": "/herry_portfolio/static/media/kh1_1.66768b864441014c6d7a.png",
+    "static/media/dime2.png": "/herry_portfolio/static/media/dime2.1d80138b7434be5a72ce.png",
+    "static/media/first_hiking_img1.png": "/herry_portfolio/static/media/first_hiking_img1.6b6d1bb4e2782185f0e1.png",
+    "static/media/dime1.png": "/herry_portfolio/static/media/dime1.938e87a78f6c78d51460.png",
+    "static/media/mountain.png": "/herry_portfolio/static/media/mountain.6a3c23cb8450032934b1.png",
+    "static/media/Sun.png": "/herry_portfolio/static/media/Sun.3927bffaff9069ea3547.png",
+    "static/media/inspiration.png": "/herry_portfolio/static/media/inspiration.db7e7ab38f514b3ea96e.png",
+    "static/media/EARTH.png": "/herry_portfolio/static/media/EARTH.1968303ba19879620e9b.png",
+    "static/media/intro_text.png": "/herry_portfolio/static/media/intro_text.c749db0fc07746bae2db.png",
+    "static/media/first_hiking.png": "/herry_portfolio/static/media/first_hiking.0dcc8b5e1ea1209b617f.png",
+    "static/media/A_memorable_trip_text.png": "/herry_portfolio/static/media/A_memorable_trip_text.f258fb09f3182145be52.png",
+    "static/media/universe_text.png": "/herry_portfolio/static/media/universe_text.5df3d67962d9f5e90be4.png",
+    "static/media/logo.png": "/herry_portfolio/static/media/logo.499547db05f2a05f4a9a.png",
+    "static/media/logo.svg": "/herry_portfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/herry_portfolio/index.html",
+    "main.ec113be8.css.map": "/herry_portfolio/static/css/main.ec113be8.css.map",
+    "main.dd568c01.js.map": "/herry_portfolio/static/js/main.dd568c01.js.map",
+    "453.1407b060.chunk.js.map": "/herry_portfolio/static/js/453.1407b060.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec113be8.css",
+    "static/js/main.dd568c01.js"
+  ]
+}
