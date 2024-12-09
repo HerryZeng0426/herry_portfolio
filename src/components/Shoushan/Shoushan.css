@@ -1,8 +1,8 @@
 .shoushan_background {
+    background-color: aliceblue;
 
     background-size: cover;
 
-    background-image: url('../imgs//BACKGROUND.png');
     position: relative;
     /* 移除 overflow: hidden; */
     /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */
@@ -129,31 +129,34 @@
 
 .where {
     bottom: 0;
-    /* 位於視窗底部 */
-    margin-top: 15%;
+    margin-top: 0%;
     display: flex;
     flex-direction: column;
-    /* 垂直排列子元素 */
     align-items: center;
-    /* 水平居中 */
     justify-content: center;
-    /* 垂直居中 */
     position: relative;
-    /* 方便絕對定位子元素 */
     width: 100%;
-    height: 500px;
-    /* 根據背景圖片的高度調整 */
+    height: 900px;
     overflow: hidden;
-    /* 防止圖片放大後溢出容器 */
 }
 
 .where_img {
     position: absolute;
     width: 100%;
+    bottom: 0;
 }
 
 .go_CANADA {
-    transform: translateY(-25%);
+    transform: translateY(150%);
+    z-index: 2;
+    /* 位於背景圖片上方 */
+    height: auto;
+    margin-bottom: 20px;
+    /* 與下方圖片的間距 */
+    cursor: pointer;
+}
+.go_CANADA:hover{
+    transform: translateY(150%) rotate(5deg);
     z-index: 2;
     /* 位於背景圖片上方 */
     height: auto;
@@ -164,8 +167,26 @@
 
 /* 下方圖片 */
 .go_WORK {
-    transform: translateY(-15%);
+    transform: translateY(150%);
     z-index: 2;
     /* 位於背景圖片上方 */
     height: auto;
+}
+
+.contact_img {
+    transform: translate(200%, 0%) rotate(5deg);
+    /* 位於背景圖片上方 */
+    height: auto;
+    z-index: 1;
+
+}
+
+
+
+
+
+.contact_img:hover{
+    transform: translate(200%, 0%) rotate(0deg);
+
+    cursor: pointer;
 }

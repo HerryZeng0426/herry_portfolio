@@ -1,6 +1,7 @@
 .canada_background {
+    background-color: aliceblue;
+
     background-size: cover;
-    background-image: url('../imgs//BACKGROUND.png');
     position: relative;
     /* 移除 overflow: hidden; */
     /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */

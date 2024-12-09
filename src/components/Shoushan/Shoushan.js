@@ -12,8 +12,7 @@ import kh from '../imgs/kh.png'
 import kh1_1 from '../imgs/kh1_1.png'
 import kh2_1 from '../imgs/kh2_1.png'
 import where from '../imgs/where.png'
-
-
+import contact from '../imgs/contact.png'
 
 
 
@@ -26,6 +25,10 @@ const Shoushan = () => {
 
   const handle_to_canada = () => {
     navigate('/canada')
+  }
+
+  const handle_to_contact = () =>{
+    navigate('/contact')
   }
 
   useEffect(() => {
@@ -72,6 +75,7 @@ const Shoushan = () => {
       <div className='where'>
         <img src={go_CANADA} className='go_CANADA' onClick={handle_to_canada}></img>
         <img src={go_WORK} className='go_WORK'></img>
+        <img src={contact} className='contact_img' onClick={handle_to_contact}></img>
         <img className='where_img' src={where}></img>
       </div>
 

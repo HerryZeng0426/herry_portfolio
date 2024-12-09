@@ -1,0 +1,293 @@
+.contact {
+    background-size: cover;
+    /* 背景图片等比例缩放，覆盖整个容器 */
+    background-repeat: no-repeat;
+    /* 防止背景重复 */
+    background-position: center;
+    /* 背景居中显示 */
+    background-color: #383838;
+    /* 背景颜色（如果没有图片，颜色作为默认背景） */
+    width: 100vw;
+    /* 设置宽度为视口宽度 */
+    height: 100vh;
+    /* 设置高度为视口高度 */
+    margin: 0;
+    /* 移除外边距 */
+    padding: 0;
+    /* 移除内边距 */
+    display: flex;
+    justify-content: center;
+    /* 页面内容水平居中 */
+    align-items: center;
+    /* 页面内容垂直居中 */
+    overflow: hidden;
+    /* 防止滚动条显示 */
+}
+
+.contact_container {
+    display: flex;
+    /* 使用 flexbox 布局 */
+    justify-content: space-between;
+    /* 两部分均匀分布 */
+    align-items: flex-start;
+    /* 顶部对齐 */
+    max-width: 1200px;
+    /* 最大宽度为 1200px */
+    width: 100%;
+    /* 容器占页面宽度的 80% */
+    margin: 0 auto;
+    /* 水平居中容器 */
+    padding: 100px;
+    /* 设置容器内边距 */
+    box-sizing: border-box;
+    /* 确保 padding 不影响宽度计算 */
+}
+
+.Info,
+.contact_form {
+    width: 60%;
+    /* 每部分占容器宽度的 45%，留出间距 */
+    display: flex;
+    flex-direction: column;
+    /* 子元素垂直排列 */
+    /* 子元素之间的间距 */
+}
+
+.contact_info,
+.contact_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 子元素左对齐 */
+    gap: 20px;
+    /* 子元素之间的间距 */
+    padding-left: 10px;
+    /* 设置左内边距 */
+}
+
+.contact_me,
+.phone_number,
+.gmail,
+.instagram {
+    transition: 0.3s;
+    /* 悬停过渡效果 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型图标 */
+}
+
+.contact_me:hover,
+.phone_number:hover,
+.gmail:hover,
+.instagram:hover {
+    transform: scale(1.1);
+    /* 悬停时放大效果 */
+}
+
+a {
+    text-decoration: none;
+    /* 去掉超链接的下划线 */
+}
+
+a img {
+    display: block;
+    /* 确保图片占满链接区域 */
+}
+
+.what_service {
+    transform: translateX(3%);
+
+}
+
+.what {
+    transform: translateX(5%);
+}
+
+.answer {
+    transform: translateX(10%);
+
+}
+
+.answer {
+    background: none;
+    /* 移除背景 */
+    border: none;
+    /* 移除边框 */
+    outline: none;
+    /* 移除焦点时的边框 */
+    font-size: 16px;
+    /* 设置字体大小 */
+    color: #ffffff;
+    font-size: 25px;
+    padding: 5px;
+    /* 添加适当的内边距 */
+}
+
+.answer::placeholder {
+    color: #9b9b9b;
+    font-size: 25px;
+
+}
+
+.submit_btn {
+    align-self: flex-end;
+
+    /* 将按钮对齐到右侧 */
+    position: relative;
+    /* 为伪元素定位做准备 */
+    transition: color 0.3s ease;
+    /* 平滑的文字颜色过渡 */
+    width: 150px;
+    height: 75px;
+    border-radius: 50px;
+    border: none;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.submit_btn::before {
+    border-radius: 50px;
+
+    content: '';
+    /* 伪元素内容为空 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    /* 填充颜色 */
+    z-index: 0;
+    /* 伪元素在文字下方 */
+    transition: width 0.3s ease;
+    /* 填充效果的过渡 */
+}
+
+.submit_btn:hover::before {
+    width: 100%;
+    /* 悬停时填满整个按钮 */
+
+}
+
+.submit_btn:hover {
+    cursor: pointer;
+
+    color: white;
+
+    /* 悬停时文字变白 */
+}
+
+.submit_btn span {
+
+    position: relative;
+    /* 让文字保持在伪元素之上 */
+    z-index: 1;
+}
+
+.check_value {
+    height: 0px;
+    font-size: 20px;
+    font-weight: 500;
+    transform: translateX(10%);
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+.back_main_btn {
+
+    text-indent: 100px;
+    /* 文字向右移动 */
+    width: 350px;
+    /* 按钮宽度 */
+    height: 350px;
+    /* 按钮高度 */
+    position: absolute;
+    /* 绝对定位 */
+    top: -100px;
+    /* 距离顶部 */
+    left: -150px;
+    /* 距离左侧 */
+    background-color: black;
+    /* 按钮背景颜色 */
+    color: white;
+    /* 按钮文字颜色 */
+    border: none;
+    /* 去掉边框 */
+    border-radius: 50%;
+    /* 圆形按钮 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型 */
+    font-size: 16px;
+    /* 按钮字体大小 */
+    z-index: 1000;
+    /* 确保按钮显示在其他内容之上 */
+    overflow: hidden;
+    /* 确保伪元素不溢出按钮 */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back_main_btn:hover {
+    transform: scale(1.1);
+    color: black;
+
+    /* 悬停时放大按钮 */
+}
+
+.back_main_btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    /* 悬停填充颜色 */
+    border-radius: 50%;
+    transition: width 0.3s ease;
+    /* 填充动画 */
+    z-index: 0;
+
+}
+
+.back_main_btn:hover::before {
+    width: 100%;
+    /* 悬停时填充整个按钮 */
+
+}
+
+
+.back_main_btn span {
+    position: relative;
+
+    z-index: 1000;
+}
+
+.back_main_btn img {
+    width: 325px;
+
+
+}
+
+.main_page_logo {
+    position: absolute;
+    /* 绝对定位 */
+    top: 50%;
+    /* 图片垂直居中 */
+    left: 50%;
+    /* 图片水平居中 */
+    transform: translate(-60%, -60%);
+    /* 图片完全居中 */
+    /* 设置图片宽度 */
+
+    /* 设置图片高度 */
+    opacity: 0;
+    /* 默认隐藏图片 */
+    z-index: 1;
+    /* 图片层级在文字下方 */
+    transition: opacity 0.3s ease;
+    /* 添加渐变效果 */
+}
+
+.back_main_btn:hover .main_page_logo {
+    opacity: 1;
+    /* 悬停时显示图片 */
+}

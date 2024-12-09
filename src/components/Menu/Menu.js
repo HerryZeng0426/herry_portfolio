@@ -17,6 +17,9 @@ const Menu = () => {
 
     const location = useLocation();
 
+
+    
+
     const initialState = 
     location.pathname === '/about' ? 'About' :
     location.pathname === '/work' ? 'Work' :

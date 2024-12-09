@@ -1,17 +1,18 @@
 /* Menu 絕對定位在畫面上方 */
 .Menu {
     position: absolute;
-    top: 5px;
-    /* 與上方距離，可自行調整 */
-    left: 20px;
-    /* 與左側距離，可自行調整 */
-    right: 20px;
-    /* 讓 Menu 在右側也有一定距離 */
+    top: 0; /* 與頂部完全對齊 */
+    left: 0; /* 與左側完全對齊 */
+    right: 0; /* 與右側完全對齊 */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 10;
-    /* 確保 Menu 在前方顯示 */
+    z-index: 10; /* 確保 Menu 在前方顯示 */
+
+    padding: 0 20px; /* 內邊距，控制左右的內容間距 */
+    height: 60px; /* 設定固定高度，根據需求調整 */
+    box-sizing: border-box; /* 確保 padding 不影響寬度 */
+
 }
 
 /* Logo 設定 */
@@ -95,3 +96,4 @@
 filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
 
 }
+
