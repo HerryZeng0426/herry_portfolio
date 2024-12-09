@@ -172,7 +172,10 @@
     /* 位於背景圖片上方 */
     height: auto;
 }
-
+.go_WORK:hover{
+    transform: translateY(150%) rotate(5deg);
+    cursor: pointer;
+}
 .contact_img {
     transform: translate(200%, 0%) rotate(5deg);
     /* 位於背景圖片上方 */

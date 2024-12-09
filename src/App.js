@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Work from './components/Work/Work';
 import Contact from './components/Contact/Contact';
 import Canada from './components/Canada/Canada';
 import Shoushan from './components/Shoushan/Shoushan';
@@ -17,6 +18,7 @@ function App() {
         <Route path='/shoushan' element={<Shoushan></Shoushan>}></Route>
         <Route path='/canada' element={<Canada></Canada>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/Work' element={<Work></Work>}></Route>
       </Routes>
 
     </div>

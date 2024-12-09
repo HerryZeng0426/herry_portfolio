@@ -27,6 +27,10 @@ const Shoushan = () => {
     navigate('/canada')
   }
 
+
+  const handle_to_work = () => {
+    navigate('/work')
+  }
   const handle_to_contact = () =>{
     navigate('/contact')
   }
@@ -74,7 +78,7 @@ const Shoushan = () => {
 
       <div className='where'>
         <img src={go_CANADA} className='go_CANADA' onClick={handle_to_canada}></img>
-        <img src={go_WORK} className='go_WORK'></img>
+        <img src={go_WORK} className='go_WORK' onClick={handle_to_work}></img>
         <img src={contact} className='contact_img' onClick={handle_to_contact}></img>
         <img className='where_img' src={where}></img>
       </div>
