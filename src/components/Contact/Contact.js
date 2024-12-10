@@ -125,7 +125,7 @@ const Contact = () => {
                 <div className='Info'>
 
                     <div className='contact_info'>
-                        <img src={contact_me} className='contact_me'></img>
+                        <img src={contact_me} className='contact_me_img'></img>
 
                         <img src={Contact_Info}></img>
                         <img src={phone_number} className='phone_number'></img>

@@ -1,3 +1,4 @@
+
 .contact {
     background-size: cover;
     /* 背景图片等比例缩放，覆盖整个容器 */
@@ -65,7 +66,7 @@
     /* 设置左内边距 */
 }
 
-.contact_me,
+.contact_me_img,
 .phone_number,
 .gmail,
 .instagram {
@@ -75,7 +76,7 @@
     /* 鼠标悬停时显示手型图标 */
 }
 
-.contact_me:hover,
+.contact_me_img:hover,
 .phone_number:hover,
 .gmail:hover,
 .instagram:hover {
