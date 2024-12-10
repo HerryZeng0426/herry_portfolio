@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState ,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import chishime from '../imgs/chishime.png'
 import metro from '../imgs/metro.png'
@@ -16,7 +16,9 @@ import '../Work/Work.css'
 
 
 const Work = () => {
-
+  useEffect(() => {
+    window.scrollTo(0, 0); // 當組件掛載時滾動到頂部
+  }, []);
 
 
 
