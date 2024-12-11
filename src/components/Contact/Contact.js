@@ -17,6 +17,7 @@ import '../Contact/Contact.css'
 import emailjs from 'emailjs-com'; // 引入 EmailJS 库
 import back_to_main from '../imgs/back_to_main.png'
 import my_logo from '../imgs/my_logo.png' 
+import { use } from 'react';
 
 
 
@@ -32,6 +33,8 @@ const Contact = () => {
     const handle_to_main_page = () => {
         navigate('/herry')
     }
+
+    const [issendit , setIssendit] = useState(false)
 
     const [isckeck_input, setIsckeck_input] = useState(false)
 
@@ -87,10 +90,12 @@ const Contact = () => {
             console.log('Name : ', inputNameValue)
             console.log('Gmail : ', inputGmailValue)
             console.log('Service : ', inputServiceValue)
+            setIssendit(true)
 
-
+            setIsckeck_input(false)
         }
         else {
+            setIssendit(false)
             setIsckeck_input(true)
         }
 
@@ -159,6 +164,9 @@ const Contact = () => {
                     <input value={inputServiceValue} onChange={handleServiceChange} className='answer' placeholder="*"></input>
                     {isckeck_input &&
                         <p className='check_value'>Please check the input value!</p>
+                    }
+                     {issendit &&
+                        <p className='check_value'>Looking forward to our collaboration!</p>
                     }
                     <button className='submit_btn' onClick={handle_submit_value}>
                         <span>Send it</span>

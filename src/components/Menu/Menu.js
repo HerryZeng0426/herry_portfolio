@@ -5,20 +5,9 @@ import { useLocation } from 'react-router-dom';
 import Logo from '../imgs/logo.png'
 
 
-
-
-
-
-
-
-
-
 const Menu = () => {
 
     const location = useLocation();
-
-
-    
 
     const initialState = 
     location.pathname === '/about' ? 'About' :

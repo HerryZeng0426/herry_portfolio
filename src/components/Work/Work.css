@@ -13,11 +13,12 @@
 .Work_Title {
     align-self: flex-start;
     /* 让标题靠左对齐 */
-    margin-left: 15%;
+    margin-left: 20%;
     /* 设置偏左的距离 */
     margin-top: 10%;
     /* 添加顶部间距 */
-    width: auto;
+    width: 390px;
+    height: auto;
     max-width: 80%;
     /* 根据需要调整标题的最大宽度 */
 }
@@ -30,13 +31,13 @@
     /* 子元素在父容器内垂直居中 */
     align-items: center;
     /* 子元素在父容器内水平居中 */
-    width: 100%;
+    width: 1000px;
     /* 容器宽度占满 */
     height: auto;
     /* 容器高度根据内容自动调整 */
-    gap: 20px;
+    gap: 25px;
     /* 子元素之间的垂直间距 */
-    margin-top: 20px;
+    margin-top: 5%;
     /* 与其他元素保持间距 */
 }
 
@@ -285,6 +286,7 @@
     overflow: hidden;
     position: relative; /* 为伪元素提供定位上下文 */
     cursor: pointer;
+    z-index: 10000000; /* 确保在最前层 */
   }
   
   
@@ -299,6 +301,7 @@
     z-index: 1; /* 确保伪元素在文字下方 */
     transition: height 1s ease; /* 动画效果 */
     border-radius: 50%;
+    
   }
   
   .To_Be_Continued_Container:hover::before {
@@ -306,7 +309,7 @@
   }
   
   .To_Be_Continued {
-    font-size: 75px;
+    font-size: 50px;
     color: #656565;
     text-align: center;
     position: relative; /* 为层级控制提供上下文 */
@@ -326,11 +329,77 @@
     width: 100%;
     transform: translate(-50%, -50%); /* 将伪元素中心点调整到容器中心 */
     color: #ffffff; /* 新文本颜色 */
-    font-size: 75px; /* 确保新文本大小一致 */
+    font-size: 50px; /* 确保新文本大小一致 */
     text-align: center;
   }
 
+.To_Be_Continued_Container.animate::before {
+    transform: translateY( -150%) scaleY(100); /* 向上延伸覆盖整个页面 */
+    transition: transform 1.5s ease; /* 动画持续时间 */
+}
 
+.ani_circle_fill {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, #383838, #383838); /* 漸變背景 */
+    border-radius: 100%;
+    transform: translate(-0%, -0%) scale(0);
+    z-index: 100000000000000000;
+    animation: fillUp 1.5s forwards; /* 添加動畫 */
+    pointer-events: none;
+        display: flex;               /* 使用 Flexbox */
+    justify-content: center;     /* 水平居中 */
+    align-items: center;         /* 垂直居中 */
+    pointer-events: none;        /* 使其不影響鼠標事件 */
+}
+
+
+.ani_circle_fill_contactme {
+    font-weight: 500;
+    transform: translateY(-350px);
+    color: #ffffff;               /* 白色文字 */
+    font-size: 100%    ;              /* 根據需求調整字體大小 */
+    opacity: 0;                   /* 初始透明度為 0 */
+    animation: fadeIn 1s forwards; /* 添加淡入動畫 */
+    pointer-events: none;         /* 確保文字不影響鼠標事件 */
+    text-align: center;           /* 文字居中 */
+}
+
+/* 淡入動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 填充動畫 */
+@keyframes fillUp {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 100;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+        width: 200vw;
+        height: 500vh;
+        opacity: 100;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+.ani_circle_fill_contactme {
+    color: #ffffff;               /* 白色文字 */
+    font-size: 36px;              /* 根據需求調整字體大小 */
+    opacity: 0;                   /* 初始透明度為 0 */
+    animation: fadeIn 1s forwards; /* 添加淡入動畫 */
+    pointer-events: none;         /* 確保文字不影響鼠標事件 */
+}
 .dots::after {
     content: '';
     /* 动态生成内容 */
@@ -339,6 +408,8 @@
     width: 3ch; /* 固定宽度，避免内容动态改变位置 */
     /* 动画持续时间及循环 */
 }
+
+
 @keyframes wave {
     0%, 100% {
       transform: translateY(0); /* 初始位置 */

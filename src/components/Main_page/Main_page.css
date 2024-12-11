@@ -1,5 +1,5 @@
 /* 全螢幕背景示意，如需背景圖可自行添加 */
-.background {
+.background_main_page {
     background-size: cover;
     /* 填滿容器 */
     width: 100vw;
@@ -68,24 +68,22 @@
 }
 
 .student_flip_container {
-    perspective: 500px;
-    width: 250px;
-    /* 固定尺寸可依需求調整 */
-    height: 39px;
+    display: flex; /* 使用 Flexbox 布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    perspective: 1000px; /* 提供3D效果 */
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(90%, -50%);
-    /* 標準置中 */
+    transform: translate(65%, -50%);
 }
 
 .student_flip {
-    width: 100%;
-    /* 使用100%確保不放大脫離容器 */
-    height: 100%;
     position: relative;
-    transition: transform 0.6s;
+    width: 375px; /* 文字容器宽度 */
+    height: 200px; /* 高度根据需求调整 */
     transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
 .university,
@@ -93,21 +91,31 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    line-height: 100px;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
     backface-visibility: hidden;
-    /* 隱藏背面 */
+    white-space: nowrap; /* 防止换行 */
 }
 
 .university {
-    z-index: 2;
-    /* 保證正面在上 */
+    transform: rotateY(0deg); /* 初始正面 */
 }
 
 .graduate {
-    transform: rotateY(180deg);
-    /* 背面先翻轉180度藏在後面 */
+    transform: rotateY(180deg); /* 初始背面 */
 }
 
-/* 滑鼠移上 flip-container 時翻轉 flipper */
-.student_flip_container:hover .student_flip {
-    transform: rotateY(180deg);
+.student_flip:hover {
+    transform: rotateY(180deg); /* 鼠标悬停触发翻转 */
+}
+
+.static_student {
+    font-size: 24px;
+    margin-left: 20px; /* 靠右侧固定的间距 */
+    white-space: nowrap;
+    text-align: center;
+    line-height: 100px;
+    font-weight: 500;
 }

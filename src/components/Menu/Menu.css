@@ -12,7 +12,7 @@
     padding: 0 20px; /* 內邊距，控制左右的內容間距 */
     height: 60px; /* 設定固定高度，根據需求調整 */
     box-sizing: border-box; /* 確保 padding 不影響寬度 */
-
+    margin-top: 1%;
 }
 
 /* Logo 設定 */
@@ -28,8 +28,10 @@
 .right_menu {
     font-weight: 500;
     display: flex;
-    gap: 30px;
+    gap: 50px;
     /* 每個選項間距 */
+    margin-right: 5%;
+
 }
 
 /* Menu 選項基本樣式 */
@@ -51,6 +53,33 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
+
+}
+
+/* 初始狀態：膠帶不可見 */
+.About::after,
+.Work::after,
+.Contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0); /* 初始為縮小狀態 */
+    width: 150%;
+    height: 50px;
+    background-image: url('../imgs/tape2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; /* 確保膠帶在文字下方 */
+    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+    transition: transform 0.3s ease; /* 增加平滑動畫效果 */
+}
+
+/* 滑鼠移入時觸發膠帶展開動畫 */
+.About:hover::after,
+.Work:hover::after,
+.Contact:hover::after {
+    transform: translateX(-50%) scaleX(1); /* 膠帶從中間向兩邊展開 */
 }
 
 .About.active::after,
@@ -73,10 +102,32 @@
 }
 
 .LogoWrapper {
+    
     position: relative;
     display: inline-block;
     /* 確保有基準可放置::after */
     cursor: pointer;
+    margin-left: 5%;
+}
+
+.LogoWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0); /* 初始為縮小狀態 */
+    width: 125%;
+    height: 50px;
+    background-image: url('../imgs/tape.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+    transition: transform 0.3s ease;
+}
+
+.LogoWrapper:hover::after {
+    transform: translateX(-50%) scaleX(1); /* 滑鼠移入時展開膠帶 */
 }
 
 .LogoWrapper.active::after {

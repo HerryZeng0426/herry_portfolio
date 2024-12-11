@@ -1,4 +1,4 @@
-import { React, useState ,useEffect} from 'react'
+import { React, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import chishime from '../imgs/chishime.png'
 import metro from '../imgs/metro.png'
@@ -26,7 +26,18 @@ const Work = () => {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mouseOnContact, setMouseOnContact] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
+  const handleToWork = () => {
+    setIsAnimating(true);
+  };
+
+  const handleAnimationEnd = () => {
+    if (isAnimating) {
+      console.log("Animation ended, navigating...");
+      navigate('/contact'); // 替換為實際路徑
+    }
+  };
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
@@ -54,9 +65,6 @@ const Work = () => {
     }
   }, { passive: false });
 
-  const handle_to_work = () => {
-    navigate('/contact')
-  }
 
 
 
@@ -66,6 +74,15 @@ const Work = () => {
 
   return (
     <div>
+
+      {isAnimating && <div
+        className='ani_circle_fill'
+        onAnimationEnd={handleAnimationEnd} // 监听动画结束事件
+      >
+        <p className='ani_circle_fill_contactme'>Contact Me</p >
+      </div>
+
+      }
       <div className='Work_background'>
         <Menu></Menu>
         <img src={Work_Title} className='Work_Title'></img>
@@ -91,7 +108,7 @@ const Work = () => {
 
       </div>
 
-      <div className="To_Be_Continued_Container" onClick={handle_to_work} 
+      <div className="To_Be_Continued_Container" onClick={handleToWork}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
@@ -99,16 +116,18 @@ const Work = () => {
           To Be Continued <span class="dots"></span>
         </p>
         {mouseOnContact && (
-        <p className='contact_follow'
-        style={{
-          top: mousePosition.y + 5 , // 动态设置 top
-          left: mousePosition.x + 5 , // 动态设置 left
-        }}
-        >
-          Contact me
-        </p>
-      )}
+          <p className='contact_follow'
+            style={{
+              top: mousePosition.y + 5, // 动态设置 top
+              left: mousePosition.x + 5, // 动态设置 left
+            }}
+          >
+            Contact me
+          </p>
+        )}
+
       </div>
+
     </div>
   )
 }

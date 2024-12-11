@@ -18,7 +18,7 @@ function App() {
         <Route path='/shoushan' element={<Shoushan></Shoushan>}></Route>
         <Route path='/canada' element={<Canada></Canada>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
-        <Route path='/Work' element={<Work></Work>}></Route>
+        <Route path='/work' element={<Work></Work>}></Route>
       </Routes>
 
     </div>
