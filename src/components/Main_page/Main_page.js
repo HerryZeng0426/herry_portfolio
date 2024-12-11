@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import country_before from '../imgs/country_before.png'
 import Contact from '../Contact/Contact';
 import Menu from '../Menu/Menu';
 import chinese_name from '../imgs/chinese name.png'
@@ -8,8 +9,8 @@ import english_name from '../imgs/NAME.png'
 import Logo from '../imgs/logo.png'
 import Herry from '../imgs/me.png'
 import '../Main_page/Main_page.css'
-
-
+import country from '../imgs/country.png'
+import main_page_earth from '../imgs/main_page_earth.png'
 
 
 
@@ -35,7 +36,11 @@ const Main_page = () => {
 
     return (
         <div>
+
             <div className='background_main_page'>
+            <div className='main_page_country_container'>
+    <img src={country} className='main_page_country' alt="Country" />
+</div>
                 <Menu></Menu>
                 <img className='Herry' src={Herry}></img>
 

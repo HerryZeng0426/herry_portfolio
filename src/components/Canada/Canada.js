@@ -52,9 +52,9 @@ const Canada = () => {
         }
     }, { passive: false });
 
-const handle_to_next = () =>{
-    navigate('/shoushan')
-}
+    const handle_to_next = () => {
+        navigate('/shoushan')
+    }
 
 
 
@@ -74,7 +74,7 @@ const handle_to_next = () =>{
 
             <div className='Design_review'>
                 <img src={Design_review_cover} className='Design_review_cover'></img>
-                <img src={blender}></img>
+                <img src={blender} className='blender'></img>
 
                 <div className='universe_container'>
                     <img src={universe_text} className='universe_text'></img>
@@ -84,16 +84,17 @@ const handle_to_next = () =>{
 
             <div className='Good_vibe'>
                 <img src={Good_vibe} className='Good_vibe_title'></img>
-                <img src={Studying} ></img>
+                <img src={Studying} className='Studying'></img>
 
                 <div className='Studying_container'>
                     <img src={studying_text} className='Studying_text'></img>
-                    <img src={studying_img} className='Studying'></img>
+                    <img src={studying_img} className='studying_img'></img>
                 </div>
             </div>
+
             <div className='Keep_Learning'>
                 <img src={Keep_Learning} className='Keep_Learning_title'></img>
-                <img src={design} ></img>
+                <img src={design} className='design' ></img>
 
                 <div className='design_container'>
                     <img src={me_and_kevin} className='me_and_kevin'></img>
@@ -104,7 +105,7 @@ const handle_to_next = () =>{
             </div>
 
             <div className='mountain'>
-            <img src={NEXT} className='NEXT' onClick={handle_to_next}></img>
+                <img src={NEXT} className='NEXT' onClick={handle_to_next}></img>
                 <img src={sun} className='sun'></img>
                 <img src={mountain} className='mountain_img'></img>
 

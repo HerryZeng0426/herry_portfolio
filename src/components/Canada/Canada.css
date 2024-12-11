@@ -1,4 +1,5 @@
 .canada_background {
+    overflow-x: hidden;
     background-color: aliceblue;
 
     background-size: cover;
@@ -24,9 +25,11 @@
     /* 包括內邊距和邊框在內 */
     padding: 20px;
     /* 可選：添加內邊距 */
+    transform: translateX(-20%);
 }
 
 .A_memorable_trip_title {
+    width: 30%;
     transition: 0.3s ease;
 }
 
@@ -35,6 +38,7 @@
 }
 
 .A_memorable_trip_text {
+    width: 35%;
     margin-top: 1.5%;
 }
 
@@ -54,15 +58,23 @@
     /* 包括內邊距和邊框在內 */
     padding: 20px;
     /* 可選：添加內邊距 */
+    margin-top: -15%;
+    transform: translateX(20%);
+
 }
 
 
 .Design_review_cover {
+    width: 30%;
     transition: 0.3s ease;
 }
 
 .Design_review_cover:hover {
     transform: scale(1.1);
+}
+
+.blender {
+    width: 35%;
 }
 
 .universe_container {
@@ -79,16 +91,17 @@
 
 .universe {
     transition: 0.5s ease;
+    width: 60%;
 }
 
 .universe:hover {
-    transform: translateX(50%);
+    transform: translateX(-50%);
 }
 
 .universe_text {
     position: absolute;
     /* 絕對定位 */
-    right: 60%;
+    left: 60%;
     /* 初始位置在 universe 右側 */
     top: 30%;
     /* 垂直居中 */
@@ -98,7 +111,7 @@
     /* 初始不可見 */
     transition: opacity 0.6s ease, left 0.3s ease;
     /* 添加平滑過渡效果 */
-    width: 50%;
+    width: 39%;
     /* 根據需求調整 */
     max-width: 300px;
     /* 設置圖片的最大寬度 */
@@ -112,34 +125,32 @@
     /* universe_text 向右移動 */
 }
 
-
 .Good_vibe {
     display: flex;
-    /* 啟用 Flexbox */
     flex-direction: column;
-    /* 垂直排列子元素 */
     align-items: center;
-    /* 水平居中對齊子元素 */
     justify-content: center;
-    /* 垂直居中對齊子元素 */
-    /* 根據需求調整容器高度 */
     width: 100%;
-    /* 佔滿父容器的寬度 */
     box-sizing: border-box;
-    /* 包括內邊距和邊框在內 */
     padding: 20px;
-    /* 可選：添加內邊距 */
-    margin-top: 10%;
+    margin-top: 0%;
+    transform: translateX(-20%);
+
 }
 
-
 .Good_vibe_title {
+    width: 15%;
+
     transition: 0.3s ease;
     margin-bottom: 1%;
 }
 
 .Good_vibe_title:hover {
     transform: scale(1.1);
+}
+
+.Studying {
+    width: 35%;
 }
 
 .Studying_container {
@@ -154,12 +165,14 @@
     /* 設置容器的最大寬度 */
 }
 
-.Studying {
+.studying_img {
     margin-top: 2%;
     transition: 0.5s ease;
+    width: 60%;
+
 }
 
-.Studying:hover {
+.studying_img:hover {
     transform: translateX(50%);
 }
 
@@ -176,7 +189,7 @@
     /* 初始不可見 */
     transition: opacity 0.6s ease, left 0.3s ease;
     /* 添加平滑過渡效果 */
-    width: 50%;
+    width: 39%;
     /* 根據需求調整 */
     max-width: 300px;
     /* 設置圖片的最大寬度 */
@@ -208,15 +221,23 @@
     /* 包括內邊距和邊框在內 */
     padding: 20px;
     /* 可選：添加內邊距 */
+    transform: translateX(20%);
+    margin-top: 0%;
 }
 
 
 .Keep_Learning_title {
+    width: 23%;
     transition: 0.3s ease;
 }
 
 .Keep_Learning_title:hover {
     transform: scale(1.1);
+}
+
+.design {
+    width: 35%;
+
 }
 
 .design_container {
@@ -234,16 +255,18 @@
 .me_designing {
     margin-top: 2%;
     transition: 0.5s ease;
+    width: 60%;
+
 }
 
 .me_designing:hover {
-    transform: translateX(50%);
+    transform: translateX(-50%);
 }
 
 .me_and_kevin {
     position: absolute;
     /* 絕對定位 */
-    right: 60%;
+    left: 60%;
     /* 初始位置在 universe 右側 */
     top: 30%;
     /* 垂直居中 */
@@ -259,6 +282,8 @@
     /* 設置圖片的最大寬度 */
     height: auto;
     /* 保持圖片比例 */
+    width: 39%;
+
 }
 
 .design_container:hover .me_and_kevin {
@@ -288,13 +313,18 @@
 }
 
 .mountain_img {
-    position: absolute; /* 絕對定位 */
-    bottom: 0; /* 定位於容器底部 */
+    position: absolute;
+    /* 絕對定位 */
+    bottom: 0;
+    /* 定位於容器底部 */
     width: 105%;
     height: 500px;
-    display: block; /* 將圖片設置為 block 元素 */
-    margin: 0; /* 移除默認 margin */
-    padding: 0; /* 移除默認 padding */
+    display: block;
+    /* 將圖片設置為 block 元素 */
+    margin: 0;
+    /* 移除默認 margin */
+    padding: 0;
+    /* 移除默認 padding */
     transform: translateY(15px);
 
 }
@@ -318,10 +348,12 @@
     display: block;
     /* 確保所有圖片都是 block 元素 */
 }
-.sun{
+
+.sun {
     transform: translateY(100%);
     transition: transform 0.6s ease;
 }
+
 .NEXT {
     transition: transform 0.3s ease;
 }
@@ -329,6 +361,7 @@
 .NEXT:hover {
     cursor: pointer;
 }
-.NEXT:hover ~ .sun {
+
+.NEXT:hover~.sun {
     transform: translateY(-35%);
 }
