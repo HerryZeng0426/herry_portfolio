@@ -1,13 +1,20 @@
 .Work_background {
     display: flex;
-    flex-direction: column; /* 子元素垂直排列 */
-    justify-content: flex-start; /* 从顶部开始布局 */
-    align-items: center; /* 水平居中 */
-    width: 100%; /* 宽度占满 */
-    min-height: 90vh; /* 背景占页面的大部分高度 */
-    padding: 20px; /* 内边距 */
-    box-sizing: border-box; /* 确保内边距不影响宽度 */
-    
+    flex-direction: column;
+    /* 子元素垂直排列 */
+    justify-content: flex-start;
+    /* 从顶部开始布局 */
+    align-items: center;
+    /* 水平居中 */
+    width: 100%;
+    /* 宽度占满 */
+    min-height: 90vh;
+    /* 背景占页面的大部分高度 */
+    padding: 20px;
+    /* 内边距 */
+    box-sizing: border-box;
+    /* 确保内边距不影响宽度 */
+
 }
 
 .Work_Title {
@@ -257,85 +264,127 @@
     font-size: 20px;
     color: white;
     padding: 5px 10px;
-    background-color: rgba(0, 0, 0, 0.7); /* 半透明背景 */
-    width: 100px; /* 圆形宽度 */
-    height: 100px; /* 圆形高度 */
-    border-radius: 100%; /* 圆形效果 */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* 半透明背景 */
+    width: 100px;
+    /* 圆形宽度 */
+    height: 100px;
+    /* 圆形高度 */
+    border-radius: 100%;
+    /* 圆形效果 */
     position: fixed;
-    top: 0; /* 动态设置，通过 JS 修改 */
-    left: 0; /* 动态设置，通过 JS 修改 */
-    pointer-events: none; /* 确保不会阻挡鼠标事件 */
-    z-index: 1001; /* 显示在最上方 */
-    display: flex; /* 使用 Flexbox 布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    text-align: center; /* 多行文字居中对齐 */
-    box-sizing: border-box; /* 包含内边距 */
-  }
-  
-  
+    top: 0;
+    /* 动态设置，通过 JS 修改 */
+    left: 0;
+    /* 动态设置，通过 JS 修改 */
+    pointer-events: none;
+    /* 确保不会阻挡鼠标事件 */
+    z-index: 1001;
+    /* 显示在最上方 */
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    text-align: center;
+    /* 多行文字居中对齐 */
+    box-sizing: border-box;
+    /* 包含内边距 */
+}
+
+
 .To_Be_Continued_Container {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    width: 100%; /* 宽度占满 */
-    padding: 20px; /* 内边距 */
-    margin-top: auto; /* 自动将自身推到页面底部 */
-    box-sizing: border-box; /* 确保内边距不影响宽度 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    width: 100%;
+    /* 宽度占满 */
+    padding: 20px;
+    /* 内边距 */
+    margin-top: auto;
+    /* 自动将自身推到页面底部 */
+    box-sizing: border-box;
+    /* 确保内边距不影响宽度 */
     /* 重要 */
     overflow: hidden;
-    position: relative; /* 为伪元素提供定位上下文 */
+    position: relative;
+    /* 为伪元素提供定位上下文 */
     cursor: pointer;
-    z-index: 10000000; /* 确保在最前层 */
-  }
-  
-  
-  .To_Be_Continued_Container::before {
-    content: ''; /* 创建伪元素 */
+    z-index: 10000000;
+    /* 确保在最前层 */
+}
+
+
+.To_Be_Continued_Container::before {
+    content: '';
+    /* 创建伪元素 */
     position: absolute;
-    bottom: -100%; /* 初始位置在底部 */
+    bottom: -100%;
+    /* 初始位置在底部 */
     left: 0;
-    width: 100%; /* 宽度占满容器 */
-    height: 0%; /* 初始高度为 0 */
-    background: linear-gradient(to top, #d3d3d3, #000000); /* 渐变背景颜色，从底部向上 */
-    z-index: 1; /* 确保伪元素在文字下方 */
-    transition: height 1s ease; /* 动画效果 */
+    width: 100%;
+    /* 宽度占满容器 */
+    height: 0%;
+    /* 初始高度为 0 */
+    background: linear-gradient(to top, #d3d3d3, #000000);
+    /* 渐变背景颜色，从底部向上 */
+    z-index: 1;
+    /* 确保伪元素在文字下方 */
+    transition: height 1s ease;
+    /* 动画效果 */
     border-radius: 50%;
-    
-  }
-  
-  .To_Be_Continued_Container:hover::before {
-    height: 200%; /* 鼠标悬停时背景从底部填满 */
-  }
-  
-  .To_Be_Continued {
+
+}
+
+.To_Be_Continued_Container:hover::before {
+    height: 200%;
+    /* 鼠标悬停时背景从底部填满 */
+}
+
+.To_Be_Continued {
     font-size: 50px;
     color: #656565;
     text-align: center;
-    position: relative; /* 为层级控制提供上下文 */
-    z-index: 2; /* 确保文字显示在伪元素上方 */
-    animation: wave 2s infinite; /* 应用波浪动画 */
+    position: relative;
+    /* 为层级控制提供上下文 */
+    z-index: 2;
+    /* 确保文字显示在伪元素上方 */
+    animation: wave 2s infinite;
+    /* 应用波浪动画 */
 
-  }
-  .To_Be_Continued_Container:hover  .To_Be_Continued{
-    color: transparent; /* 悬停时隐藏原始文字 */
-  }
-  
-  .To_Be_Continued_Container:hover .To_Be_Continued::after {
-    content: "let's start work"; /* 替换为新文本 */
+}
+
+.To_Be_Continued_Container:hover .To_Be_Continued {
+    color: transparent;
+    /* 悬停时隐藏原始文字 */
+}
+
+.To_Be_Continued_Container:hover .To_Be_Continued::after {
+    content: "let's start work";
+    /* 替换为新文本 */
     position: absolute;
-    top: 50%; /* 垂直居中 */
-    left: 50%; /* 水平居中 */
+    top: 50%;
+    /* 垂直居中 */
+    left: 50%;
+    /* 水平居中 */
     width: 100%;
-    transform: translate(-50%, -50%); /* 将伪元素中心点调整到容器中心 */
-    color: #ffffff; /* 新文本颜色 */
-    font-size: 50px; /* 确保新文本大小一致 */
+    transform: translate(-50%, -50%);
+    /* 将伪元素中心点调整到容器中心 */
+    color: #ffffff;
+    /* 新文本颜色 */
+    font-size: 50px;
+    /* 确保新文本大小一致 */
     text-align: center;
-  }
+}
 
 .To_Be_Continued_Container.animate::before {
-    transform: translateY( -150%) scaleY(100); /* 向上延伸覆盖整个页面 */
-    transition: transform 1.5s ease; /* 动画持续时间 */
+    transform: translateY(-150%) scaleY(100);
+    /* 向上延伸覆盖整个页面 */
+    transition: transform 1.5s ease;
+    /* 动画持续时间 */
 }
 
 .ani_circle_fill {
@@ -344,28 +393,40 @@
     left: 50%;
     width: 100%;
     height: 0;
-    background: linear-gradient(to top, #383838, #383838); /* 漸變背景 */
+    background: linear-gradient(to top, #383838, #383838);
+    /* 漸變背景 */
     border-radius: 100%;
     transform: translate(-0%, -0%) scale(0);
     z-index: 100000000000000000;
-    animation: fillUp 1.5s forwards; /* 添加動畫 */
+    animation: fillUp 1.5s forwards;
+    /* 添加動畫 */
     pointer-events: none;
-        display: flex;               /* 使用 Flexbox */
-    justify-content: center;     /* 水平居中 */
-    align-items: center;         /* 垂直居中 */
-    pointer-events: none;        /* 使其不影響鼠標事件 */
+    display: flex;
+    /* 使用 Flexbox */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    pointer-events: none;
+    /* 使其不影響鼠標事件 */
 }
 
 
 .ani_circle_fill_contactme {
     font-weight: 500;
     transform: translateY(-350px);
-    color: #ffffff;               /* 白色文字 */
-    font-size: 100%    ;              /* 根據需求調整字體大小 */
-    opacity: 0;                   /* 初始透明度為 0 */
-    animation: fadeIn 1s forwards; /* 添加淡入動畫 */
-    pointer-events: none;         /* 確保文字不影響鼠標事件 */
-    text-align: center;           /* 文字居中 */
+    color: #ffffff;
+    /* 白色文字 */
+    font-size: 100%;
+    /* 根據需求調整字體大小 */
+    opacity: 0;
+    /* 初始透明度為 0 */
+    animation: fadeIn 1s forwards;
+    /* 添加淡入動畫 */
+    pointer-events: none;
+    /* 確保文字不影響鼠標事件 */
+    text-align: center;
+    /* 文字居中 */
 }
 
 /* 淡入動畫 */
@@ -373,6 +434,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -386,6 +448,7 @@
         opacity: 100;
         transform: translate(-50%, -50%) scale(0);
     }
+
     100% {
         width: 200vw;
         height: 500vh;
@@ -393,48 +456,70 @@
         transform: translate(-50%, -50%) scale(1);
     }
 }
+
 .ani_circle_fill_contactme {
-    color: #ffffff;               /* 白色文字 */
-    font-size: 36px;              /* 根據需求調整字體大小 */
-    opacity: 0;                   /* 初始透明度為 0 */
-    animation: fadeIn 1s forwards; /* 添加淡入動畫 */
-    pointer-events: none;         /* 確保文字不影響鼠標事件 */
+    color: #ffffff;
+    /* 白色文字 */
+    font-size: 36px;
+    /* 根據需求調整字體大小 */
+    opacity: 0;
+    /* 初始透明度為 0 */
+    animation: fadeIn 1s forwards;
+    /* 添加淡入動畫 */
+    pointer-events: none;
+    /* 確保文字不影響鼠標事件 */
 }
+
 .dots::after {
     content: '';
     /* 动态生成内容 */
     display: inline-block;
     animation: dots-animation 2s infinite;
-    width: 3ch; /* 固定宽度，避免内容动态改变位置 */
+    width: 3ch;
+    /* 固定宽度，避免内容动态改变位置 */
     /* 动画持续时间及循环 */
 }
 
 
 @keyframes wave {
-    0%, 100% {
-      transform: translateY(0); /* 初始位置 */
+
+    0%,
+    100% {
+        transform: translateY(0);
+        /* 初始位置 */
     }
+
     50% {
-      transform: translateY(-12px); /* 波峰 */
+        transform: translateY(-12px);
+        /* 波峰 */
     }
-  }
+}
+
 /* 动画关键帧 */
 @keyframes dots-animation {
     0% {
         content: '';
         /* 无点 */
     }
+
     33% {
         content: '.';
         /* 一个点 */
     }
+
     66% {
         content: '. .';
         /* 两个点 */
     }
+
     100% {
         content: '. . .';
         /* 三个点 */
     }
 }
 
+@media (min-width: 1920px) {
+    .Work_Title{
+        margin-left: 25%;
+    }
+}

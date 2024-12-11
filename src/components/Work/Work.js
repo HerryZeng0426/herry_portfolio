@@ -84,7 +84,9 @@ const Work = () => {
 
       }
       <div className='Work_background'>
+
         <Menu></Menu>
+        
         <img src={Work_Title} className='Work_Title'></img>
 
         <div className='works'>

@@ -155,7 +155,8 @@
     /* 與下方圖片的間距 */
     cursor: pointer;
 }
-.go_CANADA:hover{
+
+.go_CANADA:hover {
     transform: translateY(150%) rotate(5deg);
     z-index: 2;
     /* 位於背景圖片上方 */
@@ -172,10 +173,12 @@
     /* 位於背景圖片上方 */
     height: auto;
 }
-.go_WORK:hover{
+
+.go_WORK:hover {
     transform: translateY(150%) rotate(5deg);
     cursor: pointer;
 }
+
 .contact_img {
     transform: translate(200%, 0%) rotate(5deg);
     /* 位於背景圖片上方 */
@@ -188,8 +191,41 @@
 
 
 
-.contact_img:hover{
+.contact_img:hover {
     transform: translate(200%, 0%) rotate(0deg);
 
     cursor: pointer;
+}
+
+@media (min-width: 1920px) {
+   .go_CANADA{
+    transform: translateY(50%);
+   }
+   .go_CANADA:hover {
+    transform: translateY(50%) rotate(5deg);
+    z-index: 2;
+    /* 位於背景圖片上方 */
+    height: auto;
+    margin-bottom: 20px;
+    /* 與下方圖片的間距 */
+    cursor: pointer;
+}
+.go_WORK{
+    transform: translateY(75%);
+}
+.go_WORK:hover {
+    transform: translateY(75%) rotate(5deg);
+    cursor: pointer;
+}
+.contact_img{
+    transform: translate(200%, -15%) rotate(5deg);
+    /* 位於背景圖片上方 */
+    height: auto;
+    z-index: 1;
+}
+.contact_img:hover {
+    transform: translate(200%, -15%) rotate(0deg);
+
+    cursor: pointer;
+}
 }
