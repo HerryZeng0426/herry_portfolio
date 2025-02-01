@@ -1,17 +1,24 @@
 /* Menu 絕對定位在畫面上方 */
 .Menu {
     position: absolute;
-    top: 0; /* 與頂部完全對齊 */
-    left: 0; /* 與左側完全對齊 */
-    right: 0; /* 與右側完全對齊 */
+    top: 0;
+    /* 與頂部完全對齊 */
+    left: 0;
+    /* 與左側完全對齊 */
+    right: 0;
+    /* 與右側完全對齊 */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 10; /* 確保 Menu 在前方顯示 */
+    z-index: 10;
+    /* 確保 Menu 在前方顯示 */
 
-    padding: 0 20px; /* 內邊距，控制左右的內容間距 */
-    height: 60px; /* 設定固定高度，根據需求調整 */
-    box-sizing: border-box; /* 確保 padding 不影響寬度 */
+    padding: 0 20px;
+    /* 內邊距，控制左右的內容間距 */
+    height: 60px;
+    /* 設定固定高度，根據需求調整 */
+    box-sizing: border-box;
+    /* 確保 padding 不影響寬度 */
     margin-top: 1%;
 }
 
@@ -46,7 +53,9 @@
     /* 字體大小可自行調整 */
     cursor: pointer;
     text-decoration: none;
-}.About,
+}
+
+.About,
 .Work,
 .Contact,
 .Logo {
@@ -64,22 +73,27 @@
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%) scaleX(0); /* 初始為縮小狀態 */
+    transform: translateX(-50%) scaleX(0);
+    /* 初始為縮小狀態 */
     width: 150%;
     height: 50px;
     background-image: url('../imgs/tape2.png');
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: -1; /* 確保膠帶在文字下方 */
-    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
-    transition: transform 0.3s ease; /* 增加平滑動畫效果 */
+    z-index: -1;
+    /* 確保膠帶在文字下方 */
+    filter: brightness(0.75);
+    /* 增加亮度使膠帶更明顯 */
+    transition: transform 0.3s ease;
+    /* 增加平滑動畫效果 */
 }
 
 /* 滑鼠移入時觸發膠帶展開動畫 */
 .About:hover::after,
 .Work:hover::after,
 .Contact:hover::after {
-    transform: translateX(-50%) scaleX(1); /* 膠帶從中間向兩邊展開 */
+    transform: translateX(-50%) scaleX(1);
+    /* 膠帶從中間向兩邊展開 */
 }
 
 .About.active::after,
@@ -97,12 +111,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 10;
-    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+    filter: brightness(0.75);
+    /* 增加亮度使膠帶更明顯 */
 
 }
 
 .LogoWrapper {
-    
+
     position: relative;
     display: inline-block;
     /* 確保有基準可放置::after */
@@ -115,19 +130,22 @@
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%) scaleX(0); /* 初始為縮小狀態 */
+    transform: translateX(-50%) scaleX(0);
+    /* 初始為縮小狀態 */
     width: 125%;
     height: 50px;
     background-image: url('../imgs/tape.png');
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
-    filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+    filter: brightness(0.75);
+    /* 增加亮度使膠帶更明顯 */
     transition: transform 0.3s ease;
 }
 
 .LogoWrapper:hover::after {
-    transform: translateX(-50%) scaleX(1); /* 滑鼠移入時展開膠帶 */
+    transform: translateX(-50%) scaleX(1);
+    /* 滑鼠移入時展開膠帶 */
 }
 
 .LogoWrapper.active::after {
@@ -144,7 +162,376 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 10;
-filter: brightness(0.75); /* 增加亮度使膠帶更明顯 */
+    filter: brightness(0.75);
+    /* 增加亮度使膠帶更明顯 */
 
 }
 
+.Burger_menu {
+    position: fixed;
+    top: 50px;
+    /* 距離頁面頂部 20px */
+    right: 50px;
+    /* 距離頁面右側 20px */
+    width: 100px;
+    height: 100px;
+    color: #fff;
+    border-radius: 50%;
+    /* 圓形 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 100;
+    /* 確保顯示在其他元素之上 */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+
+.open {
+    background-color: #ffffff;
+}
+
+
+.close {
+    background-color: #000000;
+
+}
+
+.Burger_menu.enter {
+    animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.75)forwards;
+    /* 彈入動畫 */
+
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+        /* 初始從頁面右側外部 */
+    }
+
+    60% {
+        transform: translateX(-10%);
+        /* 過頭的彈性效果 */
+    }
+
+    80% {
+        transform: translateX(5%);
+        /* 返回 */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* 停止在正常位置 */
+    }
+}
+
+.Burger_menu.exit {
+    animation: slideOut 0.1s cubic-bezier(0.68, -0.55, 0.27, 1) forwards;
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(5%);
+    }
+
+    60% {
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.Burger_menu:hover {
+    animation-name: hoverShake;
+    /* 只指定 hoverShake 動畫 */
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+/* 定義左右移動動畫 */
+@keyframes hoverShake {
+    0% {
+        transform: translateX(0);
+        /* 初始位置 */
+    }
+
+    15% {
+        transform: translateX(-12px);
+        /* 向左移動 */
+    }
+
+    30% {
+        transform: translateX(12px);
+        /* 向右移動 */
+    }
+
+    45% {
+        transform: translateX(-9px);
+        /* 再次向左 */
+    }
+
+    60% {
+        transform: translateX(9px);
+        /* 返回初始位置 */
+    }
+
+    75% {
+        transform: translateX(5px);
+        /* 返回初始位置 */
+    }
+
+    90% {
+        transform: translateX(-5px);
+        /* 返回初始位置 */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* 返回初始位置 */
+    }
+}
+
+/* 初始样式 */
+.Display_menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    /* 高度填满 */
+    width: 35%;
+    /* 宽度 50% */
+    background-color: #000000;
+    /* 背景颜色 */
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Display_menu p {
+    top: -20px;
+    color: #ffffff;
+    /* 字体颜色为白色 */
+    font-size: 75px;
+    /* 字体大小 */
+    text-align: center;
+    /* 文本居中 */
+    margin: 5px 0;
+    /* 每个菜单项的上下间距 */
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* 平滑颜色过渡效果 */
+}
+
+
+
+.Burger_home,
+.Burger_about,
+.Burger_work,
+.Burger_contact {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+/* 初始狀態：膠帶不可見 */
+.Burger_home::after,
+.Burger_about::after,
+.Burger_work::after,
+.Burger_contact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    /* 初始為縮小狀態 */
+    width: 150%;
+    height: 75px;
+    background-image: url('../imgs/tape2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    /* 確保膠帶在文字下方 */
+    filter: brightness(1);
+    /* 增加亮度使膠帶更明顯 */
+    transition: transform 0.3s ease;
+    /* 增加平滑動畫效果 */
+}
+
+/* 滑鼠移入時觸發膠帶展開動畫 */
+.Burger_home:hover::after,
+.Burger_about:hover::after,
+.Burger_work:hover::after,
+.Burger_contact:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    /* 膠帶從中間向兩邊展開 */
+}
+
+.Burger_home.Burger_active::after,
+.Burger_about.Burger_active::after,
+.Burger_work.Burger_active::after,
+.Burger_contact.Burger_active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 75px;
+    background-image: url('../imgs/tape2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 100;
+    filter: brightness(1);
+}
+
+.Display_menu_seperateline {
+    margin-top: 0;
+    /* 與標題的距離 */
+    width: 60%;
+    /* 底線寬度，可調整超出標題的比例 */
+    height: 1px;
+    /* 底線厚度 */
+    background-color: #ccc;
+    /* 底線顏色 */
+    border-radius: 5px;
+    /* 圓角效果，可選 */
+}
+
+.Burgermenu_social {
+    margin-top: 35px;
+    display: flex;
+    /* 使用 flex 布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    gap: 50px;
+    /* 图片之间的间距，可自行调整 */
+    
+
+}
+
+.burgermenu_gmail{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.burgermenu_instagram{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.burgermenu_gmail:hover {
+    transform: scale(1.1);
+}
+.burgermenu_instagram:hover{
+    transform: scale(1.1);
+}
+/* 进入动画 */
+.Display_menu.Display_menu_enter {
+    transform: translateX(100%);
+    /* 初始位置 */
+    animation: slideInBounce 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* 退出动画 */
+.Display_menu.Display_menu_exit {
+    transform: translateX(0);
+    /* 从当前位置开始 */
+    animation: slideOutBounce 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* 定义进入的 bounce 动画 */
+@keyframes slideInBounce {
+    0% {
+        transform: translateX(100%);
+    }
+
+    60% {
+        transform: translateX(-10%);
+    }
+
+    80% {
+        transform: translateX(5%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 定义退出的 bounce 动画 */
+@keyframes slideOutBounce {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5%);
+        /* 向左稍微超出 */
+    }
+
+    100% {
+        transform: translateX(100%);
+        /* 滑出页面右侧 */
+    }
+}
+
+
+.Burger_menu_content {
+    position: absolute;
+    /* 相对于父容器定位 */
+    top: 50%;
+    left: 50%;
+    display: flex;
+    /* 如果需要对内部的 img 等元素进行布局 */
+
+    transform: translate(-50%, -50%);
+    /* 水平和垂直居中 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 图片通用样式 */
+.Burger_menu_img {
+    position: absolute;
+    /* 重叠图片 */
+
+    transition: opacity 0.5s linear;
+    /* 添加线性过渡动画 */
+    opacity: 0;
+    /* 默认隐藏 */
+    z-index: 0;
+    /* 默认在底层 */
+}
+
+/* 显示图片时 */
+.Burger_menu_img.show {
+    opacity: 1;
+    /* 完全显示 */
+    z-index: 1;
+    /* 移到顶层 */
+}
+
+/* 隐藏图片时 */
+.Burger_menu_img.hide {
+    opacity: 0;
+    /* 完全隐藏 */
+    z-index: 0;
+    /* 保持在底层 */
+}

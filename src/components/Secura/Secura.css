@@ -1,0 +1,329 @@
+/* Title 外層容器 */
+.Title {
+    overflow: hidden;
+    /* 隱藏超出範圍的內容 */
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: flex-start;
+    /* 保持垂直對齊為頂部 */
+    gap: 50px;
+    /* 左右區域的間距，可自行調整 */
+    padding: 20px;
+    /* 父容器的內邊距 */
+}
+
+/* 左邊區域 */
+.Title_leftsection {
+    margin-top: 100px;
+    margin-left: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Project_name {
+    font-size: 70px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.Project_description {
+    width: 120%;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #909090;
+    margin-top: 15px;
+}
+
+/* 右邊區域 */
+.Title_rightsection {
+    margin-top: 100px;
+    margin-left: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Project_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.Project_info_label {
+    position: relative;
+    padding-bottom: 11px;
+    /* 控制文字與線條的距離 */
+    color: #909090;
+    font-weight: 500;
+    font-size: 20px;
+
+
+}
+
+.Project_info_label::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    /* 線條緊貼文字底部 */
+    left: -12px;
+    /* 線條向左偏移 20px */
+    width: 250px;
+    /* 線條的長度 */
+    height: 1.5px;
+    /* 線條的厚度 */
+    background-color: #ccc;
+    /* 線條顏色 */
+}
+
+.Project_info_value {
+    font-weight: 500;
+    margin-top: -6px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    /* 每組 Label-Value 與下一組之間的距離 */
+
+}
+
+
+/* 從左滑入的動畫 */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        /* 從視口左邊外開始 */
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        /* 移動到原位置 */
+        opacity: 1;
+    }
+}
+
+/* 從右滑入的動畫 */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        /* 從視口右邊外開始 */
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        /* 移動到原位置 */
+        opacity: 1;
+    }
+}
+
+/* 通用樣式 */
+.slide-in-left {
+    animation: slideInFromLeft 1.8s ease-in-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 1.8s ease-in-out forwards;
+}
+
+.Display_device {
+    margin-top: 100px;
+
+    display: flex;
+    /* 使用 Flexbox */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    position: relative;
+    /* 可根據需要調整 */
+
+}
+
+
+
+.Display_mainpage {
+    z-index: 2; /* 確保中間的內容在最上層 */
+    position: relative; /* 父容器設為相對定位，讓子元素可以絕對定位 */
+    width: 350px; /* 父容器寬度 */
+    height: auto; /* 根據內容自適應高度 */
+}
+
+/* 裝置圖片 */
+.Display_mainpage_device {
+    position: relative; 
+    width: 100%; /* 填滿父容器寬度 */
+    height: auto; /* 自適應高度 */
+}
+
+/* 覆蓋圖片居中 */
+.secura_mainpage_cover {
+    position: absolute; /* 絕對定位，覆蓋在父容器內 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 將中心點移到父容器的正中央 */
+    width: 50%; /* 可調整為需要的寬度 */
+    height: auto; /* 確保比例 */
+    z-index: 3; /* 確保它位於裝置上方 */
+}
+.secura_mainpage_cover_video{
+    position: absolute; /* 絕對定位，覆蓋在父容器內 */
+    top: 45%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 將中心點移到父容器的正中央 */
+    width: 89%; /* 可調整為需要的寬度 */
+    height: auto; /* 確保比例 */
+    z-index: 1; /* 確保它位於裝置上方 */
+}
+.Display_twosides_device{
+    width: 325px;
+}
+.Display_leftpage{
+    position: relative;
+    z-index: 1; /* 層級低於主頁面 */
+    transform: translateX(100%); /* 初始向右偏移，躲在主頁面後面 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* 平滑移動與漸入 */
+}
+
+.Display_rightpage{
+    position: relative;
+    z-index: 1; /* 層級低於主頁面 */
+    transform: translateX(-100%); /* 初始向右偏移，躲在主頁面後面 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* 平滑移動與漸入 */
+}
+.Display_device:hover .Display_leftpage {
+    margin-right: -3%; /* 向中間靠攏 */
+    transform: translateX(0); /* 移動到目標位置 */
+    opacity: 1; /* 顯示 */
+    z-index: 1; /* 提升層級 */
+}
+
+.Display_device:hover .Display_rightpage {
+    margin-left: -3%; /* 向中間靠攏 */
+    transform: translateX(0); /* 移動到目標位置 */
+    opacity: 1; /* 顯示 */
+    z-index: 1; /* 提升層級 */
+}
+
+.secura_mainpage_img{
+    position: absolute; /* 絕對定位，覆蓋在父容器內 */
+    top: 45%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 將中心點移到父容器的正中央 */
+    width: 89%; /* 可調整為需要的寬度 */
+    height: auto; /* 確保比例 */
+    z-index: 3; /* 確保它位於裝置上方 */
+}
+.secura_infopage_img{
+    position: absolute; /* 絕對定位，覆蓋在父容器內 */
+    top: 45%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 將中心點移到父容器的正中央 */
+    width: 89%; /* 可調整為需要的寬度 */
+    height: auto; /* 確保比例 */
+    z-index: 3; /* 確保它位於裝置上方 */
+}
+
+
+.Wireframe_section {
+    display: flex;
+    flex-direction: column; /* 保持內容上下排列 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    margin: 5% auto; /* 確保整個區塊水平居中 */
+    text-align: center; /* 讓文字內容居中對齊 */
+    width: 100%; /* 設置合適的寬度，可根據需求調整 */
+}
+
+.Wireframe_title {
+    font-size: 70px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.Wireframe_mainpage_title{
+    color: #909090;
+    font-size: 25px;
+
+}
+.Wireframe_mainpage_title_underline {
+    margin-top: 0; /* 與標題的距離 */
+    width: 60%; /* 底線寬度，可調整超出標題的比例 */
+    height: 2px; /* 底線厚度 */
+    background-color: #ccc; /* 底線顏色 */
+    border-radius: 2.5px; /* 圓角效果，可選 */
+}
+.Wireframe_mainpage_imgs{
+    overflow: hidden; /* 防止元素移動時超出範圍 */
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+    display: flex; /* 使用 Flexbox 排列圖片 */
+    justify-content: center; /* 確保圖片向中間對齊 */
+    gap: 75px; /* 控制圖片之間的間距 */
+
+}
+.secura_wireframe1{
+    position: relative;
+    transform: translateX(-100%); /* 初始向左完全偏移 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* 過渡效果 */
+    width: 325px;
+}
+
+.secura_wireframe2{
+    position: relative;
+    transform: translateX(-100%); /* 初始向左完全偏移 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 1s ease, opacity 0.5s ease; /* 過渡效果 */
+    width: 325px;
+}
+
+.Wireframe_mainpage_imgs:hover .secura_wireframe1,
+.Wireframe_mainpage_imgs:hover .secura_wireframe2 {
+    transform: translateX(0); /* 移動到正常位置 */
+    opacity: 1; /* 變為可見 */
+    pointer-events: none; /* 避免重複觸發 hover */
+}
+
+
+.Wireframe_Infopage_imgs{
+    overflow: hidden; /* 防止元素移動時超出範圍 */
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+    display: flex; /* 使用 Flexbox 排列圖片 */
+    justify-content: center; /* 確保圖片向中間對齊 */
+    gap: 50px; /* 控制圖片之間的間距 */
+}
+.secura_wireframe3{
+    position: relative;
+    transform: translateX(-100%); /* 初始向左完全偏移 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* 過渡效果 */
+    width: 325px;
+}
+.secura_wireframe4{
+    position: relative;
+    transform: translateX(-100%); /* 初始向左完全偏移 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 0.7s ease, opacity 0.5s ease; /* 過渡效果 */
+    width: 325px;
+}
+.secura_wireframe5{
+    position: relative;
+    transform: translateX(-100%); /* 初始向左完全偏移 */
+    opacity: 0; /* 初始透明 */
+    transition: transform 1s ease, opacity 0.5s ease; /* 過渡效果 */
+    width: 325px;
+}
+
+.Wireframe_Infopage_imgs:hover .secura_wireframe3,
+.Wireframe_Infopage_imgs:hover .secura_wireframe4 ,
+.Wireframe_Infopage_imgs:hover .secura_wireframe5{
+    transform: translateX(0); /* 移動到正常位置 */
+    opacity: 1; /* 變為可見 */
+    pointer-events: none; /* 避免重複觸發 hover */
+}

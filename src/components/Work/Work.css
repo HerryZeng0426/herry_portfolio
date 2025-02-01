@@ -48,7 +48,98 @@
     /* 与其他元素保持间距 */
 }
 
+/* 總體樣式保持不變 */
 .Secura_work {
+    transition: 0.3s ease;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.Secura_work img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.Secura_work:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.gradient_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, #838383, #ffffff);
+    z-index: 1;
+    transition: width 0.5s ease;
+    pointer-events: none;
+}
+
+.Secura_work:hover .gradient_fill {
+    width: 100%;
+}
+
+/* 新增圓形動畫樣式 */
+.circle_fill {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    /* 圓形顏色，可自定義 */
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    /* 確保在所有內容上方 */
+    transition: width 3s ease, height 3s ease;
+    /* 平滑的填滿動畫 */
+}
+
+.circle_fill.active {
+    width: 1000vh;
+    /* 保持填滿效果 */
+    height: 1000vh;
+    bottom: 50%;
+    /* 讓圓形中心位於螢幕中央 */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    /* 修正圓形中心的偏移 */
+}
+
+.circle_logo {
+    position: absolute;
+    top: 50%;
+    /* 圖片居中 */
+    left: 50%;
+    width: 200px;
+    /* LOGO 大小 */
+    height: 200px;
+    object-fit: contain;
+    /* 確保圖片比例 */
+    transform: translate(-50%, -50%);
+    /* 垂直與水平居中 */
+    z-index: 10000;
+    /* LOGO 層級高於圓形 */
+    opacity: 0;
+    /* 初始透明 */
+    transition: opacity 0.5s ease 0.5s;
+    /* 漸出效果，延遲 0.5s 開始 */
+}
+
+.circle_fill.active .circle_logo {
+    opacity: 1;
+    /* 圓形激活時 LOGO 漸出 */
+}
+
+.Until {
     transition: 0.3s ease;
     position: relative;
     display: block;
@@ -57,7 +148,7 @@
     z-index: 1;
 }
 
-.Secura_work img {
+.Until img {
     position: relative;
     /* 图片与背景层共存 */
 
@@ -70,14 +161,14 @@
     /* 确保图片位于背景层上方 */
 }
 
-.Secura_work:hover {
+.Until:hover {
     /* 渐变背景颜色 */
     cursor: pointer;
     transform: scale(1.05);
     /* 鼠标悬停时放大图片 */
 }
 
-.gradient_fill {
+.gradient_fill_until {
     position: absolute;
     top: 0;
     left: 0;
@@ -85,7 +176,7 @@
     /* 初始宽度为 0 */
     height: 100%;
     /* 高度与父容器一致 */
-    background: linear-gradient(to right, #838383, #ffffff);
+    background: linear-gradient(to right, #ff5e5e, #fd9dff);
     /* 渐变背景颜色 */
     z-index: 1;
     /* 渐变背景层位于图片下方 */
@@ -95,7 +186,7 @@
     /* 防止渐变背景层阻碍鼠标事件 */
 }
 
-.Secura_work:hover .gradient_fill {
+.Until:hover .gradient_fill_until {
     width: 100%;
     /* 鼠标悬停时，背景层填满整个宽度 */
 }
@@ -519,7 +610,23 @@
 }
 
 @media (min-width: 1920px) {
-    .Work_Title{
+    .Work_Title {
         margin-left: 25%;
     }
+}
+
+
+
+.circle_title{
+    color: white; /* 文字颜色 */
+    font-size: 20px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    text-align: center; /* 文字居中 */
+    position: absolute; /* 绝对定位确保居中 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 精确居中 */
+    z-index: 1000; /* 确保文字在圆形上方 */
+    transition: opacity 0.5s ease 0.5s;
+
 }

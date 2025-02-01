@@ -136,7 +136,7 @@
 }
 
 .university,
-.graduate {
+.STUST {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -154,8 +154,10 @@
 
 }
 
-.graduate {
+.STUST {
     transform: rotateY(180deg); /* 初始背面 */
+    letter-spacing: 5PX;
+
 }
 
 .student_flip:hover {

@@ -38,9 +38,9 @@ const Main_page = () => {
         <div>
 
             <div className='background_main_page'>
-            <div className='main_page_country_container'>
-    <img src={country} className='main_page_country' alt="Country" />
-</div>
+                <div className='main_page_country_container'>
+                    <img src={country} className='main_page_country' alt="Country" />
+                </div>
                 <Menu></Menu>
                 <img className='Herry' src={Herry}></img>
 
@@ -55,7 +55,7 @@ const Main_page = () => {
                 <div class="student_flip_container">
                     <div class="student_flip">
                         <p class="university">University Student</p>
-                        <p class="graduate">Graduate Student</p>
+                        <p class="STUST">STUST</p>
                     </div>
                 </div>
             </div>

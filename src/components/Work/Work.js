@@ -1,4 +1,7 @@
 import { React, useState, useEffect } from 'react'
+import Secura_logo from '../imgs/secura_logo.png'
+import Until_logo from '../imgs/Until_logo.png'
+import Until from '../imgs/Until.png'
 import { useNavigate } from 'react-router-dom';
 import chishime from '../imgs/chishime.png'
 import metro from '../imgs/metro.png'
@@ -32,12 +35,15 @@ const Work = () => {
     setIsAnimating(true);
   };
 
+
   const handleAnimationEnd = () => {
     if (isAnimating) {
       console.log("Animation ended, navigating...");
       navigate('/contact'); // 替換為實際路徑
     }
   };
+
+
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
@@ -65,7 +71,29 @@ const Work = () => {
     }
   }, { passive: false });
 
+  //跳轉到頁面動畫
+  const handle_to_work_page = (work_title, page_src) => {
+    const circle = document.createElement("div");
+    circle.classList.add("circle_fill");
 
+    const dynamic_title = document.createElement("p");
+    dynamic_title.work_title = work_title; // 动态接收图片路径
+    dynamic_title.classList.add("circle_title");
+
+    circle.appendChild(dynamic_title);
+
+    document.body.appendChild(circle);
+
+    // 启动圆形填满动画
+    setTimeout(() => {
+      circle.classList.add("active");
+    }, 10);
+
+    // 动画完成后跳转
+    setTimeout(() => {
+      window.location.href = page_src; // 动态跳转页面路径
+    }, 1300);
+  };
 
 
 
@@ -86,27 +114,39 @@ const Work = () => {
       <div className='Work_background'>
 
         <Menu></Menu>
-        
+
         <img src={Work_Title} className='Work_Title'></img>
 
         <div className='works'>
-          <div className='Secura_work'>
-            <div class="gradient_fill"></div>
+
+          <div className='Secura_work' onClick={() => handle_to_work_page('Secura', '/secura')}>
+            <div className="gradient_fill"></div>
             <img src={Secura_work} ></img>
           </div>
-          <div className='childcare'>
-            <div class="gradient_fill_childcare"></div>
-            <img src={childcare} ></img>
+
+          <div className='Until' onClick={() => handle_to_work_page('Until', './until')}>
+            <div className="gradient_fill_until"></div>
+            <img src={Until} ></img>
           </div>
-          <div className='metro'>
-            <div class="gradient_fill_metro"></div>
-            <img src={metro} ></img>
-          </div>
+
           <div className='chishime'>
-            <div class="gradient_fill_chishime"></div>
+            <div className="gradient_fill_chishime"></div>
             <img src={chishime} ></img>
           </div>
+
+          <div className='childcare'>
+            <div className="gradient_fill_childcare"></div>
+            <img src={childcare} ></img>
+          </div>
+
+          <div className='metro'>
+            <div className="gradient_fill_metro"></div>
+            <img src={metro} ></img>
+          </div>
+
+
         </div>
+
 
       </div>
 

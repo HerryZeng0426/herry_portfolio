@@ -1,0 +1,102 @@
+/* 初始状态的圆形按钮 */
+.Back_work_button {
+    text-indent: 100px;
+    /* 文字向右移动 */
+    width: 350px;
+    /* 按钮宽度 */
+    height: 350px;
+    /* 按钮高度 */
+    position: fixed;
+    /* 固定位置 */
+    top: -100px;
+    /* 距离顶部 */
+    left: -150px;
+    /* 距离视窗左侧 */
+    background-color: black;
+    /* 按钮背景颜色 */
+    color: white;
+    /* 按钮文字颜色 */
+    border: none;
+    /* 去掉边框 */
+    border-radius: 50%;
+    /* 圆形按钮 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型 */
+    font-size: 16px;
+    /* 按钮字体大小 */
+    z-index: 1000;
+    /* 确保按钮显示在其他内容之上 */
+    overflow: hidden;
+    /* 确保伪元素不溢出按钮 */
+    transition: background-color 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    /* 初始隐藏 */
+    transform: scale(0);
+    /* 初始缩放 */
+}
+
+/* 悬停时的样式 */
+.Back_work_button:hover {
+    transform: scale(1.1);
+    /* 悬停时放大按钮 */
+    background-color: rgb(50, 50, 50);
+    /* 改变背景颜色 */
+}
+
+/* 按钮的伪元素，用于悬停填充效果 */
+.Back_work_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(182, 182, 182);
+    /* 填充颜色 */
+    border-radius: 50%;
+    transition: width 0.3s ease;
+    /* 填充动画 */
+    z-index: 0;
+    /* 确保伪元素在文字下方 */
+}
+
+/* 悬停时伪元素填充整个按钮 */
+.Back_work_button:hover::before {
+    width: 100%;
+    /* 填满整个按钮 */
+}
+
+/* 显示按钮时的动画 */
+.Back_work_button.show {
+    opacity: 1;
+    /* 显示按钮 */
+    transform: scale(1);
+    /* 恢复正常大小 */
+}
+
+/* 隐藏按钮时的动画 */
+.Back_work_button.hide {
+    opacity: 0;
+    /* 隐藏按钮 */
+    transform: scale(0);
+    /* 缩小到 0 */
+}
+
+
+
+.All_work{
+    position: relative;
+    top: 5%;
+    font-size: 35px;
+    font-weight: 50;
+}
+
+/* 扩大动画 */
+@keyframes expandCircle {
+    0% {
+        transform: scale(0); /* 从不可见状态开始 */
+    }
+    100% {
+        transform: scale(1); /* 最终完全显示 */
+    }
+}
