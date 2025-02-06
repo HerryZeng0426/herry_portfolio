@@ -86,58 +86,7 @@
     width: 100%;
 }
 
-/* 新增圓形動畫樣式 */
-.circle_fill {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #000;
-    /* 圓形顏色，可自定義 */
-    border-radius: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    /* 確保在所有內容上方 */
-    transition: width 3s ease, height 3s ease;
-    /* 平滑的填滿動畫 */
-}
 
-.circle_fill.active {
-    width: 1000vh;
-    /* 保持填滿效果 */
-    height: 1000vh;
-    bottom: 50%;
-    /* 讓圓形中心位於螢幕中央 */
-    left: 50%;
-    transform: translate(-50%, 50%);
-    /* 修正圓形中心的偏移 */
-}
-
-.circle_logo {
-    position: absolute;
-    top: 50%;
-    /* 圖片居中 */
-    left: 50%;
-    width: 200px;
-    /* LOGO 大小 */
-    height: 200px;
-    object-fit: contain;
-    /* 確保圖片比例 */
-    transform: translate(-50%, -50%);
-    /* 垂直與水平居中 */
-    z-index: 10000;
-    /* LOGO 層級高於圓形 */
-    opacity: 0;
-    /* 初始透明 */
-    transition: opacity 0.5s ease 0.5s;
-    /* 漸出效果，延遲 0.5s 開始 */
-}
-
-.circle_fill.active .circle_logo {
-    opacity: 1;
-    /* 圓形激活時 LOGO 漸出 */
-}
 
 .Until {
     transition: 0.3s ease;
@@ -551,7 +500,7 @@
 .ani_circle_fill_contactme {
     color: #ffffff;
     /* 白色文字 */
-    font-size: 36px;
+    font-size: 50px;
     /* 根據需求調整字體大小 */
     opacity: 0;
     /* 初始透明度為 0 */
@@ -615,18 +564,59 @@
     }
 }
 
-
-
-.circle_title{
-    color: white; /* 文字颜色 */
-    font-size: 20px; /* 字体大小 */
-    font-weight: bold; /* 字体加粗 */
-    text-align: center; /* 文字居中 */
-    position: absolute; /* 绝对定位确保居中 */
-    top: 50%;
+/* 新增圓形動畫樣式 */
+.circle_fill {
+    position: fixed;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%); /* 精确居中 */
-    z-index: 1000; /* 确保文字在圆形上方 */
-    transition: opacity 0.5s ease 0.5s;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    /* 圓形顏色，可自定義 */
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    /* 確保在所有內容上方 */
+    transition: width 3s ease, height 3s ease;
+    /* 平滑的填滿動畫 */
+}
 
+.circle_fill.active {
+    width: 1000vh;
+    /* 保持填滿效果 */
+    height: 1000vh;
+    bottom: 50%;
+    /* 讓圓形中心位於螢幕中央 */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    /* 修正圓形中心的偏移 */
+}
+
+
+
+.circle_fill.active .circle_title {
+    opacity: 1;
+    /* 圓形激活時 LOGO 漸出 */
+}
+
+.circle_title {
+    position: fixed; /* ✅ 固定在视口中央，不受滚动影响 */
+    color: white; 
+    font-size: 100px; 
+    font-weight: 500;
+    text-align: center; 
+    opacity: 0; /* 初始透明 */
+
+    top: 50%; /* ✅ 让它位于视口的 50% 处 */
+    left: 50%; /* ✅ 让它位于视口的 50% 处 */
+    
+    transform: translate(-50%, -150%); /* ✅ 让它的**中心点**对齐屏幕正中央 */
+    
+    z-index: 10000; /* ✅ 确保比 .circle_fill 高 */
+    transition: opacity 0.5s ease 0.5s;
+}
+
+/* 触发渐显 */
+.circle_title.show {
+    opacity: 1;
 }

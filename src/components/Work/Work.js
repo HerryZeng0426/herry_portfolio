@@ -73,29 +73,32 @@ const Work = () => {
 
   //跳轉到頁面動畫
   const handle_to_work_page = (work_title, page_src) => {
+
+
+    document.body.style.overflow = 'hidden'
+    // 创建填充动画的圆形
     const circle = document.createElement("div");
     circle.classList.add("circle_fill");
 
+    // 创建动态标题
     const dynamic_title = document.createElement("p");
-    dynamic_title.work_title = work_title; // 动态接收图片路径
+    dynamic_title.textContent = work_title; // ✅ 设定标题内容
     dynamic_title.classList.add("circle_title");
 
-    circle.appendChild(dynamic_title);
-
     document.body.appendChild(circle);
+    document.body.appendChild(dynamic_title); // ✅ 确保 `.circle_title` 被正确插入
 
     // 启动圆形填满动画
     setTimeout(() => {
       circle.classList.add("active");
+      dynamic_title.classList.add("show"); // ✅ 触发渐显动画
     }, 10);
 
     // 动画完成后跳转
     setTimeout(() => {
-      window.location.href = page_src; // 动态跳转页面路径
+      window.location.href = page_src;
     }, 1300);
   };
-
-
 
 
 
@@ -118,19 +121,20 @@ const Work = () => {
         <img src={Work_Title} className='Work_Title'></img>
 
         <div className='works'>
+          <div className='Until' onClick={() => handle_to_work_page('Until', './until')}>
+            <div className="gradient_fill_until"></div>
+            <img src={Until} ></img>
+          </div>
+
 
           <div className='Secura_work' onClick={() => handle_to_work_page('Secura', '/secura')}>
             <div className="gradient_fill"></div>
             <img src={Secura_work} ></img>
           </div>
 
-          <div className='Until' onClick={() => handle_to_work_page('Until', './until')}>
-            <div className="gradient_fill_until"></div>
-            <img src={Until} ></img>
-          </div>
 
-          <div className='chishime'>
-            <div className="gradient_fill_chishime"></div>
+          <div className='chishime' onClick={() => handle_to_work_page('Chishime', './chishime')}>
+            <div className="gradient_fill_chishime" ></div>
             <img src={chishime} ></img>
           </div>
 

@@ -23,7 +23,7 @@ import secura_mainpage_cover from '../imgs/secura_mainpage_cover.png'
 import iphone16_device from '../imgs/iphone16_device.png'
 import '../Until/Until.css'
 import Menu from '../Menu/Menu'
-
+import link from '../imgs/link.png'
 
 
 
@@ -61,7 +61,7 @@ const Until = () => {
 
     }
 
-    const [display_background_img , setDisplay_background_img] = useState('')
+    const [display_background_img, setDisplay_background_img] = useState('')
 
 
     const [display_device_ishoverd, setDisplay_device_ishoverd] = useState(false)
@@ -102,6 +102,7 @@ const Until = () => {
                         </a> created by the brilliant designer Kevin Clark in Montreal. He graciously granted me the honor of designing its Android version, which has been a truly rewarding experience for me.
                         Until is an app that helps you count down to the important moments in your life. You can add multiple events and track them effortlessly from your home screen or smartwatch.
                     </p>
+
                     <div
                         className={`until_ios_follow ${mouseoniosapp ? 'show' : ''}`}
                         style={{
@@ -110,7 +111,9 @@ const Until = () => {
                         }}
                     >
                         Until
+                        <img className='link' src={link}></img>
                     </div>
+
                 </div>
                 <div className='Title_rightsection'>
                     <div className='Project_info'>
@@ -148,17 +151,17 @@ const Until = () => {
                 <p className='Background_description'>I designed background illustrations transitioning from sunrise to midnight to better convey the atmosphere of waiting.</p>
                 <div class="Wireframe_mainpage_title_underline"></div>
 
-              <div className='Display_background_section'>
+                <div className='Display_background_section'>
                     <img className='Background_img_background' src={Background_img_background}></img>
-                    
-                   <div className='Until_background_img'>
+
+                    <div className='Until_background_img'>
                         <img className='Until_background Until_background1' src={Until_background1}></img>
                         <img className='Until_background Until_background2' src={Until_background2}></img>
                         <img className='Until_background Until_background3' src={Until_background3}></img>
                         <img className='Until_background Until_background4' src={Until_background4}></img>
                         <img className='Until_background Until_background5' src={Until_background5}></img>
-                   </div>
-              </div>
+                    </div>
+                </div>
 
             </div>
 

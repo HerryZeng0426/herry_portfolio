@@ -1,0 +1,21 @@
+.device {
+    width: 300px;
+    transition: transform  0.3s ease-in-out ;
+}
+
+.Display_device_chishime {
+    margin-top: 100px;
+    gap: 3%;
+    display: flex;
+    /* 使用 Flexbox */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    position: relative;
+    /* 可根據需要調整 */
+}
+
+.device:hover {
+    transform: scale(1.1);
+}

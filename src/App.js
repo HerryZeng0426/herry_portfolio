@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Chishime from './components/Chishime/Chishime';
 import Until from './components/Until/Until'
 import Secura from './components/Secura/Secura'
 import Work from './components/Work/Work';
@@ -26,6 +27,8 @@ function App() {
         <Route path='/work' element={<Work></Work>}></Route>
         <Route path='/Secura' element={<Secura></Secura>}></Route>
         <Route path='/Until' element={<Until></Until>}></Route>
+        <Route path='/Chishime' element={<Chishime></Chishime>}></Route>
+
 
       </Routes>
 

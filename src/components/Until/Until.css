@@ -35,6 +35,13 @@
     opacity: 0; /* 初始透明 */
     transition: transform 0.3s ease, opacity 0.3s ease; /* 平滑动画 */
 }
+.link{
+    margin-left: 10px;
+
+    width: 20px;
+    height: 20px;
+
+}
 
 .until_ios_follow.show {
     transform: scale(1); /* 放大到正常大小 */
