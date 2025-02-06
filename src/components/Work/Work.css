@@ -353,7 +353,7 @@
     position: relative;
     /* 为伪元素提供定位上下文 */
     cursor: pointer;
-    z-index: 10000000;
+    z-index: 100;
     /* 确保在最前层 */
 }
 

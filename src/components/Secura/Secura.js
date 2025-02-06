@@ -38,7 +38,7 @@ const Secura = () => {
     const Project_info = {
         role: "UI Design & Development",
         credit: "Backend : Tim Lin",
-        location_year: "Taipei, Taiwan , 2024",
+        location_year: "Tainan, Taiwan , 2024",
     }
 
 

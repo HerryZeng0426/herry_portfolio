@@ -71,61 +71,65 @@ const Work = () => {
     }
   }, { passive: false });
 
+
+
   //跳轉到頁面動畫
   const handle_to_work_page = (work_title, page_src) => {
-    // 先刪除可能存在的舊動畫元素
+    // 先刪除可能存在的舊動畫元素 , Vercel託管會保留上一個dom，如果按了返回鍵，會保留.circle_fill, .circle_title動畫
+    //solution:在 handle_to_work_page 跳轉前刪除舊的動畫元素：
     document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
-  
+
     document.body.style.overflow = "hidden";
-  
+
     // 記錄狀態 (處理返回鍵)
     sessionStorage.setItem("navigated", "true");
-  
+
     // 創建填充動畫的圓形
     const circle = document.createElement("div");
     circle.classList.add("circle_fill");
-  
+
     // 創建動態標題
     const dynamic_title = document.createElement("p");
     dynamic_title.textContent = work_title;
     dynamic_title.classList.add("circle_title");
-  
+
     document.body.appendChild(circle);
     document.body.appendChild(dynamic_title);
-  
+
     // 啟動動畫
     setTimeout(() => {
       circle.classList.add("active");
       dynamic_title.classList.add("show");
     }, 10);
-  
+
     // 1.3 秒後跳轉
     setTimeout(() => {
       window.location.href = page_src;
     }, 1300);
   };
   
+  //在返回時 (pageshow 事件) 確保動畫被移除
   // 監聽 `pageshow` 確保返回時清除動畫
   window.addEventListener("pageshow", () => {
     if (sessionStorage.getItem("navigated") === "true") {
       sessionStorage.removeItem("navigated");
       document.body.style.overflow = "auto";
-  
+
       document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
     }
   });
-  
-  
+
+
   // 確保從 `page_src` 返回時清除動畫
   window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.getItem("navigated") === "true") {
       sessionStorage.removeItem("navigated");
       document.body.style.overflow = "auto";
-  
+
       document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
     }
   });
-  
+
 
 
 
@@ -165,12 +169,12 @@ const Work = () => {
             <img src={chishime} ></img>
           </div>
 
-          <div className='childcare'>
+          <div className='childcare' onClick={() => handle_to_work_page('Third , Fifth Sisters' , './Childcare')}>
             <div className="gradient_fill_childcare"></div>
             <img src={childcare} ></img>
           </div>
 
-          <div className='metro'>
+          <div className='metro' onClick={() => handle_to_work_page('Montreal Metro' , './Metro')}>
             <div className="gradient_fill_metro"></div>
             <img src={metro} ></img>
           </div>

@@ -39,7 +39,7 @@ const Chishime = () => {
 
         role: "UI/UX Design",
 
-        credit: "Chishime Restaurant",
+        credit: "Branding : Chishime",
 
         location_year: "Tainan, Taiwan , 2024",
 

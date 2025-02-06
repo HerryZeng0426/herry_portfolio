@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import Childcare from './components/Childcare/Childcare'
+import Metro_system from './components/Metro_system/Metro_system'
 import Chishime from './components/Chishime/Chishime';
 import Until from './components/Until/Until'
 import Secura from './components/Secura/Secura'
@@ -28,8 +30,8 @@ function App() {
         <Route path='/Secura' element={<Secura></Secura>}></Route>
         <Route path='/Until' element={<Until></Until>}></Route>
         <Route path='/Chishime' element={<Chishime></Chishime>}></Route>
-
-
+        <Route path='/Childcare' element={<Childcare></Childcare>}></Route>
+        <Route path='/Metro' element={<Metro_system></Metro_system>}></Route>
       </Routes>
 
     </div>

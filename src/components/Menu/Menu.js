@@ -88,10 +88,13 @@ const Menu = () => {
             location.pathname === '/work' ? 'Work' :
                 location.pathname === '/until' ? 'Work' :
                     location.pathname === '/secura' ? 'Work' :
-                        location.pathname === '/contact' ? 'Contact' :
-                            location.pathname === '/shoushan' ? 'About' :
-                                location.pathname === '/canada' ? 'About' :
-                                    'Logo'; // 預設為 Logo
+                        location.pathname === '/chishime' ? 'Work' :
+                            location.pathname === '/Childcare' ? 'Work' :
+                                location.pathname === '/Metro' ? 'Work' :
+                                    location.pathname === '/contact' ? 'Contact' :
+                                        location.pathname === '/shoushan' ? 'About' :
+                                            location.pathname === '/canada' ? 'About' :
+                                                'Logo'; // 預設為 Logo
 
 
     const [clickmenuitem, setClickemuitem] = useState(initialState)
@@ -156,7 +159,7 @@ const Menu = () => {
                         className={`Burger_home ${clickmenuitem === 'Logo' ? 'Burger_active' : ''}`}
                         onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
                     >Home</p>
-                      <p
+                    <p
                         className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
                         onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
                         Work</p>
@@ -164,7 +167,7 @@ const Menu = () => {
                         className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
                         onClick={() => { setClickemuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
                     >About</p>
-                  
+
                     <p
                         className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
                         onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
