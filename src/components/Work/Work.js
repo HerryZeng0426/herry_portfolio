@@ -73,7 +73,7 @@ const Work = () => {
 
   //跳轉到頁面動畫
   const handle_to_work_page = (work_title, page_src) => {
-    // 先刪除可能存在的舊動畫元素,因為Vercel 託管的應用在返回時可能會保留前一頁的 DOM 狀態,因此 circle_fill 和 circle_title 仍然存在
+    // 先刪除可能存在的舊動畫元素
     document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
   
     document.body.style.overflow = "hidden";
@@ -104,6 +104,17 @@ const Work = () => {
       window.location.href = page_src;
     }, 1300);
   };
+  
+  // 監聽 `pageshow` 確保返回時清除動畫
+  window.addEventListener("pageshow", () => {
+    if (sessionStorage.getItem("navigated") === "true") {
+      sessionStorage.removeItem("navigated");
+      document.body.style.overflow = "auto";
+  
+      document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
+    }
+  });
+  
   
   // 確保從 `page_src` 返回時清除動畫
   window.addEventListener("DOMContentLoaded", () => {
