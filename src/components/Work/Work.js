@@ -73,32 +73,48 @@ const Work = () => {
 
   //跳轉到頁面動畫
   const handle_to_work_page = (work_title, page_src) => {
-
-
-    document.body.style.overflow = 'hidden'
-    // 创建填充动画的圆形
+    // 先刪除可能存在的舊動畫元素,因為Vercel 託管的應用在返回時可能會保留前一頁的 DOM 狀態,因此 circle_fill 和 circle_title 仍然存在
+    document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
+  
+    document.body.style.overflow = "hidden";
+  
+    // 記錄狀態 (處理返回鍵)
+    sessionStorage.setItem("navigated", "true");
+  
+    // 創建填充動畫的圓形
     const circle = document.createElement("div");
     circle.classList.add("circle_fill");
-
-    // 创建动态标题
+  
+    // 創建動態標題
     const dynamic_title = document.createElement("p");
-    dynamic_title.textContent = work_title; // ✅ 设定标题内容
+    dynamic_title.textContent = work_title;
     dynamic_title.classList.add("circle_title");
-
+  
     document.body.appendChild(circle);
-    document.body.appendChild(dynamic_title); // ✅ 确保 `.circle_title` 被正确插入
-
-    // 启动圆形填满动画
+    document.body.appendChild(dynamic_title);
+  
+    // 啟動動畫
     setTimeout(() => {
       circle.classList.add("active");
-      dynamic_title.classList.add("show"); // ✅ 触发渐显动画
+      dynamic_title.classList.add("show");
     }, 10);
-
-    // 动画完成后跳转
+  
+    // 1.3 秒後跳轉
     setTimeout(() => {
       window.location.href = page_src;
     }, 1300);
   };
+  
+  // 確保從 `page_src` 返回時清除動畫
+  window.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.getItem("navigated") === "true") {
+      sessionStorage.removeItem("navigated");
+      document.body.style.overflow = "auto";
+  
+      document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
+    }
+  });
+  
 
 
 
