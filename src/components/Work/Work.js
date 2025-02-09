@@ -1,4 +1,11 @@
 import { React, useState, useEffect } from 'react'
+import work_metro from '../imgs/work_metro.png'
+import work_childcare from '../imgs/work_childcare.png'
+import work_chishime from '../imgs/work_chishime.png'
+import work_secura from '../imgs/work_secura.png'
+import Mobile_link from '../imgs/Mobile_link.png'
+import until from '../imgs/work_until.png'
+import { useMediaQuery } from 'react-responsive';
 import Secura_logo from '../imgs/secura_logo.png'
 import Until_logo from '../imgs/Until_logo.png'
 import Until from '../imgs/Until.png'
@@ -19,12 +26,13 @@ import '../Work/Work.css'
 
 
 const Work = () => {
+
+
+  const Mobile_mode = useMediaQuery({ maxWidth: 768 })
+
   useEffect(() => {
     window.scrollTo(0, 0); // 當組件掛載時滾動到頂部
   }, []);
-
-
-
 
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -107,7 +115,7 @@ const Work = () => {
       window.location.href = page_src;
     }, 1300);
   };
-  
+
   //在返回時 (pageshow 事件) 確保動畫被移除
   // 監聽 `pageshow` 確保返回時清除動畫
   window.addEventListener("pageshow", () => {
@@ -137,73 +145,112 @@ const Work = () => {
   return (
     <div>
 
-      {isAnimating && <div
-        className='ani_circle_fill'
-        onAnimationEnd={handleAnimationEnd} // 监听动画结束事件
-      >
-        <p className='ani_circle_fill_contactme'>Contact Me</p >
-      </div>
+      {!Mobile_mode && <div>
+        {isAnimating && <div
+          className='ani_circle_fill'
+          onAnimationEnd={handleAnimationEnd} // 监听动画结束事件
+        >
+          <p className='ani_circle_fill_contactme'>Contact Me</p >
+        </div>
 
-      }
-      <div className='Work_background'>
+        }
+        <div className='Work_background'>
 
-        <Menu></Menu>
+          <Menu></Menu>
 
-        <img src={Work_Title} className='Work_Title'></img>
+          <img src={Work_Title} className='Work_Title'></img>
 
-        <div className='works'>
-          <div className='Until' onClick={() => handle_to_work_page('Until', './until')}>
-            <div className="gradient_fill_until"></div>
-            <img src={Until} ></img>
-          </div>
-
-
-          <div className='Secura_work' onClick={() => handle_to_work_page('Secura', '/secura')}>
-            <div className="gradient_fill"></div>
-            <img src={Secura_work} ></img>
-          </div>
+          <div className='works'>
+            <div className='Until' onClick={() => handle_to_work_page('Until', './until')}>
+              <div className="gradient_fill_until"></div>
+              <img src={Until} ></img>
+            </div>
 
 
-          <div className='chishime' onClick={() => handle_to_work_page('Chishime', './chishime')}>
-            <div className="gradient_fill_chishime" ></div>
-            <img src={chishime} ></img>
-          </div>
+            <div className='Secura_work' onClick={() => handle_to_work_page('Secura', '/secura')}>
+              <div className="gradient_fill"></div>
+              <img src={Secura_work} ></img>
+            </div>
 
-          <div className='childcare' onClick={() => handle_to_work_page('Third , Fifth Sisters' , './Childcare')}>
-            <div className="gradient_fill_childcare"></div>
-            <img src={childcare} ></img>
-          </div>
 
-          <div className='metro' onClick={() => handle_to_work_page('Montreal Metro' , './Metro')}>
-            <div className="gradient_fill_metro"></div>
-            <img src={metro} ></img>
+            <div className='chishime' onClick={() => handle_to_work_page('Chishime', './chishime')}>
+              <div className="gradient_fill_chishime" ></div>
+              <img src={chishime} ></img>
+            </div>
+
+            <div className='childcare' onClick={() => handle_to_work_page('Third , Fifth Sisters', './Childcare')}>
+              <div className="gradient_fill_childcare"></div>
+              <img src={childcare} ></img>
+            </div>
+
+            <div className='metro' onClick={() => handle_to_work_page('Montreal Metro', './Metro')}>
+              <div className="gradient_fill_metro"></div>
+              <img src={metro} ></img>
+            </div>
+
+
           </div>
 
 
         </div>
 
-
-      </div>
-
-      <div className="To_Be_Continued_Container" onClick={handleToWork}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
-        <p className="To_Be_Continued">
-          To Be Continued <span class="dots"></span>
-        </p>
-        {mouseOnContact && (
-          <p className='contact_follow'
-            style={{
-              top: mousePosition.y + 5, // 动态设置 top
-              left: mousePosition.x + 5, // 动态设置 left
-            }}
-          >
-            Contact me
+        <div className="To_Be_Continued_Container" onClick={handleToWork}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
+          <p className="To_Be_Continued">
+            To Be Continued <span class="dots"></span>
           </p>
-        )}
+          {mouseOnContact && (
+            <p className='contact_follow'
+              style={{
+                top: mousePosition.y + 5, // 动态设置 top
+                left: mousePosition.x + 5, // 动态设置 left
+              }}
+            >
+              Contact me
+            </p>
+          )}
 
-      </div>
+        </div>
+      </div>}
+
+      {Mobile_mode &&
+        <div className='Work_background'>
+
+          <Menu></Menu>
+
+          <img src={Work_Title} className='Work_Title'></img>
+
+          <div className='All_Work_section'>
+
+            <div className='Work_section'>
+              <img className='Work_img' src={until}></img>
+            </div>
+
+            <div className='Work_section'>
+              <img className='Work_img' src={work_secura}></img>
+            </div>
+            
+            <div className='Work_section'>
+              <img className='Work_img' src={work_chishime}></img>
+            </div>
+            
+            <div className='Work_section'>
+              <img className='Work_img' src={work_childcare}></img>
+            </div>
+
+            <div className='Work_section'>
+              <img className='Work_img' src={work_metro}></img>
+            </div>
+            
+            
+
+          </div>
+
+        </div>
+
+      }
 
     </div>
   )

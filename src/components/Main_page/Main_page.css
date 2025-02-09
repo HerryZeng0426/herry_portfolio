@@ -23,11 +23,16 @@
     transform: translate(-50%, -50%);
     object-fit: contain;
 }
+
 .main_page_country_container {
-    position: relative; /* 使內部絕對定位元素相對於此容器 */
-    width: 100%; /* 父容器佔滿寬度 */
-    height: 100vh; /* 根據需求調整高度 */
-    overflow: hidden; /* 隱藏溢出的部分 */
+    position: relative;
+    /* 使內部絕對定位元素相對於此容器 */
+    width: 100%;
+    /* 父容器佔滿寬度 */
+    height: 100vh;
+    /* 根據需求調整高度 */
+    overflow: hidden;
+    /* 隱藏溢出的部分 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,23 +40,32 @@
 
 /* .country 圖片樣式 */
 .main_page_country {
-    position: absolute; /* 絕對定位 */
-    top: 15%; /* 根據需求調整垂直位置 */
-    left: 6%; /* 初始水平位置 */
-    transform: translateX(-100%); /* 初始從左側滑入 */
-    width: 35%; /* 根據需求調整寬度 */
-    height: auto; /* 保持圖片比例 */
-    transition: transform 0.5s ease; /* 添加平滑過渡效果 */
-    cursor: pointer; /* 可選：顯示手型光標 */
+    position: absolute;
+    /* 絕對定位 */
+    top: 15%;
+    /* 根據需求調整垂直位置 */
+    left: 6%;
+    /* 初始水平位置 */
+    transform: translateX(-100%);
+    /* 初始從左側滑入 */
+    width: 35%;
+    /* 根據需求調整寬度 */
+    height: auto;
+    /* 保持圖片比例 */
+    transition: transform 0.5s ease;
+    /* 添加平滑過渡效果 */
+    cursor: pointer;
+    /* 可選：顯示手型光標 */
 }
 
 /* 懸停時改變位置 */
 .main_page_country_container:hover .main_page_country {
-    transform: translateX(-18%); /* 滑入到原位 */
+    transform: translateX(-18%);
+    /* 滑入到原位 */
 }
 
 .name_flip_container {
-    
+
     perspective: 500px;
     width: 200px;
     /* 固定尺寸可依需求調整 */
@@ -61,7 +75,7 @@
     left: 50%;
     transform: translate(-260%, -80%);
     /* 標準置中 */
-    
+
 }
 
 .name_flip {
@@ -71,7 +85,7 @@
     position: relative;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    
+
 }
 
 .english_name,
@@ -80,25 +94,25 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    
+
 }
 
 .english_name {
     z-index: 2;
     animation: wave 2s infinite;
 
-    
+
 }
 
 .chinese_name {
     transform: rotateY(180deg);
-    
+
 }
 
 .name_flip_container:hover .name_flip {
-    
+
     transform: rotateY(180deg);
-    
+
 }
 
 
@@ -117,10 +131,14 @@
 }
 
 .student_flip_container {
-    display: flex; /* 使用 Flexbox 布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    perspective: 1000px; /* 提供3D效果 */
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    align-items: center;
+    /* 垂直居中对齐 */
+    justify-content: center;
+    /* 水平居中对齐 */
+    perspective: 1000px;
+    /* 提供3D效果 */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -129,8 +147,10 @@
 
 .student_flip {
     position: relative;
-    width: 375px; /* 文字容器宽度 */
-    height: 200px; /* 高度根据需求调整 */
+    width: 375px;
+    /* 文字容器宽度 */
+    height: 200px;
+    /* 高度根据需求调整 */
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }
@@ -145,33 +165,39 @@
     font-weight: 500;
     text-align: center;
     backface-visibility: hidden;
-    white-space: nowrap; /* 防止换行 */
+    white-space: nowrap;
+    /* 防止换行 */
 }
 
 .university {
-    transform: rotateY(0deg); /* 初始正面 */
+    transform: rotateY(0deg);
+    /* 初始正面 */
     animation: wave 2.3s infinite;
 
 }
 
 .STUST {
-    transform: rotateY(180deg); /* 初始背面 */
+    transform: rotateY(180deg);
+    /* 初始背面 */
     letter-spacing: 5PX;
 
 }
 
 .student_flip:hover {
-    transform: rotateY(180deg); /* 鼠标悬停触发翻转 */
+    transform: rotateY(180deg);
+    /* 鼠标悬停触发翻转 */
 }
 
 .static_student {
     font-size: 24px;
-    margin-left: 20px; /* 靠右侧固定的间距 */
+    margin-left: 20px;
+    /* 靠右侧固定的间距 */
     white-space: nowrap;
     text-align: center;
     line-height: 100px;
     font-weight: 500;
 }
+
 @keyframes wave {
 
     0%,
@@ -182,6 +208,70 @@
 
     50% {
         transform: translateY(-12px);
-        /* 波峰 */
     }
+}
+
+
+@media (max-width: 768px) {
+    .Mobile_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100vh;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .Mobile_Herry {
+        height: 100%;
+    }
+
+    .Mobile_name_student {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .Mobile_name {
+        width: 80%; 
+        margin-bottom: 12px;
+        margin-left: -35px;
+        animation: wave 2.3s infinite;
+
+    }
+
+    .Mobile_line {
+        width: 90%;
+        margin-bottom: 12px;
+        
+
+    }
+
+    .Mobile_student {
+        width: 65%;
+        margin-right: -90px;
+        animation: wave 2.5s infinite;
+
+    }
+
+    @keyframes wave {
+
+        0%,
+        100% {
+            transform: translateY(0);
+            /* 初始位置 */
+        }
+    
+        50% {
+            transform: translateY(-5px);
+            /* 波峰 */
+        }
+    }
+
 }

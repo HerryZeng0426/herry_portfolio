@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import burgermenu_instagram from '../imgs/burgermenu_instagram.png'
 import burgermenu_gmail from '../imgs/burgermenu_gmail.png'
 import burger_menu_logo_close from '../imgs/burger_menu_logo_close.png'
@@ -10,6 +11,8 @@ import Logo from '../imgs/logo.png'
 
 
 const Menu = () => {
+
+    const Mobile_mode = useMediaQuery({ maxWidth: 768 })
 
     const location = useLocation();
 
@@ -106,81 +109,147 @@ const Menu = () => {
 
         <div>
 
-            <div className='Menu'>
+            {!Mobile_mode && <div>
 
-                <div
-                    className={`LogoWrapper ${clickmenuitem === 'Logo' ? 'active' : ''}`}
-                    onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
-                >
-                    <img className='Logo' src={Logo} alt='Logo' />
-                </div>
-                <div className='right_menu'>
+                <div className='Menu'>
 
-                    <p
-                        className={`Work ${clickmenuitem === 'Work' ? 'active' : ''}`}
-                        onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
-                        Work</p>
-                    <p
-                        className={`About ${clickmenuitem === 'About' ? 'active' : ''}`}
-                        onClick={() => { setClickemuitem('About'); navigate('/about') }}
-                    >About</p>
-                    <p
-                        className={`Contact ${clickmenuitem === 'Contact' ? 'active' : ''}`}
-                        onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
-                    >Contact</p>
+                    <div
+                        className={`LogoWrapper ${clickmenuitem === 'Logo' ? 'active' : ''}`}
+                        onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
+                    >
+                        <img className='Logo' src={Logo} alt='Logo' />
+                    </div>
+                    <div className='right_menu'>
+
+                        <p
+                            className={`Work ${clickmenuitem === 'Work' ? 'active' : ''}`}
+                            onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
+                            Work</p>
+                        <p
+                            className={`About ${clickmenuitem === 'About' ? 'active' : ''}`}
+                            onClick={() => { setClickemuitem('About'); navigate('/about') }}
+                        >About</p>
+                        <p
+                            className={`Contact ${clickmenuitem === 'Contact' ? 'active' : ''}`}
+                            onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
+                        >Contact</p>
+                    </div>
+
                 </div>
+
+
+                {/* 滑動頁面時候會出現的漢堡式Menu */}
+                {(isScrolled || isExiting) && (
+                    // 'open' : 'close' 是管理menu background顏色
+                    <div className={`Burger_menu ${isExiting ? 'exit' : 'enter'} ${isburgermenu_display ? 'open' : 'close'}`} onClick={handle_display_burgermenu}>
+                        <div className="Burger_menu_content">
+                            <img
+                                className={`Burger_menu_img ${isburgermenu_display ? 'show' : 'hide'}`}
+                                src={burger_menu_logo_close}
+                                alt="Menu Logo"
+                            />
+                            <img
+                                className={`Burger_menu_img ${isburgermenu_display ? 'hide' : 'show'}`}
+                                src={burger_menu_logo}
+                                alt="Close Logo"
+                            />
+                        </div>
+                    </div>
+                )}
+
+                {isburgermenu_display && (
+                    <div className={`Display_menu ${isburgermenu_close ? 'Display_menu_exit' : 'Display_menu_enter'}`}>
+
+                        <p
+                            className={`Burger_home ${clickmenuitem === 'Logo' ? 'Burger_active' : ''}`}
+                            onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
+                        >Home</p>
+                        <p
+                            className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
+                            onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
+                            Work</p>
+                        <p
+                            className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
+                            onClick={() => { setClickemuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
+                        >About</p>
+
+                        <p
+                            className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
+                            onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
+                        >Contact</p>
+                        <div className='Display_menu_seperateline'></div>
+
+                        <div className='Burgermenu_social'>
+                            <a href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'><img className='burgermenu_gmail' src={burgermenu_gmail}></img></a>
+                            <a href='https://www.instagram.com/herrynoinspiration/'><img className='burgermenu_instagram' src={burgermenu_instagram}></img></a>
+
+                        </div>
+                    </div>
+                )}
 
             </div>
+            }
 
+            {Mobile_mode &&
+                <div className='Mobile_menu'>
 
-            {/* 滑動頁面時候會出現的漢堡式Menu */}
-            {(isScrolled || isExiting) && (
-                // 'open' : 'close' 是管理menu background顏色
-                <div className={`Burger_menu ${isExiting ? 'exit' : 'enter'} ${isburgermenu_display ? 'open' : 'close'}`} onClick={handle_display_burgermenu}>
-                    <div className="Burger_menu_content">
-                        <img
-                            className={`Burger_menu_img ${isburgermenu_display ? 'show' : 'hide'}`}
-                            src={burger_menu_logo_close}
-                            alt="Menu Logo"
-                        />
-                        <img
-                            className={`Burger_menu_img ${isburgermenu_display ? 'hide' : 'show'}`}
-                            src={burger_menu_logo}
-                            alt="Close Logo"
-                        />
-                    </div>
-                </div>
-            )}
-
-            {isburgermenu_display && (
-                <div className={`Display_menu ${isburgermenu_close ? 'Display_menu_exit' : 'Display_menu_enter'}`}>
-
-                    <p
-                        className={`Burger_home ${clickmenuitem === 'Logo' ? 'Burger_active' : ''}`}
+                    <div
+                        className={`Mobile_LogoWrapper ${clickmenuitem === 'Logo' ? 'active' : ''}`}
                         onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
-                    >Home</p>
-                    <p
-                        className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
-                        onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
-                        Work</p>
-                    <p
-                        className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
-                        onClick={() => { setClickemuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
-                    >About</p>
-
-                    <p
-                        className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
-                        onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
-                    >Contact</p>
-                    <div className='Display_menu_seperateline'></div>
-
-                    <div className='Burgermenu_social'>
-                        <a href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'><img className='burgermenu_gmail' src={burgermenu_gmail}></img></a>
-                        <a href='https://www.instagram.com/herrynoinspiration/'><img className='burgermenu_instagram' src={burgermenu_instagram}></img></a>
-
+                    >
+                        <img className='Mobile_Logo' src={Logo} alt='Logo' />
                     </div>
+
+                    <div className='Mobile_right_menu'>
+
+                    <div className={`Burger_menu ${isExiting ? 'exit' : 'enter'} ${isburgermenu_display ? 'open' : 'close'}`} onClick={handle_display_burgermenu}>
+                        <div className="Burger_menu_content">
+                            <img
+                                className={`Burger_menu_img ${isburgermenu_display ? 'show' : 'hide'}`}
+                                src={burger_menu_logo_close}
+                                alt="Menu Logo"
+                            />
+                            <img
+                                className={`Burger_menu_img ${isburgermenu_display ? 'hide' : 'show'}`}
+                                src={burger_menu_logo}
+                                alt="Close Logo"
+                            />
+                        </div>
+                    </div>
+
+                        {isburgermenu_display && (
+                            <div className={`Display_menu ${isburgermenu_close ? 'Display_menu_exit' : 'Display_menu_enter'}`}>
+
+                                <p
+                                    className={`Burger_home ${clickmenuitem === 'Logo' ? 'Burger_active' : ''}`}
+                                    onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
+                                >Home</p>
+                                <p
+                                    className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
+                                    onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
+                                    Work</p>
+                                <p
+                                    className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
+                                    onClick={() => { setClickemuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
+                                >About</p>
+
+                                <p
+                                    className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
+                                    onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
+                                >Contact</p>
+                                <div className='Display_menu_seperateline'></div>
+
+                                <div className='Burgermenu_social'>
+                                    <a href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'><img className='burgermenu_gmail' src={burgermenu_gmail}></img></a>
+                                    <a href='https://www.instagram.com/herrynoinspiration/'><img className='burgermenu_instagram' src={burgermenu_instagram}></img></a>
+
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
-            )}
+            }
         </div>
     )
 }

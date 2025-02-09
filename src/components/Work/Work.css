@@ -600,23 +600,82 @@
 }
 
 .circle_title {
-    position: fixed; /* ✅ 固定在视口中央，不受滚动影响 */
-    color: white; 
-    font-size: 100px; 
+    position: fixed;
+    /* ✅ 固定在视口中央，不受滚动影响 */
+    color: white;
+    font-size: 100px;
     font-weight: 500;
-    text-align: center; 
-    opacity: 0; /* 初始透明 */
+    text-align: center;
+    opacity: 0;
+    /* 初始透明 */
 
-    top: 50%; /* ✅ 让它位于视口的 50% 处 */
-    left: 50%; /* ✅ 让它位于视口的 50% 处 */
-    
-    transform: translate(-50%, -150%); /* ✅ 让它的**中心点**对齐屏幕正中央 */
-    
-    z-index: 10000; /* ✅ 确保比 .circle_fill 高 */
+    top: 50%;
+    /* ✅ 让它位于视口的 50% 处 */
+    left: 50%;
+    /* ✅ 让它位于视口的 50% 处 */
+
+    transform: translate(-50%, -150%);
+    /* ✅ 让它的**中心点**对齐屏幕正中央 */
+
+    z-index: 10000;
+    /* ✅ 确保比 .circle_fill 高 */
     transition: opacity 0.5s ease 0.5s;
 }
 
 /* 触发渐显 */
 .circle_title.show {
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .Work_background {
+        display: flex;
+        flex-direction: column;
+        /* 子元素垂直排列 */
+        justify-content: flex-start;
+        /* 从顶部开始布局 */
+        align-items: center;
+        /* 水平居中 */
+        width: 100%;
+        /* 宽度占满 */
+        min-height: 90vh;
+        /* 背景占页面的大部分高度 */
+        padding: 20px;
+        /* 内边距 */
+        box-sizing: border-box;
+        /* 确保内边距不影响宽度 */
+
+    }
+
+    .Work_Title {
+        align-self: flex-start;
+        /* 让标题靠左对齐 */
+        margin-left: 5%;
+        /* 设置偏左的距离 */
+        margin-top: 25%;
+        /* 添加顶部间距 */
+        width: 100%;
+        height: auto;
+        max-width: 80%;
+        /* 根据需要调整标题的最大宽度 */
+    }
+
+    .All_Work_section {
+        margin-top: 15%;
+        width: 95%;
+        display: flex;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .Work_section{
+        margin-bottom: 15%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Work_img {
+        width: 100%;
+    }
 }
