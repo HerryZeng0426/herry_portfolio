@@ -183,7 +183,8 @@ const Secura = () => {
                             }
                             {
                                 !display_device_ishoverd &&
-                                <img className='click_video_btn' src={click_video_btn}></img>
+                                // <img className='click_video_btn' src={click_video_btn}></img>
+                                <div className='click_video_btn'>Click</div>
                             }
                         </div>
 

@@ -25,6 +25,8 @@ import iphone16_device from '../imgs/iphone16_device.png'
 import '../Until/Until.css'
 import Menu from '../Menu/Menu'
 import link from '../imgs/link.png'
+import description_btn_show_btn from '../imgs/description_btn_show.png'
+import description_btn_back_btn from '../imgs/description_btn_back.png'
 
 
 
@@ -60,7 +62,7 @@ const Until = () => {
 
         credit: "Founder : Kevin Clark",
 
-        location_year: "Tainan, Taiwan , 2024",
+        location_year: "Tainan , Taiwan , 2024",
 
     }
 
@@ -88,6 +90,38 @@ const Until = () => {
 
 
 
+    const [description_show, setDescription_show] = useState(false)
+
+    const [isdescriptionbtn_animation, setIsdescriptionbtn_animation] = useState(false)
+    const handle_to_display_description = () => {
+
+        setDescription_show(!description_show)
+
+        setIsdescriptionbtn_animation(true)
+
+        setTimeout(() => {
+            setIsdescriptionbtn_animation(false)
+        }, 500);
+    }
+
+    //點的圖片加上 active 來增加 放大效果
+    useEffect(() => {
+        const items = document.querySelectorAll(".Mobile_display_android_device div");
+
+        items.forEach(item => {
+            item.addEventListener("click", function () {
+                // 先移除所有已經 active 的圖片
+                items.forEach(div => div.classList.remove("active"));
+                // 為當前點擊的圖片加上 active
+                this.classList.add("active");
+            });
+        });
+
+        // 清除事件監聽器，防止內存洩漏
+        return () => {
+            items.forEach(item => item.removeEventListener("click", function () { }));
+        };
+    }, [])
 
     return (
         <div>
@@ -175,7 +209,53 @@ const Until = () => {
             {Mobile_mode &&
                 <div>
                     <Menu></Menu>
-                    
+                    <div className='Title'>
+
+                        <div className='Title_topsection'>
+                            <div className='Project_name_comtainer' onClick={handle_to_display_description}>
+                                <p className='Project_name' style={{ fontSize: '30px' }}>Until Android ver.</p>
+
+                                <img className={`description_btn_show ${isdescriptionbtn_animation ? 'shake' : ''}`} src={description_show ? description_btn_back_btn : description_btn_show_btn} ></img>
+
+                            </div>
+                            <p className={`Project_description ${description_show ? 'show' : 'hidden'}`}>
+                                Until is an <a href='https://apps.apple.com/us/app/until/id1533755230'><span className='Highlight_text'
+                                    onMouseMove={handleMouseMove}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}>iOS application</span>
+                                </a> created by the brilliant designer Kevin Clark in Montreal. He graciously granted me the honor of designing its Android version, which has been a truly rewarding experience for me.
+                                Until is an app that helps you count down to the important moments in your life. You can add multiple events and track them effortlessly from your home screen or smartwatch.
+                            </p>
+                        </div>
+
+                        <div className='Title_bottomsection'>
+                            <div className='Project_info'>
+                                <p className="Project_info_label slide-in-left">Role</p>
+                                <p className="Project_info_value slide-in-left">{Project_info.role}</p>
+                                <p className="Project_info_label slide-in-right">Credits</p>
+                                <p className="Project_info_value slide-in-right">{Project_info.credit}</p>
+                                <p className="Project_info_label slide-in-left">Location & year</p>
+                                <p className="Project_info_value slide-in-left">{Project_info.location_year}</p>
+                            </div>
+                        </div>
+
+                        <div className='Mobile_display_android_device'>
+
+                            <div className='Mobile_display_leftpage_android'>
+                                <img className='Mobile_display_twosides_device_android' src={Until_sreenshot1}></img>
+                            </div>
+                            <div className='Mobile_display_mainpage_android'>
+                                <img className='Mobile_display_mainpage_device_android' src={Until_sreenshot3}></img>
+                            </div>
+
+                            <div className='Mobile_display_rightpage_android'>
+                                <img className='Mobile_display_twosides_device_android' src={Until_sreenshot2}></img>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <Back_work_btn></Back_work_btn>
                 </div>}
 
         </div>

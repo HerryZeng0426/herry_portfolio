@@ -626,6 +626,21 @@
             transform: translate(-5px, 5px);
         }
     }
+    
+    .click_video_btn {
+        width: 80px; /* 圓形大小 */
+        height: 80px;
+        background-color: #a2a2a2; /* 按鈕顏色 */
+        color: white; /* 文字顏色 */
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%; /* 讓它變成圓形 */
+        text-transform: uppercase; /* 讓文字變成大寫 */
+    }
 
     .click_video_btn {
         position: absolute;
@@ -817,22 +832,27 @@
             transform: translateX(100%);
             opacity: 0;
         }
+
         20% {
             transform: translateX(0);
             opacity: 1;
         }
+
         40% {
             transform: translateX(0);
             opacity: 1;
         }
+
         60% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         80% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         100% {
             transform: translateX(-100%);
             opacity: 0;
@@ -866,62 +886,71 @@
         overflow: hidden;
         /* 確保圖片不超出範圍 */
     }
+
     @keyframes slideInOut_for3 {
         0% {
             transform: translateX(100%);
             opacity: 0;
         }
+
         10% {
             transform: translateX(100%);
             opacity: 0;
         }
+
         20% {
             transform: translateX(0);
             opacity: 1;
         }
+
         40% {
             transform: translateX(0);
             opacity: 1;
         }
+
         60% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         70% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         80% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         90% {
             transform: translateX(-100%);
             opacity: 0;
         }
+
         100% {
             transform: translateX(-100%);
             opacity: 0;
         }
     }
-    
+
     /* 第一張圖片 */
     .secura_wireframe3 {
         animation: slideInOut_for3 6s infinite ease-in-out;
     }
-    
+
     /* 第二張圖片，延遲 5 秒開始 */
     .secura_wireframe4 {
         animation: slideInOut_for3 6s infinite ease-in-out 2s;
     }
-    
+
     /* 第三張圖片，延遲 10 秒開始 */
     .secura_wireframe5 {
         animation: slideInOut_for3 6s infinite ease-in-out 4s;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
 }

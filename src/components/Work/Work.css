@@ -590,6 +590,7 @@
     left: 50%;
     transform: translate(-50%, 50%);
     /* 修正圓形中心的偏移 */
+    z-index: 1000000;
 }
 
 
