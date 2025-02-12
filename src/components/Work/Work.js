@@ -224,18 +224,18 @@ const Work = () => {
 
           <div className='All_Work_section'>
 
-            <div className='Work_section'>
+            <div className='Work_section' onClick={() => handle_to_work_page('Until', './until')}>
               <img className='Work_img' src={until}></img>
             </div>
 
-            <div className='Work_section'>
+            <div className='Work_section' onClick={() => handle_to_work_page('Secura', '/secura')}>
               <img className='Work_img' src={work_secura}></img>
             </div>
-            
-            <div className='Work_section'>
+
+            <div className='Work_section' onClick={() => handle_to_work_page('Chishime', '/chishime')}>
               <img className='Work_img' src={work_chishime}></img>
             </div>
-            
+
             <div className='Work_section'>
               <img className='Work_img' src={work_childcare}></img>
             </div>
@@ -243,8 +243,8 @@ const Work = () => {
             <div className='Work_section'>
               <img className='Work_img' src={work_metro}></img>
             </div>
-            
-            
+
+
 
           </div>
 
