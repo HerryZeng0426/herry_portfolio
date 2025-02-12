@@ -604,9 +604,7 @@
         justify-content: center;
         /* 讓內容整體置中 */
         align-items: center;
-        width: 100%;
         position: relative;
-        max-width: 100vw;
     }
 
     @keyframes btn_shake {
@@ -756,7 +754,7 @@
     }
 
     .Wireframe_section {
-        margin-top: 110%;
+        margin-top: 150%;
         display: flex;
         flex-direction: column;
         /* 保持內容上下排列 */
@@ -769,6 +767,7 @@
         /* 讓文字內容居中對齊 */
         width: 100%;
         /* 設置合適的寬度，可根據需求調整 */
+        position: relative;
     }
 
     .Wireframe_title {
