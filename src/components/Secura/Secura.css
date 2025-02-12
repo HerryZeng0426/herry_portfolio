@@ -290,12 +290,12 @@
     /* 水平居中 */
     justify-content: center;
     /* 垂直居中 */
-    margin: 5% auto;
     /* 確保整個區塊水平居中 */
     text-align: center;
     /* 讓文字內容居中對齊 */
     width: 100%;
     /* 設置合適的寬度，可根據需求調整 */
+    margin-top: 15%;
 }
 
 .Wireframe_title {
