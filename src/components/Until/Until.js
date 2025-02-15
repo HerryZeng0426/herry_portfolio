@@ -92,10 +92,24 @@ const Until = () => {
 
     const [description_show, setDescription_show] = useState(false)
 
+    const [background_description_show , setBackground_description_show] = useState(false)
+
     const [isdescriptionbtn_animation, setIsdescriptionbtn_animation] = useState(false)
+
     const handle_to_display_description = () => {
 
         setDescription_show(!description_show)
+
+        setIsdescriptionbtn_animation(true)
+
+        setTimeout(() => {
+            setIsdescriptionbtn_animation(false)
+        }, 500);
+    }
+
+    const handle_to_display_background_description = () => {
+
+        setBackground_description_show(!background_description_show)
 
         setIsdescriptionbtn_animation(true)
 
@@ -250,6 +264,29 @@ const Until = () => {
 
                             <div className='Mobile_display_rightpage_android'>
                                 <img className='Mobile_display_twosides_device_android' src={Until_sreenshot2}></img>
+                            </div>
+
+                        </div>
+
+                        <div className='Background_section'>
+
+                            <p className='Background_title' onClick={handle_to_display_background_description}>Background Design
+                            <img className={`Background_description_btn_show ${isdescriptionbtn_animation ? 'shake' : ''}`} src={background_description_show ? description_btn_back_btn : description_btn_show_btn} ></img>
+                            </p>
+                            
+                            <p className={`Mobile_background_description ${background_description_show ? 'show' : 'hidden'}`}>I designed background illustrations transitioning from sunrise to midnight to better convey the atmosphere of waiting.</p>
+                            <div class="Wireframe_mainpage_title_underline"></div>
+
+                            <div className='Display_background_section'>
+                                <img className='Background_img_background' src={Background_img_background}></img>
+
+                                <div className='Until_background_img'>
+                                    <img className='Until_background Until_background1' src={Until_background1}></img>
+                                    <img className='Until_background Until_background2' src={Until_background2}></img>
+                                    <img className='Until_background Until_background3' src={Until_background3}></img>
+                                    <img className='Until_background Until_background4' src={Until_background4}></img>
+                                    <img className='Until_background Until_background5' src={Until_background5}></img>
+                                </div>
                             </div>
 
                         </div>
