@@ -216,7 +216,7 @@ const Work = () => {
       </div>}
 
       {Mobile_mode &&
-        <div className='Work_background'>
+        <div className='Mobile_work_background'>
 
           <Menu></Menu>
 

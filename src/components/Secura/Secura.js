@@ -177,13 +177,12 @@ const Secura = () => {
                         </div>
                         <div className={`Mobile_display_mainpage ${display_device_ishoverd ? 'Mobile_display_mainpage_zindex' : ''}`} onClick={() => setDisplay_device_ishoverd(!display_device_ishoverd)}>
                             <img className='Mobile_display_mainpage_device' src={iphone16_device}></img>
-                            {display_device_ishoverd ? (<video className='Mobile_secura_mainpage_cover_video' src={secura_mainpage_cover_video} autoPlay muted ></video>)
+                            {display_device_ishoverd ? (<video className='Mobile_secura_mainpage_cover_video' src={secura_mainpage_cover_video} autoPlay muted playsInline></video>)
                                 :
                                 <img className='Mobile_secura_mainpage_cover' src={secura_mainpage_cover}></img>
                             }
                             {
                                 !display_device_ishoverd &&
-                                // <img className='click_video_btn' src={click_video_btn}></img>
                                 <div className='click_video_btn'>Click</div>
                             }
                         </div>

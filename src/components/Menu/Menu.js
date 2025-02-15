@@ -193,29 +193,26 @@ const Menu = () => {
             {Mobile_mode &&
                 <div className='Mobile_menu'>
 
-                    <div
-                        className={`Mobile_LogoWrapper ${clickmenuitem === 'Logo' ? 'active' : ''}`}
-                        onClick={() => { setClickemuitem('Logo'); navigate('/herry') }}
-                    >
-                        <img className='Mobile_Logo' src={Logo} alt='Logo' />
-                    </div>
+
+                    <img className='Mobile_Logo' src={Logo} alt='Logo' onClick={() => { setClickemuitem('Logo'); navigate('/herry') }} />
+
 
                     <div className='Mobile_right_menu'>
 
-                    <div className={`Burger_menu ${isExiting ? 'exit' : 'enter'} ${isburgermenu_display ? 'open' : 'close'}`} onClick={handle_display_burgermenu}>
-                        <div className="Burger_menu_content">
-                            <img
-                                className={`Burger_menu_img ${isburgermenu_display ? 'show' : 'hide'}`}
-                                src={burger_menu_logo_close}
-                                alt="Menu Logo"
-                            />
-                            <img
-                                className={`Burger_menu_img ${isburgermenu_display ? 'hide' : 'show'}`}
-                                src={burger_menu_logo}
-                                alt="Close Logo"
-                            />
+                        <div className={`Burger_menu ${isExiting ? 'exit' : 'enter'} ${isburgermenu_display ? 'open' : 'close'}`} onClick={handle_display_burgermenu}>
+                            <div className="Burger_menu_content">
+                                <img
+                                    className={`Burger_menu_img ${isburgermenu_display ? 'show' : 'hide'}`}
+                                    src={burger_menu_logo_close}
+                                    alt="Menu Logo"
+                                />
+                                <img
+                                    className={`Burger_menu_img ${isburgermenu_display ? 'hide' : 'show'}`}
+                                    src={burger_menu_logo}
+                                    alt="Close Logo"
+                                />
+                            </div>
                         </div>
-                    </div>
 
                         {isburgermenu_display && (
                             <div className={`Display_menu ${isburgermenu_close ? 'Display_menu_exit' : 'Display_menu_enter'}`}>

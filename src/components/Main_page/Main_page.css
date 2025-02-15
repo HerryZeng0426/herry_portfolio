@@ -213,15 +213,19 @@
 
 
 @media (max-width: 768px) {
-    .Mobile_container {
+    .Mobile_background_main_page {
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../imgs/BACKGROUND.png');
+        position: relative;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        height: 100vh;
-        text-align: center;
-        padding-bottom: 20px;
+        align-items: center; /* 確保內容在水平方向居中 */
+        justify-content: center; /* 垂直居中 */
     }
+    
 
     .Mobile_Herry {
         height: 100%;
@@ -239,7 +243,7 @@
     }
 
     .Mobile_name {
-        width: 80%; 
+        width: 80%;
         margin-bottom: 12px;
         margin-left: -35px;
         animation: wave 2.3s infinite;
@@ -249,7 +253,7 @@
     .Mobile_line {
         width: 90%;
         margin-bottom: 12px;
-        
+
 
     }
 
@@ -267,7 +271,7 @@
             transform: translateY(0);
             /* 初始位置 */
         }
-    
+
         50% {
             transform: translateY(-5px);
             /* 波峰 */

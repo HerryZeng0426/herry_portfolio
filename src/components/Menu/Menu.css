@@ -553,7 +553,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        z-index: 1000;
+        z-index: 5;
         /* 確保 Menu 在前方顯示 */
 
         padding: 0 20px;
@@ -597,6 +597,7 @@
         z-index: 0;
         /* 保持在底层 */
     }
+
     .Burger_menu {
         position: fixed;
         top: 12px;
@@ -613,7 +614,7 @@
         align-items: center;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
-        z-index: 100;
+        z-index: 1000;
         /* 確保顯示在其他元素之上 */
         transition: transform 0.3s ease, opacity 0.3s ease;
 
@@ -679,6 +680,7 @@
             transform: translateX(100%);
         }
     }
+
     .Display_menu {
         position: fixed;
         top: 0;
@@ -695,7 +697,7 @@
         align-items: center;
         flex-direction: column;
     }
-    
+
     .Display_menu p {
         top: -20px;
         color: #ffffff;
@@ -711,9 +713,9 @@
         transition: color 0.3s ease;
         /* 平滑颜色过渡效果 */
     }
-    
-    
-    
+
+
+
     .Burger_home,
     .Burger_about,
     .Burger_work,
@@ -721,9 +723,9 @@
         position: relative;
         display: inline-block;
         cursor: pointer;
-    
+
     }
-    
+
     /* 初始狀態：膠帶不可見 */
     .Burger_home::after,
     .Burger_about::after,
@@ -747,7 +749,7 @@
         transition: transform 0.3s ease;
         /* 增加平滑動畫效果 */
     }
-    
+
     /* 滑鼠移入時觸發膠帶展開動畫 */
     .Burger_home:hover::after,
     .Burger_about:hover::after,
@@ -756,7 +758,7 @@
         transform: translateX(-50%) scaleX(1);
         /* 膠帶從中間向兩邊展開 */
     }
-    
+
     .Burger_home.Burger_active::after,
     .Burger_about.Burger_active::after,
     .Burger_work.Burger_active::after,
@@ -774,7 +776,7 @@
         z-index: 100;
         filter: brightness(1);
     }
-    
+
     .Display_menu_seperateline {
         margin-top: 0;
         /* 與標題的距離 */
@@ -787,7 +789,7 @@
         border-radius: 5px;
         /* 圓角效果，可選 */
     }
-    
+
     .Burgermenu_social {
         margin-top: 50px;
         display: flex;
@@ -798,75 +800,75 @@
         /* 垂直居中 */
         gap: 50px;
         /* 图片之间的间距，可自行调整 */
-    
-    
+
+
     }
-    
+
     .burgermenu_gmail {
         cursor: pointer;
         transition: transform 0.3s ease;
         width: 75px;
     }
-    
+
     .burgermenu_instagram {
         cursor: pointer;
         transition: transform 0.3s ease;
         width: 75px;
 
     }
-    
+
     .burgermenu_gmail:hover {
         transform: scale(1.1);
     }
-    
+
     .burgermenu_instagram:hover {
         transform: scale(1.1);
     }
-    
+
     /* 进入动画 */
     .Display_menu.Display_menu_enter {
         transform: translateX(100%);
         /* 初始位置 */
         animation: slideInBounce 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
     }
-    
+
     /* 退出动画 */
     .Display_menu.Display_menu_exit {
         transform: translateX(0);
         /* 从当前位置开始 */
         animation: slideOutBounce 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
     }
-    
+
     /* 定义进入的 bounce 动画 */
     @keyframes slideInBounce {
         0% {
             transform: translateX(100%);
         }
-    
+
         60% {
             transform: translateX(-10%);
         }
-    
+
         80% {
             transform: translateX(5%);
         }
-    
+
         100% {
             transform: translateX(0);
         }
     }
-    
+
     /* 定义退出的 bounce 动画 */
     @keyframes slideOutBounce {
         0% {
             transform: translateX(0);
         }
-    
+
         20% {
             transform: translateX(-5%);
             /* 向左稍微超出 */
         }
-    
+
         100% {
             transform: translateX(100%);
             /* 滑出页面右侧 */

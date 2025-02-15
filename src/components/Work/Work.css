@@ -590,7 +590,7 @@
     left: 50%;
     transform: translate(-50%, 50%);
     /* 修正圓形中心的偏移 */
-    z-index: 1000000;
+    z-index: 100;
 }
 
 
@@ -629,7 +629,7 @@
 }
 
 @media (max-width: 768px) {
-    .Work_background {
+    .Mobile_work_background {
         display: flex;
         flex-direction: column;
         /* 子元素垂直排列 */
