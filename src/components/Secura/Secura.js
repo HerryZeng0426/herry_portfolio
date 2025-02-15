@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import click_video_btn from '../imgs/click_video_btn.png'
-import description_btn_show2 from '../imgs/description_btn_show2.png'
 import { useMediaQuery } from 'react-responsive';
 import Back_work_btn from '../Work/Back_work_btn'
 import secura_wireframe5 from '../imgs/secura_wireframe5.png'
