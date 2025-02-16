@@ -326,8 +326,23 @@
     .Mobile_display_mainpage_android,
     .Mobile_display_rightpage_android {
         position: absolute;
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.5s ease-in-out;
         /* 讓調整更順暢 */
+    }
+    .Mobile_display_leftpage_android:hover{
+        transform: scale(1.1) ;
+        
+        z-index: 15;
+    }
+    .Mobile_display_rightpage_android:hover{
+        transform: scale(1.1) ;
+        
+        z-index: 15;
+    }
+    .Mobile_display_mainpage_android:hover{
+        transform: scale(1.1) ;
+        
+        z-index: 15;
     }
 
     /* 左邊圖片：稍微上移、左旋轉 */
@@ -362,14 +377,15 @@
         width: 275px;
         /* 可自行調整 */
         height: auto;
+        transition: transform 0.3 ea;
     }
 
-    .active {
+    /* .active {
         transform: translate(-50%, -50%) scale(1.1) !important;
         top: 50% !important;
         left: 50% !important;
         z-index: 10 !important;
-    }
+    } */
 
     .Background_section {
         display: flex;

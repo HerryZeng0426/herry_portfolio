@@ -92,7 +92,7 @@ const Until = () => {
 
     const [description_show, setDescription_show] = useState(false)
 
-    const [background_description_show , setBackground_description_show] = useState(false)
+    const [background_description_show, setBackground_description_show] = useState(false)
 
     const [isdescriptionbtn_animation, setIsdescriptionbtn_animation] = useState(false)
 
@@ -271,9 +271,9 @@ const Until = () => {
                         <div className='Background_section'>
 
                             <p className='Background_title' onClick={handle_to_display_background_description}>Background Design
-                            <img className={`Background_description_btn_show ${isdescriptionbtn_animation ? 'shake' : ''}`} src={background_description_show ? description_btn_back_btn : description_btn_show_btn} ></img>
+                                <img className={`Background_description_btn_show ${isdescriptionbtn_animation ? 'shake' : ''}`} src={background_description_show ? description_btn_back_btn : description_btn_show_btn} ></img>
                             </p>
-                            
+
                             <p className={`Mobile_background_description ${background_description_show ? 'show' : 'hidden'}`}>I designed background illustrations transitioning from sunrise to midnight to better convey the atmosphere of waiting.</p>
                             <div class="Wireframe_mainpage_title_underline"></div>
 
