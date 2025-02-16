@@ -178,10 +178,7 @@ const Contact = () => {
                 </div>
                 
             </div>}
-            {
-                Mobile_mode && 
-                
-            }
+         
             
         </div>
     )
