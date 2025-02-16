@@ -19,3 +19,41 @@
 .device:hover {
     transform: scale(1.1);
 }
+
+
+
+@media (max-width: 768px) {
+    .Display_device_chishime{
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 兩列 */
+        gap: 20px; /* 控制圖片之間的間距 */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 400px; /* 可自行調整最大寬度 */
+        margin-top: 20%;
+        padding: 10px;    
+    }
+    .device {
+        width: 100%; /* 讓圖片適應格子 */
+        height: auto;
+    }
+    .Display1 {
+        transform: translateY(-15px);
+    }
+    
+    .Display2 {
+        transform: translateY(60px);
+    }
+    
+    .Display3 {
+        transform: translateY(-10px);
+    }
+    
+    .Display4 {
+        transform: translateY(65px);
+    }
+    .space{
+        height: 300px;
+    }
+}

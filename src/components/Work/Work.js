@@ -237,11 +237,11 @@ const Work = () => {
             </div>
 
             <div className='Work_section'>
-              <img className='Work_img' src={work_childcare}></img>
+              <img className='Work_img' src={work_childcare} onClick={() => handle_to_work_page('childcare', '/childcare')}></img>
             </div>
 
             <div className='Work_section'>
-              <img className='Work_img' src={work_metro}></img>
+              <img className='Work_img' src={work_metro} onClick={() => handle_to_work_page('Metro', '/metro')}></img>
             </div>
 
 

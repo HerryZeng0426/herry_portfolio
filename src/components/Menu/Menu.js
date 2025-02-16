@@ -92,8 +92,8 @@ const Menu = () => {
                 location.pathname === '/until' ? 'Work' :
                     location.pathname === '/secura' ? 'Work' :
                         location.pathname === '/chishime' ? 'Work' :
-                            location.pathname === '/Childcare' ? 'Work' :
-                                location.pathname === '/Metro' ? 'Work' :
+                            location.pathname === '/childcare' ? 'Work' :
+                                location.pathname === '/metro' ? 'Work' :
                                     location.pathname === '/contact' ? 'Contact' :
                                         location.pathname === '/shoushan' ? 'About' :
                                             location.pathname === '/canada' ? 'About' :

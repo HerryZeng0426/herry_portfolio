@@ -27,11 +27,11 @@ function App() {
         <Route path='/canada' element={<Canada></Canada>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/work' element={<Work></Work>}></Route>
-        <Route path='/Secura' element={<Secura></Secura>}></Route>
-        <Route path='/Until' element={<Until></Until>}></Route>
-        <Route path='/Chishime' element={<Chishime></Chishime>}></Route>
-        <Route path='/Childcare' element={<Childcare></Childcare>}></Route>
-        <Route path='/Metro' element={<Metro_system></Metro_system>}></Route>
+        <Route path='/secura' element={<Secura></Secura>}></Route>
+        <Route path='/until' element={<Until></Until>}></Route>
+        <Route path='/chishime' element={<Chishime></Chishime>}></Route>
+        <Route path='/childcare' element={<Childcare></Childcare>}></Route>
+        <Route path='/metro' element={<Metro_system></Metro_system>}></Route>
       </Routes>
 
     </div>

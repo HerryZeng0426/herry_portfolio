@@ -62,3 +62,29 @@
     position: relative;
     gap: 20px; /* 圖片之間的間距，可根據需求調整 */
 }
+
+@media (max-width : 768px) {
+    .Project_name_metro{
+        font-size: 35px;
+        font-weight: 500;
+        margin: 0;
+    }
+    .Display_device_metro{
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column; /* 讓內容垂直排列 */
+        justify-content: center; /* 在垂直方向置中 */
+        align-items: center; /* 水平置中 */
+        position: relative;
+        gap: 35px; /* 圖片之間的間距，可根據需求調整 */
+    }
+    .metro1{
+        width: 375px;
+        border : 1px solid #6d6d6d;
+        border-radius: 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .metro1:hover {
+        transform: scale(1.1);
+    }
+}

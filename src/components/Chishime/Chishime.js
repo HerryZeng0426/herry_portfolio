@@ -158,7 +158,7 @@ const Chishime = () => {
 
                             </div>
                             <p className={`Project_description ${description_show ? 'show' : 'hidden'}`}>
-                            Chishime is a casual dining restaurant located in Linyuan District, Kaohsiung City, and is run by my aunt. This design was created during my early UX learning phase. I look forward to further developing this ordering system in the future to enhance the customer experience.
+                                Chishime is a casual dining restaurant located in Linyuan District, Kaohsiung City, and is run by my aunt. This design was created during my early UX learning phase. I look forward to further developing this ordering system in the future to enhance the customer experience.
                             </p>
                         </div>
 
@@ -172,14 +172,28 @@ const Chishime = () => {
                                 <p className="Project_info_value slide-in-left">{Project_info.location_year}</p>
                             </div>
                         </div>
+
+
                     </div>
 
-                
+                    <div className='Display_device_chishime'>
 
-                  
+                        <div className='Display1'>
+                            <img className='device' src={Chishime1}></img>
+                        </div>
+                        <div className='Display2'>
+                            <img className='device' src={Chishime2}></img>
+                        </div>
+                        <div className='Display3'>
+                            <img className='device' src={Chishime3}></img>
+                        </div>
+                        <div className='Display4'>
+                            <img className='device' src={Chishime4}></img>
+                        </div>
 
+                    </div>
+                    <div className='space'></div>
                     <Back_work_btn></Back_work_btn>
-
                 </div>
 
             }

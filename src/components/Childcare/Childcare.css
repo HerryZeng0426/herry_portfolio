@@ -1,5 +1,7 @@
 .CHILDCARE1 {
     width: 1300px;
+    border-radius: 12px;
+
 }
 
 .Display_device_childcare {
@@ -10,4 +12,21 @@
     align-items: center; /* 水平置中 */
     position: relative;
     gap: 20px; /* 圖片之間的間距，可根據需求調整 */
+}
+
+@media (max-width : 768px) {
+    .Project_name_childcare{
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0;
+    }
+    .CHILDCARE1 {
+        width: 375px;
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .CHILDCARE1:hover {
+        transform: scale(1.1);
+    }
+
 }
