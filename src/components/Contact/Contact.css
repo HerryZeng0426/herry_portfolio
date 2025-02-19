@@ -1,5 +1,4 @@
-
-.contact {
+.Contact_page {
     background-size: cover;
     /* 背景图片等比例缩放，覆盖整个容器 */
     background-repeat: no-repeat;
@@ -193,7 +192,7 @@ a img {
     transition: 0.3s ease;
 }
 
-.back_main_btn {
+.back_work_btn {
 
     text-indent: 100px;
     /* 文字向右移动 */
@@ -226,14 +225,14 @@ a img {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.back_main_btn:hover {
+.back_work_btn:hover {
     transform: scale(1.1);
     color: black;
 
     /* 悬停时放大按钮 */
 }
 
-.back_main_btn::before {
+.back_work_btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -249,20 +248,20 @@ a img {
 
 }
 
-.back_main_btn:hover::before {
+.back_work_btn:hover::before {
     width: 100%;
     /* 悬停时填充整个按钮 */
 
 }
 
 
-.back_main_btn span {
+.back_work_btn span {
     position: relative;
 
     z-index: 1000;
 }
 
-.back_main_btn img {
+.back_work_btn img {
     width: 325px;
 
 
@@ -288,7 +287,199 @@ a img {
     /* 添加渐变效果 */
 }
 
-.back_main_btn:hover .main_page_logo {
+.back_work_btn:hover .main_page_logo {
     opacity: 1;
     /* 悬停时显示图片 */
+}
+
+@media (max-width : 768px) {
+
+    .Mobile_contact_page {
+        background-color: #383838;
+        width: 100vw;
+        /* 讓背景填滿整個螢幕寬度 */
+        min-height: 100vh;
+        /* 允許內容超過螢幕高度時延展 */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* 內容從上方開始排列 */
+        overflow-x: hidden;
+        /* 防止水平滾動 */
+        position: relative;
+        /*重要*/
+
+    }
+
+    .Info_container {
+        position: relative;
+        /* 改成 relative，讓它影響後續內容 */
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        /* 限制最大寬度 */
+        margin-top: 55%;
+        /* 讓它與上方保持適當距離 */
+    }
+
+    /* 左邊圖片 */
+    .Info_left_section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile_contact_me_img {
+        width: 200px;
+        transition: transform 0.3s ease-in-out;
+        /* 調整左側圖片大小 */
+        height: auto;
+    }
+
+    .mobile_contact_me_img:hover {
+        transform: scale(1.1);
+    }
+
+    /* 右邊資訊區塊 */
+    .Info_right_section {
+        display: flex;
+        flex-direction: column;
+        /* 讓內容垂直排列 */
+        align-items: flex-start;
+        /* 讓內容靠左對齊 */
+        gap: 20px;
+        /* 設定每個元素的間距 */
+    }
+
+    .phone_number {
+        width: 150px;
+    }
+
+    .gmail {
+        width: 150px;
+
+    }
+
+    .instagram {
+        width: 120px;
+
+    }
+
+    @keyframes expandanimation_for_btn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .Mobile_back_work_btn {
+        text-indent: -15px;
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        top: -75px;
+        right: -75px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1000;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: expandanimation_for_btn 0.6s ease-out forwards;
+    }
+
+    .Mobile_work_page {
+        font-size: 20px;
+        position: relative;
+        top: 5%;
+    }
+
+    .Mobile_contact_form {
+        position: relative;
+        margin-top: 25%;
+        /* 讓表單與 `.Info_container` 保持間距 */
+        width: 100%;
+        text-align: left;
+    }
+    .contact_tittle_1{
+        display: block; /* 確保它是 block，才能用 margin 自動置中 */
+        margin: auto;
+        width: 85%;
+    }
+    .contact_tittle_2{
+        display: block; /* 確保它是 block，才能用 margin 自動置中 */
+        margin: auto;
+        margin-top: 5%;
+        width: 85%;
+        margin-bottom: 15%;
+
+    }
+    .Mobile_seperate_line{
+        display: block; /* 確保它是 block，才能用 margin 自動置中 */
+        margin: auto;
+        width: 90%;
+        margin-top: 0%;
+        margin-bottom: 15%;
+    }
+    .Mobile_qeus_1{
+        width: 50%;
+        display: block; /* 確保它是 block，才能用 margin 自動置中 */
+        margin: 0 5%;
+    }
+    .Mobile_qeus_2{
+        width: 50%;
+        display: block; /* 確保它是 block，才能用 margin 自動置中 */
+        margin: 0 5%;
+    }
+    .Mobile_qeus_3{
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+    .Mobile_submit_btn_section{
+        position: relative;
+        margin-top: 0%;
+        /* 讓表單與 `.Info_container` 保持間距 */
+        width: 100%;
+        text-align: right;
+    }
+    .check_value{
+        height: 0px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        transition: 0.3s ease;
+        position: absolute;
+        margin-top: -5%;        
+    }
+    .Mobile_submit_btn{
+        
+        /* 将按钮对齐到右侧 */
+        position: relative;
+        /* 为伪元素定位做准备 */
+        transition: color 0.3s ease;
+        /* 平滑的文字颜色过渡 */
+        width: 125px;
+        height: 75px;
+        border-radius: 50px;
+        border: none;
+        font-size: 25px;
+        font-weight: 500;
+        margin-right: 5%;
+        margin-bottom: 15%;
+    }
 }

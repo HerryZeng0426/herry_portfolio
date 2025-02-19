@@ -78,8 +78,13 @@
         position: relative;
         gap: 35px; /* 圖片之間的間距，可根據需求調整 */
     }
+    .metro_device1{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
     .metro1{
-        width: 375px;
+        width: 90%;
         border : 1px solid #6d6d6d;
         border-radius: 20px;
         transition: transform 0.3s ease-in-out;
