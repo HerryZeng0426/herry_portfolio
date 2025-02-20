@@ -1,4 +1,6 @@
-import { React, useState } from 'react'
+import React, { useRef, useState } from "react";
+import Lottie from "lottie-react";
+import send_ani_btn from '../Animations/send_ani_btn.json'
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import what_service from '../imgs/what_service.png'
@@ -29,6 +31,19 @@ import { use } from 'react';
 
 const Contact = () => {
 
+    window.addEventListener('mousewheel', function (event) {
+        if (event.ctrlKey === true || event.metaKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    // 針對 Firefox
+    window.addEventListener('DOMMouseScroll', function (event) {
+        if (event.ctrlKey === true || event.metaKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
     const Mobile_mode = useMediaQuery({ maxWidth: 768 })
 
     const navigate = useNavigate()
@@ -47,6 +62,8 @@ const Contact = () => {
 
     const [inputServiceValue, setInputServiceValue] = useState(''); // 定义状态记录输入值
 
+
+
     const handleNameChange = (event) => {
         setInputNameValue(event.target.value); // 更新状态
     };
@@ -59,10 +76,13 @@ const Contact = () => {
         setInputServiceValue(event.target.value); // 更新状态
     };
 
+    const lottieRef = useRef(null);
+
+    const [play_send_ani, setPlay_send_ani] = useState(false)
+
     const handle_submit_value = () => {
+
         if (inputNameValue.length > 0 && inputGmailValue.length > 0 && inputServiceValue.length > 0) {
-
-
 
             emailjs.send(
                 'contact_form', // Service ID
@@ -89,34 +109,36 @@ const Contact = () => {
                     }
                 );
 
-
             console.log('Name : ', inputNameValue)
             console.log('Gmail : ', inputGmailValue)
             console.log('Service : ', inputServiceValue)
             setIssendit(true)
 
             setIsckeck_input(false)
+            if (!play_send_ani) {
+                setPlay_send_ani(true); // 防止重複播放
+              
+                setTimeout(() => {
+                  if (lottieRef.current) {
+                    lottieRef.current.goToAndPlay(0, true); // **0.7 秒後開始動畫**
+              
+                    setTimeout(() => {
+                      lottieRef.current?.goToAndStop(27, true); // **停在第 27 幀**
+                    }, 900); // **動畫播放 0.9 秒後停止**
+                  }
+                }, 700); // **先等 0.7 秒**
+              }
         }
         else {
             setIssendit(false)
             setIsckeck_input(true)
         }
 
+
+
+
+
     }
-
-
-    window.addEventListener('mousewheel', function (event) {
-        if (event.ctrlKey === true || event.metaKey) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-
-    // 針對 Firefox
-    window.addEventListener('DOMMouseScroll', function (event) {
-        if (event.ctrlKey === true || event.metaKey) {
-            event.preventDefault();
-        }
-    }, { passive: false });
 
     const handle_call_me = () => {
         window.location.href = "tel:0987887336"
@@ -244,10 +266,22 @@ const Contact = () => {
 
 
                     </div>
-                    
+
                     <div className='Mobile_submit_btn_section'>
-                        <button className='Mobile_submit_btn' onClick={handle_submit_value}>
+                        <button className={`Mobile_submit_btn ${play_send_ani ? "active" : ""}`} onClick={handle_submit_value}>
+
                             <span>Send it</span>
+
+                            {play_send_ani && (
+                                <Lottie
+                                    lottieRef={lottieRef}
+                                    className="send_ani_btn"
+                                    animationData={send_ani_btn}
+                                    style={{ width: 55, height: 55 }}
+                                    autoplay={false} // **確保不會自動播放**
+                                    loop={false}
+                                />
+                            )}
                         </button>
                     </div>
 

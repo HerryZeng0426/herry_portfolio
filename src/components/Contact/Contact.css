@@ -466,13 +466,31 @@ a img {
         position: absolute;
         margin-top: -5%;        
     }
-    .Mobile_submit_btn{
-        
-        /* 将按钮对齐到右侧 */
+    
+    @keyframes btn_shake {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translate(5px, -5px);
+        }
+
+        50% {
+            transform: translate(5px, -5px);
+        }
+
+        75% {
+            transform: translate(-5px, 5px);
+        }
+    }
+
+    .Mobile_submit_btn {
+        animation: btn_shake 3s infinite ease-in-out;
         position: relative;
-        /* 为伪元素定位做准备 */
         transition: color 0.3s ease;
-        /* 平滑的文字颜色过渡 */
         width: 125px;
         height: 75px;
         border-radius: 50px;
@@ -481,5 +499,53 @@ a img {
         font-weight: 500;
         margin-right: 5%;
         margin-bottom: 15%;
+        margin-top: 5%;
+        color: #000000;
+        overflow: hidden; /* 防止內容超出 */
     }
+    
+    /* 伪元素用于填充按钮背景 */
+    .Mobile_submit_btn::before {
+        border-radius: 50px;
+        opacity: 0;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: black;
+        z-index: 0;
+        transition: width 0.7s ease;
+    }
+    
+    /* 按下按鈕 (active) 時，背景填滿 */
+    .Mobile_submit_btn.active::before {
+        opacity: 1;
+        width: 100%;
+    }
+    
+    /* 文字樣式 */
+    .Mobile_submit_btn span {
+        position: relative;
+        z-index: 1;
+        transition: transform 0.9s ease, opacity 0.9s ease;
+    }
+    
+    /* 文字向右滑出 */
+    .Mobile_submit_btn.active span {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+.send_ani_btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    pointer-events: none; /* 防止影響點擊 */
+}    
+   
+    
 }
