@@ -396,7 +396,6 @@ a img {
         border: none;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 16px;
         z-index: 1000;
         transition: background-color 0.3s ease, transform 0.3s ease;
         animation: expandanimation_for_btn 0.6s ease-out forwards;
@@ -404,6 +403,7 @@ a img {
 
     .Mobile_work_page {
         font-size: 20px;
+        font-weight: 500;
         position: relative;
         top: 5%;
     }

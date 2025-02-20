@@ -126,7 +126,6 @@
     /* 圆形按钮 */
     cursor: pointer;
     /* 鼠标悬停时显示手型 */
-    font-size: 16px;
     /* 按钮字体大小 */
     z-index: 1000;
     /* 确保按钮显示在其他内容之上 */
@@ -136,6 +135,7 @@
     opacity: 0;
     /* 初始隐藏 */
     transform: scale(0);
+    font-weight: 500;
     /* 初始缩放 */
 }
 
@@ -188,7 +188,7 @@
 
 
 
-.All_work{
+.Mobile_All_work{
     position: relative;
     top: -5%;
     right: 35%;

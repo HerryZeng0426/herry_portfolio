@@ -54,7 +54,7 @@ const Back_work_btn = () => {
             {
                 Mobile_mode && <div>
                 <button className={`mobile_Back_work_button ${isvisible ? 'show' : ''}`} onClick={handleto_work}>
-                    <span className='All_work'>All Work</span>
+                    <span className='Mobile_All_work'>All Work</span>
                 </button>
             </div>
             }
