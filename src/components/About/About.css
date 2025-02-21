@@ -259,3 +259,21 @@
 .taiwan:hover {
     cursor: pointer;
 }
+
+@media (max-width : 768px) {
+    .Mobile_about_background {
+        background-image: url('../imgs/BACKGROUND.png');
+        background-size: cover; /* 讓背景填滿 */
+        background-repeat: no-repeat; /* 防止背景重複 */
+        background-position: center; /* 確保背景置中 */
+        
+        width: 100vw; /* 覆蓋整個視口寬度 */
+        min-height: 100vh; /* 確保內容超出時仍然可滾動 */
+        
+        display: flex; /* 讓內部元素可以控制 */
+        justify-content: center; /* 可選：讓內部元素水平置中 */
+        align-items: center; /* 可選：讓內部元素垂直置中 */
+    }
+    
+    
+}

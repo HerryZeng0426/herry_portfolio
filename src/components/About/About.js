@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import explore from '../imgs/explore.png'
 import shoushan from '../imgs/Shoushan.png'
@@ -27,19 +28,21 @@ import taiwan from '../imgs/taiwan.png'
 
 const About = () => {
 
-    window.addEventListener('mousewheel', function(event) {
+    window.addEventListener('mousewheel', function (event) {
         if (event.ctrlKey === true || event.metaKey) {
             event.preventDefault();
         }
     }, { passive: false });
-    
+
     // 針對 Firefox
-    window.addEventListener('DOMMouseScroll', function(event) {
+    window.addEventListener('DOMMouseScroll', function (event) {
         if (event.ctrlKey === true || event.metaKey) {
             event.preventDefault();
         }
     }, { passive: false });
-    
+
+
+    const Mobile_mode = useMediaQuery({ maxWidth: 768 })
 
     const navigate = useNavigate();
 
@@ -112,14 +115,14 @@ const About = () => {
 
     const getCaSrc = () => {
         if (ishovered_taiwan) {
-          return shoushan;
+            return shoushan;
         } else if (ishovered_canada) {
-          return ca;
-        } 
+            return ca;
+        }
         else {
             return explore
         }
-      };
+    };
 
     useEffect(() => {
         // 監聽窗口大小變化
@@ -171,92 +174,102 @@ const About = () => {
     }
 
     return (
-        <div className='About_background'>
-            <Menu></Menu>
+        <div>
+            {!Mobile_mode &&
+                <div className='About_background'>
+                    <Menu></Menu>
 
-            <div className='intro_container'>
-                <img className='introduce_img' src={introduce}></img>
-                <img className='intro_text' src={intro_text}></img>
-            </div>
+                    <div className='intro_container'>
+                        <img className='introduce_img' src={introduce}></img>
+                        <img className='intro_text' src={intro_text}></img>
+                    </div>
 
-            <div className='inspiration_container'>
-                <div className='img_container'>
-                    <img src={Dime_img[keys[currentimg]]} className={transition ? 'transition_in' : 'transition_out'}></img>
+                    <div className='inspiration_container'>
+                        <div className='img_container'>
+                            <img src={Dime_img[keys[currentimg]]} className={transition ? 'transition_in' : 'transition_out'}></img>
 
-                </div>
-                <img className='inspiration_text' src={inspiration} ></img>
-            </div>
+                        </div>
+                        <img className='inspiration_text' src={inspiration} ></img>
+                    </div>
 
-            <div className='recently_container '>
-                <img className='recently' src={recently}></img>
-                <img className='ca' src={getCaSrc()}></img>
-                <div className='earth_container'>
-                    <img src={earth}></img>
-                    <img src={canada} className='country canada'
-                    onClick={handle_to_canada}
-                         onMouseEnter={handleMouseEnter_canada}
-                        onMouseLeave={handleMouseLeave_canada}
-                        onMouseMove={handleMouseMove_canada}></img>
-                        
-                    <img src={taiwan} className='country taiwan'
-                    onClick={handle_to_shoushan}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                        onMouseMove={handleMouseMove}></img>
-                </div>
-                {ishovered_canada && (
+                    <div className='recently_container '>
+                        <img className='recently' src={recently}></img>
+                        <img className='ca' src={getCaSrc()}></img>
+                        <div className='earth_container'>
+                            <img src={earth}></img>
+                            <img src={canada} className='country canada'
+                                onClick={handle_to_canada}
+                                onMouseEnter={handleMouseEnter_canada}
+                                onMouseLeave={handleMouseLeave_canada}
+                                onMouseMove={handleMouseMove_canada}></img>
+
+                            <img src={taiwan} className='country taiwan'
+                                onClick={handle_to_shoushan}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                                onMouseMove={handleMouseMove}></img>
+                        </div>
+                        {ishovered_canada && (
+                            <img
+                                src={ca2}
+                                alt="Extra"
+                                className="ca_img"
+                                style={{
+                                    width: '10%',
+                                    borderRadius: '25px',
+                                    position: 'fixed',
+                                    top: mousePosition_canada.y + 10, // 加一些偏移，避免遮蓋滑鼠
+                                    left: mousePosition_canada.x + 10,
+                                    pointerEvents: 'none', // 讓圖片不影響滑鼠事件
+                                    zIndex: 1001, // 確保圖片顯示在最前面
+                                }}
+                            />
+                        )}
+
+                        {ishovered_taiwan && (
+                            <img
+                                src={climb}
+                                alt="Extra"
+                                className="climb_img"
+                                style={{
+                                    width: '10%',
+                                    borderRadius: '25px',
+                                    position: 'fixed',
+                                    top: mousePosition_taiwan.y + 10, // 加一些偏移，避免遮蓋滑鼠
+                                    left: mousePosition_taiwan.x + 10,
+                                    pointerEvents: 'none', // 讓圖片不影響滑鼠事件
+                                    zIndex: 1001, // 確保圖片顯示在最前面
+                                }}
+                            />
+                        )}
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+
+                        {/* <div className='recent_img'>
+                        <img className='ca2' src={ca2}></img>
+                        <img className='climb' src={climb}></img>
+                   </div > */}
+                    </div>
+                    <img className='ramp' src={ramp}></img>
+
                     <img
-                        src={ca2}
-                        alt="Extra"
-                        className="ca_img"
+                        src={skateboard}
+                        alt="Skateboard"
+                        className="skateboard"
                         style={{
-                            width: '10%',
-                            borderRadius: '25px',
-                            position: 'fixed',
-                            top: mousePosition_canada.y + 10, // 加一些偏移，避免遮蓋滑鼠
-                            left: mousePosition_canada.x + 10,
-                            pointerEvents: 'none', // 讓圖片不影響滑鼠事件
-                            zIndex: 1001, // 確保圖片顯示在最前面
+                            transform: `translate(${position.x}px, ${position.y}px)`,
                         }}
                     />
-                )}
+                </div>}
+            {
+                Mobile_mode &&
+                <div className='Mobile_about_background'>
+                    <Menu></Menu>
 
-                {ishovered_taiwan && (
-                    <img
-                        src={climb}
-                        alt="Extra"
-                        className="climb_img"
-                        style={{
-                            width: '10%',
-                            borderRadius: '25px',
-                            position: 'fixed',
-                            top: mousePosition_taiwan.y + 10, // 加一些偏移，避免遮蓋滑鼠
-                            left: mousePosition_taiwan.x + 10,
-                            pointerEvents: 'none', // 讓圖片不影響滑鼠事件
-                            zIndex: 1001, // 確保圖片顯示在最前面
-                        }}
-                    />
-                )}
-                <br></br>
-                <br></br>
-                <br></br>
-
-
-                {/* <div className='recent_img'>
-                    <img className='ca2' src={ca2}></img>
-                    <img className='climb' src={climb}></img>
-               </div > */}
-            </div>
-            <img className='ramp' src={ramp}></img>
-
-            <img
-                src={skateboard}
-                alt="Skateboard"
-                className="skateboard"
-                style={{
-                    transform: `translate(${position.x}px, ${position.y}px)`,
-                }}
-            />
+                </div>
+            }
         </div>
     )
 }

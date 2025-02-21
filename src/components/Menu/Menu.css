@@ -23,7 +23,7 @@
 }
 
 /* Logo 設定 */
-.Logo {
+.Home {
     width: 300PX;
     /* 可依需求調整 Logo 大小 */
     height: auto;
@@ -58,7 +58,7 @@
 .About,
 .Work,
 .Contact,
-.Logo {
+.Home {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -116,7 +116,7 @@
 
 }
 
-.LogoWrapper {
+.HomeWrapper {
 
     position: relative;
     display: inline-block;
@@ -125,7 +125,7 @@
     margin-left: 5%;
 }
 
-.LogoWrapper::after {
+.HomeWrapper::after {
     content: "";
     position: absolute;
     top: 0;
@@ -143,12 +143,12 @@
     transition: transform 0.3s ease;
 }
 
-.LogoWrapper:hover::after {
+.HomeWrapper:hover::after {
     transform: translateX(-50%) scaleX(1);
     /* 滑鼠移入時展開膠帶 */
 }
 
-.LogoWrapper.active::after {
+.HomeWrapper.active::after {
     content: "";
     position: absolute;
     top: 0;
@@ -539,9 +539,74 @@
 }
 
 
+.menu_circle_fill {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    /* 圓形顏色，可自定義 */
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    /* 確保在所有內容上方 */
+    transition: width 3s ease, height 3s ease;
+    /* 平滑的填滿動畫 */
+}
 
+.menu_circle_fill.active {
+    width: 1000vh;
+    /* 保持填滿效果 */
+    height: 1000vh;
+    bottom: 50%;
+    /* 讓圓形中心位於螢幕中央 */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    /* 修正圓形中心的偏移 */
+    z-index: 1000;
+}
+
+
+
+.menu_circle_fill.active .menu_circle_title {
+    opacity: 1;
+    /* 圓形激活時 LOGO 漸出 */
+}
+
+.menu_circle_title {
+    position: fixed;
+    /* ✅ 固定在视口中央，不受滚动影响 */
+    color: white;
+    font-size: 100px;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    /* 初始透明 */
+
+    top: 50%;
+    /* ✅ 让它位于视口的 50% 处 */
+    left: 50%;
+    /* ✅ 让它位于视口的 50% 处 */
+
+    transform: translate(-50%, -150%);
+    /* ✅ 让它的**中心点**对齐屏幕正中央 */
+
+    z-index: 10000;
+    /* ✅ 确保比 .circle_fill 高 */
+    transition: opacity 0.5s ease 0.5s;
+}
+
+/* 触发渐显 */
+.menu_circle_title.show {
+    opacity: 1;
+}
 
 @media (max-width: 768px) {
+    .menu_circle_title{
+        font-size: 50px;
+
+    }
     .Mobile_menu {
         position: absolute;
         top: 0;
@@ -565,7 +630,7 @@
         margin-top: 1%;
     }
 
-    .Mobile_Logo {
+    .Mobile_Home {
         width: 200px;
     }
 
