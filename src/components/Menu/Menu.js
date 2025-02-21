@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import about_animation from '../Animations/anit_skatejump_about.json'
+import lottie from "lottie-web";
 import { useMediaQuery } from 'react-responsive';
 import burgermenu_instagram from '../imgs/burgermenu_instagram.png'
 import burgermenu_gmail from '../imgs/burgermenu_gmail.png'
@@ -100,13 +102,14 @@ const Menu = () => {
                                                 'Home'; // 預設為 Logo
 
 
-    const [clickmenuitem, setClickemuitem] = useState(initialState)
+    const [clickmenuitem, setClickmenuitem] = useState(initialState)
 
     const navigate = useNavigate();
 
+
     //跳轉到頁面動畫
     const handle_to_page_animation = (page_tittle, page_src) => {
-        setClickemuitem(page_tittle); // 這裡將 `page_tittle` 設為目前的選單狀態
+        setClickmenuitem(page_tittle); // 這裡將 `page_tittle` 設為目前的選單狀態
 
         // 先刪除可能存在的舊動畫元素 , Vercel託管會保留上一個dom，如果按了返回鍵，會保留.circle_fill, .circle_title動畫
         //solution:在 handle_to_work_page 跳轉前刪除舊的動畫元素：
@@ -138,7 +141,78 @@ const Menu = () => {
         // 1.3 秒後跳轉
         setTimeout(() => {
             window.location.href = page_src;
-        }, 1300);
+        }, 1500);
+    };
+
+    //在返回時 (pageshow 事件) 確保動畫被移除
+    // 監聽 `pageshow` 確保返回時清除動畫
+    window.addEventListener("pageshow", () => {
+        if (sessionStorage.getItem("navigated") === "true") {
+            sessionStorage.removeItem("navigated");
+            document.body.style.overflow = "auto";
+
+            document.querySelectorAll(".menu_circle_fill, .menu_circle_title").forEach(el => el.remove());
+        }
+    });
+
+
+    // 確保從 `page_src` 返回時清除動畫
+    window.addEventListener("DOMContentLoaded", () => {
+        if (sessionStorage.getItem("navigated") === "true") {
+            sessionStorage.removeItem("navigated");
+            document.body.style.overflow = "auto";
+
+            document.querySelectorAll(".menu_circle_fill, .menu_circle_title").forEach(el => el.remove());
+        }
+    });
+
+
+     //因About頁面有加一個滑板動畫 所以要另外創建
+     const handle_to_about_page = (page_tittle, page_src) => {
+        setClickmenuitem(page_tittle); // 這裡將 `page_tittle` 設為目前的選單狀態
+
+        // 先刪除可能存在的舊動畫元素 , Vercel託管會保留上一個dom，如果按了返回鍵，會保留.circle_fill, .circle_title動畫
+        //solution:在 handle_to_work_page 跳轉前刪除舊的動畫元素：
+        document.querySelectorAll(".menu_circle_fill, .menu_circle_title , .about_animation").forEach(el => el.remove());
+
+        document.body.style.overflow = "hidden";
+
+        // 記錄狀態 (處理返回鍵)
+        sessionStorage.setItem("navigated", "true");
+
+        // 創建填充動畫的圓形
+        const circle = document.createElement("div");
+        circle.classList.add("menu_circle_fill");
+
+        const lottieContainer = document.createElement("div");
+        lottieContainer.classList.add("about_animation");
+        lottieContainer.style.position = "fixed";
+        lottieContainer.style.top = "50%";
+        lottieContainer.style.left = "50%";
+        lottieContainer.style.transform = "translate(-50%, -55%)";
+        lottieContainer.style.width = "55%";  // 可調整大小
+        lottieContainer.style.zIndex = "1000";
+
+        document.body.appendChild(circle);
+        document.body.appendChild(lottieContainer);
+
+
+        // 啟動動畫
+        setTimeout(() => {
+            circle.classList.add("active");
+        }, 10);
+        lottie.loadAnimation({
+            container: lottieContainer,
+            renderer: "svg",
+            loop: false,
+            autoplay: true,
+            animationData: about_animation,
+        });
+
+        // 1.3 秒後跳轉
+        setTimeout(() => {
+            window.location.href = page_src;
+        }, 1600);
     };
 
     //在返回時 (pageshow 事件) 確保動畫被移除
@@ -173,7 +247,7 @@ const Menu = () => {
 
                     <div
                         className={`HomeWrapper ${clickmenuitem === 'Home' ? 'active' : ''}`}
-                        onClick={() => { setClickemuitem('Home'); navigate('/herry') }}
+                        onClick={() => { setClickmenuitem('Home'); navigate('/herry') }}
                     >
                         <img className='Home' src={Logo} alt='Home' />
                     </div>
@@ -181,15 +255,15 @@ const Menu = () => {
 
                         <p
                             className={`Work ${clickmenuitem === 'Work' ? 'active' : ''}`}
-                            onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
+                            onClick={() => { setClickmenuitem('Work'); navigate('/work') }}>
                             Work</p>
                         <p
                             className={`About ${clickmenuitem === 'About' ? 'active' : ''}`}
-                            onClick={() => { setClickemuitem('About'); navigate('/about') }}
+                            onClick={() => { setClickmenuitem('About'); navigate('/about') }}
                         >About</p>
                         <p
                             className={`Contact ${clickmenuitem === 'Contact' ? 'active' : ''}`}
-                            onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
+                            onClick={() => { setClickmenuitem('Contact'); navigate('/contact') }}
                         >Contact</p>
                     </div>
 
@@ -220,20 +294,20 @@ const Menu = () => {
 
                         <p
                             className={`Burger_home ${clickmenuitem === 'Home' ? 'Burger_active' : ''}`}
-                            onClick={() => { setClickemuitem('Home'); navigate('/herry') }}
+                            onClick={() => { setClickmenuitem('Home'); navigate('/herry') }}
                         >Home</p>
                         <p
                             className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
-                            onClick={() => { setClickemuitem('Work'); navigate('/work') }}>
+                            onClick={() => { setClickmenuitem('Work'); navigate('/work') }}>
                             Work</p>
                         <p
                             className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
-                            onClick={() => { setClickemuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
+                            onClick={() => { setClickmenuitem('About'); navigate('/about'); window.scrollTo(0, 0); }}
                         >About</p>
 
                         <p
                             className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
-                            onClick={() => { setClickemuitem('Contact'); navigate('/contact') }}
+                            onClick={() => { setClickmenuitem('Contact'); navigate('/contact') }}
                         >Contact</p>
                         <div className='Display_menu_seperateline'></div>
 
@@ -252,7 +326,7 @@ const Menu = () => {
                 <div className='Mobile_menu'>
 
 
-                    <img className='Mobile_Home' src={Logo} alt='Home' onClick={() => {setClickemuitem('Home') ; navigate('/herry')}}/>
+                    <img className='Mobile_Home' src={Logo} alt='Home' onClick={() => {setClickmenuitem('Home') ; navigate('/herry')}}/>
 
 
                     <div className='Mobile_right_menu'>
@@ -285,7 +359,7 @@ const Menu = () => {
                                     Work</p>
                                 <p
                                     className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
-                                    onClick={() => {handle_to_page_animation('About' , 'about') ; window.scrollTo(0, 0); }}
+                                    onClick={() => {handle_to_about_page('About' , '/about'); window.scrollTo(0, 0); }}
                                 >About</p>
 
                                 <p
