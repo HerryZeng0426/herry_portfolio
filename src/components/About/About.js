@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import intro_my_skill_title from '../imgs/intro_my_skill_title.png'
+import about_tittle from '../imgs/About_tittle.png'
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import explore from '../imgs/explore.png'
@@ -53,6 +55,7 @@ const About = () => {
         dime2
     ]
 
+
     const [ishovered_taiwan, setIshovered_taiwan] = useState(false)
     const [mousePosition_taiwan, setMousePosition_taiwan] = useState({ x: 0, y: 0 });
     const [ishovered_canada, setIshovered_canada] = useState(false)
@@ -85,6 +88,12 @@ const About = () => {
     const handleMouseMove_canada = (e) => {
         setMousePosition_canada({ x: e.clientX, y: e.clientY });
     };
+
+    const [aboutme_description_show , setAboutme_description_show] = useState(false)
+
+    const   handle_show_aboutme_description = () => {
+        setAboutme_description_show(!aboutme_description_show)
+    }
 
 
 
@@ -266,9 +275,26 @@ const About = () => {
             {
                 Mobile_mode &&
                 <div className='Mobile_about_background'>
-                    <Menu></Menu>
 
+                    <Menu></Menu>
+                    <img className='about_tittle' src={about_tittle}></img>
+
+                    <div className='Get_know_me_section'>
+                        <div class="seperate_line"></div>
+    
+                        <div className='Get_know_me_btn'  onClick={handle_show_aboutme_description}>Get to know me !</div>
+                    </div>
+                    <p className={`Aboutme_description ${aboutme_description_show ? 'show' :''}`}>
+                    I am a student at STUST, majoring in CSIE. I love exploring the world of interface and interactive design. Although I don't have much experience in UI/UX, I am committed to learning and improving
+                    </p>
+                    <img className='Aboutme_img' src={introduce}></img>
+
+                    <div className='Intro_skill_section'>
+                        <img className='intro_my_skill_title' src={intro_my_skill_title}></img>
+
+                        </div>
                 </div>
+                
             }
         </div>
     )

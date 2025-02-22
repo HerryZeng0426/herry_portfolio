@@ -1,4 +1,3 @@
-
 .About_background {
     background-size: cover;
 
@@ -18,7 +17,8 @@
     height: 100vh;
     /* 垂直置中 */
     gap: 5%;
-    /* 兩張圖片的間距，可自行調整為更小或更大 */}
+    /* 兩張圖片的間距，可自行調整為更小或更大 */
+}
 
 /* 確保圖片保持比例縮放 */
 .introduce_img {
@@ -262,18 +262,148 @@
 
 @media (max-width : 768px) {
     .Mobile_about_background {
-        background-image: url('../imgs/BACKGROUND.png');
-        background-size: cover; /* 讓背景填滿 */
-        background-repeat: no-repeat; /* 防止背景重複 */
-        background-position: center; /* 確保背景置中 */
-        
-        width: 100vw; /* 覆蓋整個視口寬度 */
-        min-height: 100vh; /* 確保內容超出時仍然可滾動 */
-        
-        display: flex; /* 讓內部元素可以控制 */
-        justify-content: center; /* 可選：讓內部元素水平置中 */
-        align-items: center; /* 可選：讓內部元素垂直置中 */
+        width: 100vw;
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        /* 讓內部元素垂直排列 */
+        align-items: center;
+        /* 讓內容水平置中 */
+        justify-content: flex-start;
+        /* 內容從上方開始排列 */
+        padding-top: 5vh;
+        /* 可調整頂部間距 */
     }
-    
-    
+
+
+    /* 讓 about_tittle 圖片左右置中 */
+    .about_tittle {
+        width: 70%;
+        max-width: 600px;
+        /* 限制最大寬度，避免過大 */
+        margin-top: 30%;
+        /* 調整與上方的距離 */
+        align-self: flex-start;
+        margin-left: 5%;
+    }
+
+    /* 讓分界線左右置中 */
+    .seperate_line {
+        width: 90%;
+        /* 控制線條的長度 */
+        height: 1px;
+        background-color: #000;
+        /* 黑色分界線 */
+        margin-top: 20px;
+        /* 可調整與上方的距離 */
+    }
+
+    @keyframes btn_shake {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translate(-5px, -5px);
+        }
+
+        50% {
+            transform: translate(5px, -5px);
+        }
+
+        75% {
+            transform: translate(-5px, 5px);
+        }
+    }
+
+    .Get_know_me_section {
+        display: flex;
+        align-items: center;
+        /* 垂直置中 */
+        justify-content: center;
+        /* 內容水平置中 */
+        width: 100%;
+        position: relative;
+        margin-top: 12%;
+    }
+
+    @keyframes bgColorChange {
+        0% {
+            background-color: #6e6e6e;
+        }
+
+        50% {
+            background-color: #e7e7e7;
+            /* 變成較亮的灰色 */
+            color: #000;
+        }
+
+        100% {
+            background-color: #6e6e6e;
+        }
+    }
+
+    .Get_know_me_btn {
+        width: 90px;
+        /* 圓形大小 */
+        height: 90px;
+        background-color: #6e6e6e;
+        /* 按鈕顏色 */
+        color: white;
+        /* 文字顏色 */
+        font-size: 15px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        border-radius: 50%;
+        /* 讓它變成圓形 */
+        position: absolute;
+        z-index: 0;
+
+        animation: btn_shake 3s infinite ease-in-out, bgColorChange 5s infinite ease-in-out;
+        /* 讓動畫持續運行 */
+        left: 70%;
+
+    }
+
+    .Aboutme_description {
+        margin-top: 12%;
+        width: 90%;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 500;
+        color: #000;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 1s ease-in-out, opacity 0.5s ease-out;
+    }
+
+    .Aboutme_description.show {
+        max-height: 350px;
+        /* 根據內容調整高度 */
+        opacity: 1;
+    }
+
+    .Aboutme_img {
+        width: 90%;
+    }
+
+    .intro_my_skill_title {
+        width: 90%;
+    }
+    .Intro_skill_section{
+        margin-top: 20%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
 }

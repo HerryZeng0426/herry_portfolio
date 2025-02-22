@@ -141,7 +141,7 @@ const Menu = () => {
         // 1.3 秒後跳轉
         setTimeout(() => {
             window.location.href = page_src;
-        }, 1500);
+        }, 1300);
     };
 
     //在返回時 (pageshow 事件) 確保動畫被移除
@@ -212,7 +212,7 @@ const Menu = () => {
         // 1.3 秒後跳轉
         setTimeout(() => {
             window.location.href = page_src;
-        }, 1600);
+        }, 1500);
     };
 
     //在返回時 (pageshow 事件) 確保動畫被移除
