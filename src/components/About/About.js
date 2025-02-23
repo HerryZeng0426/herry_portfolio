@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import dime_btn from '../imgs/dime_btn.png'
+import design_inspiration_title from '../imgs/design_inspiration.png'
 import skill_click_arrow from '../imgs/Skill_click_arrow.png'
 import Development from '../imgs/Development_description.png'
 import Design from '../imgs/Design_description.png'
@@ -96,8 +98,14 @@ const About = () => {
 
     const [aboutme_description_show, setAboutme_description_show] = useState(false)
 
+    const [dime_description_show, setDime_description_show] = useState(false)
+
     const handle_show_aboutme_description = () => {
         setAboutme_description_show(!aboutme_description_show)
+    }
+
+    const handle_show_dime_description = () => {
+        setDime_description_show(!dime_description_show)
     }
 
 
@@ -358,6 +366,7 @@ const About = () => {
 
                         <div className='Get_know_me_btn' onClick={handle_show_aboutme_description}>Get to know me !</div>
                     </div>
+
                     <p className={`Aboutme_description ${aboutme_description_show ? 'show' : ''}`}>
                         I am a student at STUST, majoring in CSIE. I love exploring the world of interface and interactive design. Although I don't have much experience in UI/UX, I am committed to learning and improving
                     </p>
@@ -369,13 +378,32 @@ const About = () => {
                         <div className='Skill_ani_container'>
                             <div ref={skillcircleani_Ref} className='skill_circle_ani' onClick={handle_click_skill} />
 
-                            <img className={`design_des_img ${select_skill === Design ? "show" : "hide"}`} src={Design}  />
+                            <img className={`design_des_img ${select_skill === Design ? "show" : "hide"}`} src={Design} />
                             <img className={`development_des_img ${select_skill === Development ? "show" : "hide"}`} src={Development} />
 
-                            </div>
+                        </div>
+
                         {!select_skill &&
                             <img src={skill_click_arrow} className='skill_click_arrow'></img>
                         }
+
+
+                    </div>
+
+                    <div className='Inspiration_section'>
+                        <img className='design_inspiration_title' src={design_inspiration_title}></img>
+                        <div className='dime_btn_section'>
+                            <div class="seperate_line"></div>
+                            <img className='dime_btn' src={dime_btn} onClick={handle_show_dime_description}></img>
+                        </div>
+                        <p className={`Dime_description ${dime_description_show ? 'show' : ''}`}>
+                                I visited Canada in summer 2024 and was inspired by the city's beauty and a unique skateboard store called Dime, which has a simple yet refined street style. My website reflects this straightforward design with my personal touch.
+                            </p>
+                        <div className='dime_img_container'>
+                            <img src={Dime_img[keys[currentimg]]} className={transition ? 'transition_in' : 'transition_out'}></img>
+                           
+                        </div>
+
                     </div>
                 </div>
 

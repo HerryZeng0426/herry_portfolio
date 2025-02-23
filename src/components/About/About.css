@@ -396,7 +396,7 @@
 
 
     .Intro_skill_section {
-        margin-top: 20%;
+        margin-top: 30%;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -549,9 +549,114 @@
         position: absolute;
         left: 75%;
         margin-top: 75%;
+        animation: btn_shake 3s infinite ease-in-out;
+
+    }
+
+    /* 確保整個 `.Inspiration_section` 內部內容置中 */
+    .Inspiration_section {
+        margin-top: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 水平置中 */
+        justify-content: center;
+        /* 可選：讓內容在父容器內垂直置中 */
+        text-align: center;
+        /* 讓文字類元素（如標題）也置中 */
+        width: 100%;
     }
 
 
 
+    /* 讓 `.dime_img_container` 置中 */
+    .dime_img_container {
+        display: flex;
+        justify-content: center;
+        /* 水平置中 */
+        align-items: center;
+        /* 垂直置中 */
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .design_inspiration_title {
+        width: 70%;
+        /* 限制最大寬度，避免過大 */
+        /* 調整與上方的距離 */
+        align-self: flex-start;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    /* 確保圖片本身也置中 */
+    .dime_img_container img {
+        margin-top: 0%;
+        width: 75%;
+        height: auto;
+        object-fit: cover;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    /* 進場動畫 */
+    .transition_in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 退出動畫 */
+    .transition_out {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .dime_btn_section {
+        display: flex;
+        align-items: center;
+        /* 垂直置中 */
+        justify-content: center;
+        /* 內容水平置中 */
+        width: 100%;
+        position: relative;
+        margin-top: 5%;
+    }
+  
+
+    .dime_btn{
+        width: 90px;
+        /* 圓形大小 */
+    
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        border-radius: 50%;
+        /* 讓它變成圓形 */
+        position: absolute;
+        z-index: 0;
+
+        animation: btn_shake 5s infinite ease-in-out;
+        /* 讓動畫持續運行 */
+        left: 70%;
+    }
+    .Dime_description{
+        margin-top: 12%;
+        text-align: left;
+        width: 90%;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 500;
+        color: #000;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 1s ease-in-out, opacity 0.5s ease-out;
+    }
+    .Dime_description.show {
+        max-height: 350px;
+        /* 根據內容調整高度 */
+        opacity: 1;
+    }
 
 }
