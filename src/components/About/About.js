@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+import skill_click_arrow from '../imgs/Skill_click_arrow.png'
+import Development from '../imgs/Development_description.png'
+import Design from '../imgs/Design_description.png'
 import lottie from "lottie-web";
 import skill_circle_ani from '../Animations/Myskill_ani.json'
 import intro_my_skill_title from '../imgs/intro_my_skill_title.png'
@@ -97,6 +100,8 @@ const About = () => {
         setAboutme_description_show(!aboutme_description_show)
     }
 
+
+    //Skill 動畫介紹 Section 
     const skillcircleani_Ref = useRef(null);
     const [skillcircleani_play, setSkillcircleani_play] = useState(false);
 
@@ -127,6 +132,40 @@ const About = () => {
             Skill_circle_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
         };
     }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+
+    const [select_skill, setSelect_skill] = useState(null)
+
+    const handle_click_skill = (event) => {
+        const { clientX } = event; // 取得點擊時的 X 軸位置和目標元素
+        const skillani_container = skillcircleani_Ref.current
+        const animationwidth = skillani_container.offsetWidth
+        const clickPosition = clientX - skillani_container.getBoundingClientRect().left; // 計算點擊的相對位置
+
+        if (clickPosition < animationwidth / 2) {
+            setSelect_skill(Design); // 點擊左邊，顯示左邊圖片
+        }
+        else {
+            setSelect_skill(Development); // 點擊右邊，顯示右邊圖片
+        }
+
+
+    }
+
+    //點其它地方setSelect_skill就null
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            //skillcircleani_Ref.current以點選 且 !skillcircleani_Ref.current.contains(event.target) 點選的位置不再skillcircleani_Ref 裡面
+            if (skillcircleani_Ref.current && !skillcircleani_Ref.current.contains(event.target)) {
+                setSelect_skill(null);
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
 
 
 
@@ -326,13 +365,15 @@ const About = () => {
 
                     <div className='Intro_skill_section'>
                         <img className='intro_my_skill_title' src={intro_my_skill_title} alt="My Skills" />
-                        <p>
-                            <div ref={skillcircleani_Ref} className='skill_circle_ani' />
 
-                        </p>
+                        <div className='Skill_ani_container'>
+                            <div ref={skillcircleani_Ref} className='skill_circle_ani' onClick={handle_click_skill} />
+
+                            {select_skill === Design && <img className="design_des_img" src={Design} alt="Design Skill" />}
+                            {select_skill === Development && <img className="development_des_img" src={Development} alt="Development Skill" />}
+                        </div>
+                    <img src={skill_click_arrow} className='skill_click_arrow'></img>
                     </div>
-
-
                 </div>
 
             }

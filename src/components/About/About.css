@@ -399,19 +399,102 @@
         margin-top: 20%;
         width: 100%;
         display: flex;
-        flex-direction: column; /* 讓內容垂直排列 */
+        flex-direction: column;
+        /* 讓內容垂直排列 */
         justify-content: center;
         align-items: center;
         text-align: center;
-        gap: 20px; /* 設定標題與動畫之間的間距 */
+        gap: 20px;
+        /* 設定標題與動畫之間的間距 */
     }
-    
+
     .intro_my_skill_title {
         width: 90%;
     }
-    
-    .skill_circle_ani {
-        width: 375px; /* 設定動畫的寬度，根據需求調整 */
+
+
+    .Skill_ani_container {
+        position: relative;
+        /* 設定相對定位，讓內部元素以它為基準 */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    
+
+    /* 動畫區塊 */
+    .skill_circle_ani {
+        width: 375px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        /* 設定相對定位，確保圖片可以覆蓋在上方 */
+    }
+
+    /* 圖片覆蓋 skill_circle_ani */
+    .design_des_img {
+        position: absolute;
+        width: 200px;
+        /* 讓圖片根據 `skill_circle_ani` 調整大小 */
+        height: auto;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        /* 初始縮小 */
+        animation: Description_in_ani 0.5s ease-in-out forwards;
+    }
+
+    .development_des_img {
+        position: absolute;
+        width: 200px;
+        /* 讓圖片根據 `skill_circle_ani` 調整大小 */
+        height: auto;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        /* 初始縮小 */
+        animation: Description_in_ani 0.5s ease-in-out forwards;
+
+
+    }
+
+    @keyframes Description_in_ani {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+
+    /* 讓圖片出現時的動畫效果 */
+    .design_des_img {
+        top: 50%;
+        /* 可根據不同裝置調整 */
+        left: 35%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        /* 顯示圖片 */
+    }
+
+    .development_des_img {
+        top: 50%;
+        /* 可根據不同裝置調整 */
+        left: 65%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        /* 顯示圖片 */
+    }
+
+.skill_click_arrow{
+    width: 15%;
+    position: absolute;
+    left: 75%;
+    margin-top: 75%;
+}
+
+
+
+
 }
