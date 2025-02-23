@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import lottie from "lottie-web";
+import skill_circle_ani from '../Animations/Myskill_ani.json'
 import intro_my_skill_title from '../imgs/intro_my_skill_title.png'
 import about_tittle from '../imgs/About_tittle.png'
 import { useMediaQuery } from 'react-responsive';
@@ -89,11 +91,42 @@ const About = () => {
         setMousePosition_canada({ x: e.clientX, y: e.clientY });
     };
 
-    const [aboutme_description_show , setAboutme_description_show] = useState(false)
+    const [aboutme_description_show, setAboutme_description_show] = useState(false)
 
-    const   handle_show_aboutme_description = () => {
+    const handle_show_aboutme_description = () => {
         setAboutme_description_show(!aboutme_description_show)
     }
+
+    const skillcircleani_Ref = useRef(null);
+    const [skillcircleani_play, setSkillcircleani_play] = useState(false);
+
+    useEffect(() => {
+        const Skill_circle_ani = lottie.loadAnimation({
+            container: skillcircleani_Ref.current,
+            renderer: "svg",
+            loop: false, // 只播放一次
+            autoplay: false, // 預設不播放
+            animationData: skill_circle_ani, // 修正 JSON 變數名稱
+        });
+
+        // 監聽滾動事件
+        const handleScroll = () => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop; // 當前滾動高度
+            const triggerHeight = 350; // 設定觸發動畫的滾動高度
+
+            if (scrollY >= triggerHeight && !skillcircleani_play) {
+                Skill_circle_ani.play(); // 播放動畫
+                setSkillcircleani_play(true); // 設定動畫已播放
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            Skill_circle_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
+        };
+    }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
 
 
 
@@ -181,6 +214,8 @@ const About = () => {
         navigate('/canada')
 
     }
+
+
 
     return (
         <div>
@@ -281,20 +316,22 @@ const About = () => {
 
                     <div className='Get_know_me_section'>
                         <div class="seperate_line"></div>
-    
-                        <div className='Get_know_me_btn'  onClick={handle_show_aboutme_description}>Get to know me !</div>
+
+                        <div className='Get_know_me_btn' onClick={handle_show_aboutme_description}>Get to know me !</div>
                     </div>
-                    <p className={`Aboutme_description ${aboutme_description_show ? 'show' :''}`}>
-                    I am a student at STUST, majoring in CSIE. I love exploring the world of interface and interactive design. Although I don't have much experience in UI/UX, I am committed to learning and improving
+                    <p className={`Aboutme_description ${aboutme_description_show ? 'show' : ''}`}>
+                        I am a student at STUST, majoring in CSIE. I love exploring the world of interface and interactive design. Although I don't have much experience in UI/UX, I am committed to learning and improving
                     </p>
                     <img className='Aboutme_img' src={introduce}></img>
 
                     <div className='Intro_skill_section'>
-                        <img className='intro_my_skill_title' src={intro_my_skill_title}></img>
+                        <img className='intro_my_skill_title' src={intro_my_skill_title} alt="My Skills" />
+                        <div ref={skillcircleani_Ref} className='skill_circle_ani' />
+                    </div>
 
-                        </div>
+
                 </div>
-                
+
             }
         </div>
     )

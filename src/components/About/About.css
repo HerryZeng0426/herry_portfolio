@@ -365,7 +365,7 @@
         position: absolute;
         z-index: 0;
 
-        animation: btn_shake 3s infinite ease-in-out, bgColorChange 5s infinite ease-in-out;
+        animation: btn_shake 5s infinite ease-in-out, bgColorChange 5s infinite ease-in-out;
         /* 讓動畫持續運行 */
         left: 70%;
 
@@ -394,16 +394,24 @@
         width: 90%;
     }
 
+
+    .Intro_skill_section {
+        margin-top: 20%;
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* 讓內容垂直排列 */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px; /* 設定標題與動畫之間的間距 */
+    }
+    
     .intro_my_skill_title {
         width: 90%;
     }
-    .Intro_skill_section{
-        margin-top: 20%;
-        width: 90%;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
+    
+    .skill_circle_ani {
+        width: 100%; /* 設定動畫的寬度，根據需求調整 */
     }
-
+    
 }
