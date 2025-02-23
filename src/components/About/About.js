@@ -329,8 +329,8 @@ const About = () => {
                         <p>
                             <div ref={skillcircleani_Ref} className='skill_circle_ani' />
 
-                        </p>                    
-                        </div>
+                        </p>
+                    </div>
 
 
                 </div>
