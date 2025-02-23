@@ -369,10 +369,13 @@ const About = () => {
                         <div className='Skill_ani_container'>
                             <div ref={skillcircleani_Ref} className='skill_circle_ani' onClick={handle_click_skill} />
 
-                            {select_skill === Design && <img className="design_des_img" src={Design} alt="Design Skill" />}
-                            {select_skill === Development && <img className="development_des_img" src={Development} alt="Development Skill" />}
-                        </div>
-                    <img src={skill_click_arrow} className='skill_click_arrow'></img>
+                            <img className={`design_des_img ${select_skill === Design ? "show" : "hide"}`} src={Design}  />
+                            <img className={`development_des_img ${select_skill === Development ? "show" : "hide"}`} src={Development} />
+
+                            </div>
+                        {!select_skill &&
+                            <img src={skill_click_arrow} className='skill_click_arrow'></img>
+                        }
                     </div>
                 </div>
 

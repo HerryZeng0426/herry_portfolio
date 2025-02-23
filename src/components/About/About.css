@@ -431,29 +431,24 @@
         /* 設定相對定位，確保圖片可以覆蓋在上方 */
     }
 
-    /* 圖片覆蓋 skill_circle_ani */
     .design_des_img {
         position: absolute;
+        top: 50%;
+        left: 35%;
+        /* 可根據不同裝置調整 */
         width: 200px;
-        /* 讓圖片根據 `skill_circle_ani` 調整大小 */
         height: auto;
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.5);
-        /* 初始縮小 */
-        animation: Description_in_ani 0.5s ease-in-out forwards;
+        pointer-events: none;
+        /* 確保隱藏時不影響點擊 */
     }
 
-    .development_des_img {
-        position: absolute;
-        width: 200px;
-        /* 讓圖片根據 `skill_circle_ani` 調整大小 */
-        height: auto;
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-        /* 初始縮小 */
+    /* 進場動畫 */
+    .design_des_img.show {
         animation: Description_in_ani 0.5s ease-in-out forwards;
-
-
+        opacity: 1;
+        visibility: visible;
     }
 
     @keyframes Description_in_ani {
@@ -461,38 +456,100 @@
             opacity: 0;
             transform: translate(-50%, -50%) scale(0.5);
         }
+
         100% {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1.2);
         }
     }
 
+    /* 退出動畫 */
+    .design_des_img.hide {
+        animation: Description_out_ani 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
 
-    /* 讓圖片出現時的動畫效果 */
-    .design_des_img {
-        top: 50%;
-        /* 可根據不同裝置調整 */
-        left: 35%;
-        transform: translate(-50%, -50%);
-        opacity: 1;
-        /* 顯示圖片 */
+    @keyframes Description_out_ani {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+    }
+
+    /*要加這段才有退出動畫*/
+    /* 額外控制隱藏 */
+    .hidden {
+        visibility: hidden;
     }
 
     .development_des_img {
+        position: absolute;
         top: 50%;
-        /* 可根據不同裝置調整 */
         left: 65%;
-        transform: translate(-50%, -50%);
-        opacity: 1;
-        /* 顯示圖片 */
+        /* 可根據不同裝置調整 */
+        width: 200px;
+        height: auto;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        pointer-events: none;
+        /* 確保隱藏時不影響點擊 */
     }
 
-.skill_click_arrow{
-    width: 15%;
-    position: absolute;
-    left: 75%;
-    margin-top: 75%;
-}
+    /* 進場動畫 */
+    .development_des_img.show {
+        animation: Description_in_ani 0.5s ease-in-out forwards;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @keyframes Description_in_ani {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+    /* 退出動畫 */
+    .development_des_img.hide {
+        animation: Description_out_ani 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes Description_out_ani {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+    }
+
+    /*要加這段才有退出動畫*/
+    /* 額外控制隱藏 */
+    .hidden {
+        visibility: hidden;
+    }
+
+
+    .skill_click_arrow {
+        width: 15%;
+        position: absolute;
+        left: 75%;
+        margin-top: 75%;
+    }
 
 
 
