@@ -326,8 +326,11 @@ const About = () => {
 
                     <div className='Intro_skill_section'>
                         <img className='intro_my_skill_title' src={intro_my_skill_title} alt="My Skills" />
-                        <div ref={skillcircleani_Ref} className='skill_circle_ani' />
-                    </div>
+                        <p>
+                            <div ref={skillcircleani_Ref} className='skill_circle_ani' />
+
+                        </p>                    
+                        </div>
 
 
                 </div>
