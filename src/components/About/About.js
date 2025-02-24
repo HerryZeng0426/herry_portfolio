@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Dime_img1 from '../imgs/Dime_img1.png'
+import Dime_img2 from '../imgs/Dime_img2.png'
+import Dime_img3 from '../imgs/Dime_img3.png'
+import Aboutme_img from '../imgs/Aboutme_img.png'
 import dime_btn from '../imgs/dime_btn.png'
 import design_inspiration_title from '../imgs/design_inspiration.png'
 import skill_click_arrow from '../imgs/Skill_click_arrow.png'
@@ -57,9 +61,9 @@ const About = () => {
 
 
     const Dime_img = [
-        me_in_dime,
-        dime1,
-        dime2
+        Dime_img1,
+        Dime_img2,
+        Dime_img3
     ]
 
 
@@ -370,7 +374,7 @@ const About = () => {
                     <p className={`Aboutme_description ${aboutme_description_show ? 'show' : ''}`}>
                         I am a student at STUST, majoring in CSIE. I love exploring the world of interface and interactive design. Although I don't have much experience in UI/UX, I am committed to learning and improving
                     </p>
-                    <img className='Aboutme_img' src={introduce}></img>
+                    <img className='Aboutme_img' src={Aboutme_img}></img>
 
                     <div className='Intro_skill_section'>
                         <img className='intro_my_skill_title' src={intro_my_skill_title} alt="My Skills" />
