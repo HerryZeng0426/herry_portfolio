@@ -666,7 +666,7 @@
         align-items: center;
         text-align: center;
         width: 100%;
-        height: 500px;
+        height: auto;
         position: relative;
     }
     .contact_logo{
@@ -756,4 +756,37 @@
             transform: translate(12px, -12px);
         }
     }
+    .gmail_container {
+        margin-top: 60%;
+        display: flex;
+        justify-content: space-between; /* 讓文字與按鈕左右對齊 */
+        align-items: center; /* 確保垂直居中對齊 */
+        width: 90%;
+    }
+    
+    /* Gmail 文字 */
+    .gmail_text {
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 1px;
+
+    }
+
+    .phone_container {
+        display: flex;
+        justify-content: space-between; /* 讓文字與按鈕左右對齊 */
+        align-items: center; /* 確保垂直居中對齊 */
+        width: 90%;
+        margin-bottom: 15%;
+    }
+    
+    /* Gmail 文字 */
+    .phone_text {
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 1px;
+
+    }
+
+    
 }

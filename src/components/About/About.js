@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import contact_click from '../imgs/contact_click.png'
 import Contact_touch_btn from '../Animations/Contact_touch_btn.json'
 import Contact_work_btn from '../Animations/Contact_work_btn.json'
 import Letswork_title from '../imgs/Letswork_title.png'
@@ -498,6 +499,19 @@ const About = () => {
                             <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')}/>
 
                         </div>
+                        <div className='gmail_container'>
+                            <p className='gmail_text'>herry20030426@gmail.com</p>
+                            <img src={contact_click} className='contact_click'></img>
+                        </div>
+                        <div class="seperate_line"></div>
+
+                        <div className='phone_container'>
+                            <p className='phone_text'>0987887336</p>
+                            <img src={contact_click} className='contact_click'></img>
+
+                        </div>
+
+                        
 
                     </div>
                 </div>
