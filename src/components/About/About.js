@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Contact_touch_btn from '../Animations/Contact_touch_btn.json'
+import Contact_work_btn from '../Animations/Contact_work_btn.json'
 import Letswork_title from '../imgs/Letswork_title.png'
 import contact_logo from '../imgs/contact_logo.png'
 import Dime_img1 from '../imgs/Dime_img1.png'
@@ -184,6 +186,78 @@ const About = () => {
         };
     }, []);
 
+       //Contact go to work circle  動畫介紹  
+       const contact_work_btn_Ref = useRef(null);
+       const [contact_work_btn_play, setContact_work_btn_play] = useState(false);
+   
+       useEffect(() => {
+           
+           const Contact_work_ani = lottie.loadAnimation({
+               container: contact_work_btn_Ref.current,
+               renderer: "svg",
+               loop: false, // 只播放一次
+               autoplay: false, // 預設不播放
+               animationData: Contact_work_btn, // 修正 JSON 變數名稱
+           });
+   
+           // 監聽滾動事件
+           const handleScroll = () => {
+               if (!contact_work_btn_Ref.current) return; // 確保 ref 存在
+   
+               const elementTop = contact_work_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
+               const windowHeight = window.innerHeight; // 取得視窗的高度
+           
+               if (elementTop <= windowHeight * 0.8 && !contact_work_btn_play) { 
+                   // 當元素進入視窗 80% 的高度內時觸發動畫
+                   Contact_work_ani.play();
+                   setContact_work_btn_play(true);
+               }
+           };
+   
+           window.addEventListener("scroll", handleScroll);
+   
+           return () => {
+               window.removeEventListener("scroll", handleScroll);
+               Contact_work_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
+           };
+       }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+       
+       //Contact go to touch circle  動畫介紹  
+       const contact_touch_btn_Ref = useRef(null);
+       const [contact_touch_btn_play, setContact_touch_btn_play] = useState(false);
+   
+       useEffect(() => {
+           
+           const Contact_touch_ani = lottie.loadAnimation({
+               container: contact_touch_btn_Ref.current,
+               renderer: "svg",
+               loop: false, // 只播放一次
+               autoplay: false, // 預設不播放
+               animationData: Contact_touch_btn, // 修正 JSON 變數名稱
+           });
+   
+           // 監聽滾動事件
+           const handleScroll = () => {
+               if (!contact_touch_btn_Ref.current) return; // 確保 ref 存在
+   
+               const elementTop = contact_touch_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
+               const windowHeight = window.innerHeight; // 取得視窗的高度
+           
+               if (elementTop <= windowHeight * 0.8 && !contact_touch_btn_play) { 
+                   // 當元素進入視窗 80% 的高度內時觸發動畫
+                   Contact_touch_ani.play();
+                   setContact_touch_btn_play(true);
+               }
+           };
+   
+           window.addEventListener("scroll", handleScroll);
+   
+           return () => {
+               window.removeEventListener("scroll", handleScroll);
+               Contact_touch_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
+           };
+       }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+   
 
 
 
@@ -417,7 +491,14 @@ const About = () => {
                     </div>
                     <div className='Contact_section'>
                         <img className='contact_logo' src={contact_logo} onClick={() => navigate('/herry')}></img>
-                        <img className='Letswork_title' src={Letswork_title}></img>
+
+                        <div className='work_contact_btn_container'>
+                            <img className='Letswork_title' src={Letswork_title}></img>
+                            <div ref={contact_work_btn_Ref} className='contact_work_btn' />
+                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' />
+
+                        </div>
+
                     </div>
                 </div>
 
