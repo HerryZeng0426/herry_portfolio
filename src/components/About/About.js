@@ -494,8 +494,8 @@ const About = () => {
 
                         <div className='work_contact_btn_container'>
                             <img className='Letswork_title' src={Letswork_title}></img>
-                            <div ref={contact_work_btn_Ref} className='contact_work_btn' />
-                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' />
+                            <div ref={contact_work_btn_Ref} className='contact_work_btn' onClick={() => navigate('/work')} />
+                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')}/>
 
                         </div>
 

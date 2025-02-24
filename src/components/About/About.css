@@ -679,6 +679,7 @@
     display: flex;
     
     width: 100%;
+    margin-top: 5%;
     }
     .Letswork_title{
         width: 75%;
@@ -726,15 +727,15 @@
         }
 
         25% {
-            transform: translate(-9px, -9px);
+            transform: translate(-3px, -9px);
         }
 
         50% {
-            transform: translate(9px, -9px);
+            transform: translate(5px, -9px);
         }
 
         75% {
-            transform: translate(-9px, 9px);
+            transform: translate(-3px, 12px);
         }
     }
     @keyframes conatct_work_btn_shake {
