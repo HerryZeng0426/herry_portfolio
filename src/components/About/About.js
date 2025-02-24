@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Letswork_title from '../imgs/Letswork_title.png'
+import contact_logo from '../imgs/contact_logo.png'
 import Dime_img1 from '../imgs/Dime_img1.png'
 import Dime_img2 from '../imgs/Dime_img2.png'
 import Dime_img3 from '../imgs/Dime_img3.png'
@@ -118,6 +120,7 @@ const About = () => {
     const [skillcircleani_play, setSkillcircleani_play] = useState(false);
 
     useEffect(() => {
+        
         const Skill_circle_ani = lottie.loadAnimation({
             container: skillcircleani_Ref.current,
             renderer: "svg",
@@ -128,12 +131,15 @@ const About = () => {
 
         // 監聽滾動事件
         const handleScroll = () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop; // 當前滾動高度
-            const triggerHeight = 350; // 設定觸發動畫的滾動高度
+            if (!skillcircleani_Ref.current) return; // 確保 ref 存在
 
-            if (scrollY >= triggerHeight && !skillcircleani_play) {
-                Skill_circle_ani.play(); // 播放動畫
-                setSkillcircleani_play(true); // 設定動畫已播放
+            const elementTop = skillcircleani_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
+            const windowHeight = window.innerHeight; // 取得視窗的高度
+        
+            if (elementTop <= windowHeight * 0.8 && !skillcircleani_play) { 
+                // 當元素進入視窗 80% 的高度內時觸發動畫
+                Skill_circle_ani.play();
+                setSkillcircleani_play(true);
             }
         };
 
@@ -408,6 +414,10 @@ const About = () => {
                            
                         </div>
 
+                    </div>
+                    <div className='Contact_section'>
+                        <img className='contact_logo' src={contact_logo} onClick={() => navigate('/herry')}></img>
+                        <img className='Letswork_title' src={Letswork_title}></img>
                     </div>
                 </div>
 
