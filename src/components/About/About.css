@@ -787,6 +787,16 @@
         letter-spacing: 1px;
 
     }
+    .contact_seperate_line {
+        width: 90%;
+        /* 控制線條的長度 */
+        height: 0.5px;
+        background-color: #d7d7d7;
+        /* 黑色分界線 */
+        margin-top: 15px;
+        /* 可調整與上方的距離 */
+        margin-bottom: 15px;
 
+    }
     
 }

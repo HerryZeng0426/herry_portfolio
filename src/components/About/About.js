@@ -258,7 +258,11 @@ const About = () => {
                Contact_touch_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
            };
        }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
-   
+
+       const handle_call_me = () => {
+        window.location.href = "tel:0987887336"
+    }
+
 
 
 
@@ -499,17 +503,17 @@ const About = () => {
                             <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')}/>
 
                         </div>
-                        <div className='gmail_container'>
+                        <a  className='gmail_container' href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'>
                             <p className='gmail_text'>herry20030426@gmail.com</p>
                             <img src={contact_click} className='contact_click'></img>
-                        </div>
-                        <div class="seperate_line"></div>
+                        </a>
+                        <div class="contact_seperate_line"></div>
 
-                        <div className='phone_container'>
+                        <a className='phone_container' onClick={handle_call_me}>
                             <p className='phone_text'>0987887336</p>
                             <img src={contact_click} className='contact_click'></img>
 
-                        </div>
+                        </a>
 
                         
 
