@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import send_ani_btn from '../Animations/send_ani_btn.json'
 import { useMediaQuery } from 'react-responsive';
@@ -30,6 +30,14 @@ import { use } from 'react';
 
 
 const Contact = () => {
+
+    //為了更改背景顏色 因傳統會更改每一頁 現在幫每一頁加上classname
+    useEffect(() => {
+        document.body.classList.add("Contact_page");
+        return () => {
+            document.body.classList.remove("Contact_page"); // 離開頁面時移除 class
+        };
+    }, []);
 
     window.addEventListener('mousewheel', function (event) {
         if (event.ctrlKey === true || event.metaKey) {
@@ -120,6 +128,9 @@ const Contact = () => {
 
     const [inputServiceValue, setInputServiceValue] = useState(''); // 定义状态记录输入值
 
+    const lottieRef = useRef(null);
+
+    const [play_send_ani, setPlay_send_ani] = useState(false)
 
 
     const handleNameChange = (event) => {
@@ -134,66 +145,65 @@ const Contact = () => {
         setInputServiceValue(event.target.value); // 更新状态
     };
 
-    const lottieRef = useRef(null);
-
-    const [play_send_ani, setPlay_send_ani] = useState(false)
 
     const handle_submit_value = () => {
 
-        if (inputNameValue.length > 0 && inputGmailValue.length > 0 && inputServiceValue.length > 0) {
+        // Handle form validation
+        const emailIsRightFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(inputGmailValue)
 
-            emailjs.send(
-                'contact_form', // Service ID
-                'new_contact', // Template ID
-                {
-                    name: inputNameValue,
-                    email: inputGmailValue,
-                    service: inputServiceValue
-                },
-                '2lK72btGvnCZabyxo' // 替换为正确的 Public Key
-            )
-                .then(
-                    (response) => {
-                        console.log('SUCCESS!', response.status, response.text);
-                        // 清空输入框
-                        setInputNameValue('');
-                        setInputGmailNameValue('');
-                        setInputServiceValue('');
-                        setIsckeck_input(false)
-
-                    },
-                    (err) => {
-                        console.error('FAILED...', err);
-                    }
-                );
-
-            console.log('Name : ', inputNameValue)
-            console.log('Gmail : ', inputGmailValue)
-            console.log('Service : ', inputServiceValue)
-            setIssendit(true)
-
-            setIsckeck_input(false)
-            if (!play_send_ani) {
-                setPlay_send_ani(true); // 防止重複播放
-              
-                setTimeout(() => {
-                  if (lottieRef.current) {
-                    lottieRef.current.goToAndPlay(0, true); // **0.7 秒後開始動畫**
-              
-                    setTimeout(() => {
-                      lottieRef.current?.goToAndStop(27, true); // **停在第 27 幀**
-                    }, 900); // **動畫播放 0.9 秒後停止**
-                  }
-                }, 700); // **先等 0.7 秒**
-              }
-        }
-        else {
+        if (inputNameValue.length < 1 || inputGmailValue.length < 1 || inputServiceValue.length < 1 || !emailIsRightFormat) {
             setIssendit(false)
             setIsckeck_input(true)
+            //Early Return 
+            return
         }
 
+        // Send the email
 
+        emailjs.send(
+            'contact_form', // Service ID
+            'new_contact', // Template ID
+            {
+                name: inputNameValue,
+                email: inputGmailValue,
+                service: inputServiceValue
+            },
+            '2lK72btGvnCZabyxo' // 替换为正确的 Public Key
+        )
+            .then(
+                (response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // 清空输入框
+                    setInputNameValue('');
+                    setInputGmailNameValue('');
+                    setInputServiceValue('');
+                    setIsckeck_input(false)
 
+                },
+                (err) => {
+                    console.error('FAILED...', err);
+                }
+            );
+
+        console.log('Name : ', inputNameValue)
+        console.log('Gmail : ', inputGmailValue)
+        console.log('Service : ', inputServiceValue)
+        setIssendit(true)
+
+        setIsckeck_input(false)
+        if (!play_send_ani) {
+            setPlay_send_ani(true); // 防止重複播放
+
+            setTimeout(() => {
+                if (lottieRef.current) {
+                    lottieRef.current.goToAndPlay(0, true); // **0.7 秒後開始動畫**
+
+                    setTimeout(() => {
+                        lottieRef.current?.goToAndStop(27, true); // **停在第 27 幀**
+                    }, 900); // **動畫播放 0.9 秒後停止**
+                }
+            }, 700); // **先等 0.7 秒**
+        }
 
 
     }
@@ -202,11 +212,69 @@ const Contact = () => {
         window.location.href = "tel:0987887336"
     }
 
+    return (
+        <div className='Contact_page'>
+            <button className='back_work_btn' onClick={handle_to_work_page}>
+                <span className='work_page'>Work Page</span>
+                <img className='main_page_logo' style={{ width: '5%' }} src={my_logo}></img>
+            </button>
+
+            <div className='contact_container'>
+
+                <div className='Info'>
+                    <div className='contact_info'>
+                        <img src={contact_me} className='contact_me_img'></img>
+                        <div className="contact_details">
+                            <h4>Contact Info</h4>
+                            <p className="contact_item hide_on_mobile">0987887336</p>
+                            <a href="tel:0987887336" className="contact_item hide_on_desktop">0987887336</a>
+                            <a className="contact_item hide_on_mobile" href="https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com">herry20030426@gmail.com</a>
+                            <a className="contact_item hide_on_desktop" href="https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com">Go to my email</a>
+
+                            <h4>Social</h4>
+                            <a className="contact_item" href="https://www.instagram.com/herrynoinspiration/">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='contact_form'>
+                    <h2 className="contact_form_title1">Let's Start Working Together!</h2>
+                    <p className="contact_form_title2">So, let me know who you are.</p>
+
+                    <div className="field">
+                        <label>What's your name?</label>
+                        <input value={inputNameValue} onChange={handleNameChange} className='answer' placeholder="*"></input>
+                    </div>
+
+                    <div className="field">
+                        <label>What's your email?</label>
+                        <input type="email" value={inputGmailValue} onChange={handleGmailChange} className='answer' placeholder="*"></input>
+                    </div>
+                    <div className="field">
+                        <label>What services are you looking for?</label>
+                        <input value={inputServiceValue} onChange={handleServiceChange} className='answer' placeholder="*"></input>
+                    </div>
+
+                    <div className="check_value_container">
+                        {isckeck_input && (
+                            <p className='check_value'>Please check the input or email value!</p>
+                        )}
+                        {issendit && (
+                            <p className='check_value'>Looking forward to our collaboration!</p>
+                        )}
+                    </div>
+                    <button className='submit_btn' onClick={handle_submit_value}>
+                        <span>Send it</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
 
     return (
         <div>
 
-            {!Mobile_mode &&
+            {true &&
                 <div className='Contact_page'>
                     <button className='back_work_btn' onClick={handle_to_work_page}>
                         <span className='work_page'>Work Page</span>
@@ -245,7 +313,7 @@ const Contact = () => {
 
                             <img src={seperate_line}></img>
                             <img src={what_your_gmail} className='what' ></img>
-                            <input value={inputGmailValue} onChange={handleGmailChange} className='answer' placeholder="*"></input>
+                            <input type="email" value={inputGmailValue} onChange={handleGmailChange} className='answer' placeholder="*"></input>
 
                             <img src={seperate_line}></img>
                             <img src={what_service} className='what_service'></img>
@@ -263,7 +331,7 @@ const Contact = () => {
                     </div>
 
                 </div>}
-
+            {/* 
             {Mobile_mode &&
 
                 <div className='Mobile_contact_page'>
@@ -308,7 +376,7 @@ const Contact = () => {
 
                         <img className='Mobile_seperate_line' src={seperate_line}></img>
                         <img className='Mobile_qeus_2' src={what_your_gmail} ></img>
-                        <input value={inputGmailValue} onChange={handleGmailChange} className='answer' placeholder="*"></input>
+                        <input type="email" value={inputGmailValue} onChange={handleGmailChange} className='answer' placeholder="*"></input>
 
                         <img className='Mobile_seperate_line' src={seperate_line}></img>
                         <img className='Mobile_qeus_3' src={what_service} ></img>
@@ -344,7 +412,7 @@ const Contact = () => {
                     </div>
 
                 </div>
-            }
+            } */}
 
         </div>
     )
