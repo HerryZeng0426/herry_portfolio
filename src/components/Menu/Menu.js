@@ -364,7 +364,7 @@ const Menu = () => {
 
                                 <p
                                     className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
-                                    onClick={() => handle_to_page_animation('Contact' , 'contact')}
+                                    onClick={() => navigate('/contact')}
                                 >Contact</p>
                                 <div className='Display_menu_seperateline'></div>
 
