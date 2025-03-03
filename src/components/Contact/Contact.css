@@ -257,6 +257,7 @@ a.contact_item:hover {
 
 a.contact_item::after {
     content: "↗";
+    font-size: 20px;
     color: rgb(255 255 255 / 70%);
     display: inline-block;
     margin-left: 5px;
@@ -345,6 +346,13 @@ a.contact_item::after {
     .contact_container {
         display: block;
         padding: 15px;
+    }
+    a.contact_item::after {
+        content: "➚";
+        color: rgb(255 255 255 / 70%);
+        font-size: 15px;
+        display: inline-block;
+        margin-left: 5px;
     }
 
     .contact_form_title1 {
