@@ -1,64 +1,71 @@
 /* 整個轉場遮罩，覆蓋全螢幕 */
 .page_transition_container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: white; /* 背景色可依需求修改 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  /* 背景色可依需求修改 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* 中央黑色圓圈，初始尺寸較小 */
+.transition_circle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* 擴展動畫 */
+  animation: page_transition_expand_circle 2s forwards;
+}
+
+
+/* 擴展圓圈動畫：從原始大小迅速擴展 */
+@keyframes page_transition_expand_circle {
+  0% {
+    transform: scale(0);
+
   }
-  
-  /* 中央黑色圓圈，初始尺寸較小 */
-  .transition_circle {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* 擴展動畫 */
-    animation: expandCircle 2.5s forwards;
+
+  50% {
+    transform: scale(50);
+    /* 數值越大，圓圈擴展得越滿 */
+
   }
-  
-  /* 頁面名稱文字，稍後淡入 */
-  .page_title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 15px;
-    color: white;
-    font-size: 1px;
+
+  100% {
+    transform: scale(30);
+    /* 數值越大，圓圈擴展得越滿 */
+
+  }
+
+}
+
+/* 頁面名稱文字，稍後淡入 */
+.page_title {
+  color: white;
+  font-size: 1px;
+  opacity: 0;
+  animation: fadeInTitle 0.3s forwards 0.5s;
+  /* 延遲 0.5 秒開始淡入 */
+}
+
+/* 文字淡入動畫 */
+@keyframes fadeInTitle {
+  0% {
     opacity: 0;
-    animation: fadeInTitle 0.5s forwards 0.6s; /* 延遲 0.5 秒開始淡入 */
   }
-  
-  /* 擴展圓圈動畫：從原始大小迅速擴展 */
-  @keyframes expandCircle {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(50); /* 數值越大，圓圈擴展得越滿 */
-    }
-    100% {
-        transform: scale(1); /* 數值越大，圓圈擴展得越滿 */
-      }
+
+  100% {
+    opacity: 1;
   }
-  
-  /* 文字淡入動畫 */
-  @keyframes fadeInTitle {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
+}

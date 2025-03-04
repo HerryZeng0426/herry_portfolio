@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import Page_Transition from '../Page_Transition/Page_Transition'
 import click_video_btn from '../imgs/click_video_btn.png'
 import { useMediaQuery } from 'react-responsive';
 import Back_work_btn from '../Work/Back_work_btn'
@@ -66,6 +67,8 @@ const Secura = () => {
 
     return (
         <div>
+                        <Page_Transition page_title='Secura'></Page_Transition>
+
             {!Mobile_mode && <div>
                 <Back_work_btn></Back_work_btn>
                 <Menu></Menu>

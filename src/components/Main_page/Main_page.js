@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Page_Transition from '../Page_Transition/Page_Transition';
 import Mobile_line from '../imgs/Mobile_line.png'
 import Mobile_student from '../imgs/Mobile_student.png'
 import Mobile_name from '../imgs/Mobile_name.png'
@@ -39,9 +40,17 @@ const Main_page = () => {
 
 
     const Mobile_mode = useMediaQuery({ maxWidth: 768 })
+
+
+
+
+
+
+
+
     return (
         <div>
-
+            <Page_Transition page_title='Home'></Page_Transition>
             {!Mobile_mode && <div className='background_main_page'>
                 <div className='main_page_country_container'>
                     <img src={country} className='main_page_country' alt="Country" />

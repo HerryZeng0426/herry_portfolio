@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react'
+import Page_Transition from '../Page_Transition/Page_Transition';
 import Menu from '../Menu/Menu';
 import { useNavigate } from 'react-router-dom';
 import sun from '../imgs/Sun.png'
@@ -66,6 +67,8 @@ const Canada = () => {
 
     return (
         <div className='canada_background'>
+                        <Page_Transition page_title='Canada'></Page_Transition>
+
             <Menu></Menu>
             <div className='A_memorable_trip'>
                 <img src={A_memorable_trip} className='A_memorable_trip_title'></img>

@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react'
+import Page_Transition from '../Page_Transition/Page_Transition'
 import Menu from '../Menu/Menu'
 import go_WORK from '../imgs/go_WORK.png'
 import go_CANADA from '../imgs/go_CANADA.png'
@@ -55,6 +56,8 @@ const Shoushan = () => {
 
   return (
     <div className='shoushan_background'>
+                  <Page_Transition page_title='Shoushan'></Page_Transition>
+
       <Menu></Menu>
 
       <div className='first_hiking'>

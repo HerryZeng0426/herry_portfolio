@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import Page_Transition from '../Page_Transition/Page_Transition';
 import description_btn_show_btn from '../imgs/description_btn_show.png'
 import description_btn_back_btn from '../imgs/description_btn_back.png'
 import { useMediaQuery } from 'react-responsive';
@@ -91,6 +92,7 @@ const Metro_system = () => {
 
     return (
         <div>
+                        <Page_Transition page_title='Montreal Metro'></Page_Transition>
 
             {!Mobile_mode && <div>
                 <Back_work_btn></Back_work_btn>

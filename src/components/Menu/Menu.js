@@ -107,65 +107,6 @@ const Menu = () => {
     const navigate = useNavigate();
 
 
-    //跳轉到頁面動畫
-    const handle_to_page_animation = (page_tittle, page_src) => {
-        setClickmenuitem(page_tittle); // 這裡將 `page_tittle` 設為目前的選單狀態
-
-        // 先刪除可能存在的舊動畫元素 , Vercel託管會保留上一個dom，如果按了返回鍵，會保留.circle_fill, .circle_title動畫
-        //solution:在 handle_to_work_page 跳轉前刪除舊的動畫元素：
-        document.querySelectorAll(".menu_circle_fill, .menu_circle_title").forEach(el => el.remove());
-
-        document.body.style.overflow = "hidden";
-
-        // 記錄狀態 (處理返回鍵)
-        sessionStorage.setItem("navigated", "true");
-
-        // 創建填充動畫的圓形
-        const circle = document.createElement("div");
-        circle.classList.add("menu_circle_fill");
-
-        // 創建動態標題
-        const dynamic_title = document.createElement("p");
-        dynamic_title.textContent = page_tittle;
-        dynamic_title.classList.add("menu_circle_title");
-
-        document.body.appendChild(circle);
-        document.body.appendChild(dynamic_title);
-
-        // 啟動動畫
-        setTimeout(() => {
-            circle.classList.add("active");
-            dynamic_title.classList.add("show");
-        }, 10);
-
-        // 1.3 秒後跳轉
-        setTimeout(() => {
-            window.location.href = page_src;
-        }, 1300);
-    };
-
-    //在返回時 (pageshow 事件) 確保動畫被移除
-    // 監聽 `pageshow` 確保返回時清除動畫
-    window.addEventListener("pageshow", () => {
-        if (sessionStorage.getItem("navigated") === "true") {
-            sessionStorage.removeItem("navigated");
-            document.body.style.overflow = "auto";
-
-            document.querySelectorAll(".menu_circle_fill, .menu_circle_title").forEach(el => el.remove());
-        }
-    });
-
-
-    // 確保從 `page_src` 返回時清除動畫
-    window.addEventListener("DOMContentLoaded", () => {
-        if (sessionStorage.getItem("navigated") === "true") {
-            sessionStorage.removeItem("navigated");
-            document.body.style.overflow = "auto";
-
-            document.querySelectorAll(".menu_circle_fill, .menu_circle_title").forEach(el => el.remove());
-        }
-    });
-
 
      //因About頁面有加一個滑板動畫 所以要另外創建
      const handle_to_about_page = (page_tittle, page_src) => {
@@ -351,20 +292,22 @@ const Menu = () => {
 
                                 <p
                                     className={`Burger_home ${clickmenuitem === 'Home' ? 'Burger_active' : ''}`}
-                                    onClick={() => handle_to_page_animation('Home' , '/herry')}
-                                >Home</p>
+                                    onClick={() => { setClickmenuitem('Home'); navigate('/home') }}
+                                    >Home</p>
                                 <p
                                     className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
-                                    onClick={() => handle_to_page_animation('Work' , '/work')}>
+                                    onClick={() => { setClickmenuitem('Work'); navigate('/work') }}
+                                    >
                                     Work</p>
                                 <p
                                     className={`Burger_about ${clickmenuitem === 'About' ? 'Burger_active' : ''}`}
-                                    onClick={() => {handle_to_about_page('About' , '/about'); window.scrollTo(0, 0); }}
-                                >About</p>
+                                    onClick={() => { setClickmenuitem('About'); navigate('/about') }}
+                                    >About</p>
 
                                 <p
                                     className={`Burger_contact ${clickmenuitem === 'Contact' ? 'Burger_active' : ''}`}
-                                    onClick={() => navigate('/contact')}
+                                    onClick={() => { setClickmenuitem('Contact'); navigate('/contact') }}
+
                                 >Contact</p>
                                 <div className='Display_menu_seperateline'></div>
 
