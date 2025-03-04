@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import About_page_transition from '../Page_Transition/About_page_transition'
 import Page_Transition from '../Page_Transition/Page_Transition'
 import contact_click from '../imgs/contact_click.png'
 import Contact_touch_btn from '../Animations/Contact_touch_btn.json'
@@ -356,6 +357,7 @@ const About = () => {
 
     return (
         <div>
+            <About_page_transition ></About_page_transition>
             {!Mobile_mode &&
             
                 <div className='About_background'>

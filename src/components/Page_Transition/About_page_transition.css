@@ -1,0 +1,71 @@
+/* 整個轉場遮罩，覆蓋全螢幕 */
+.about_transition_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  /* 中央黑色圓圈，從小到大放大 */
+  .about_transition_circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;         /* 初始小圓尺寸 */
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transform-origin: center center;
+    animation: page_transition_expand_circle 2.5s forwards;
+  }
+  
+  /* 擴展圓圈動畫 */
+  @keyframes page_transition_expand_circle {
+    0% {
+      transform: translate(-50%, -50%) scale(25);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(50);
+      /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
+    }
+    90% {
+        transform: translate(-50%, -50%) scale(50);
+        /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
+      }
+    100%{
+        transform: translate(-50%,-50%) scale(5);
+    }
+ 
+  }
+
+  /* 文字淡入動畫 */
+
+  .About_anim {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;     /* 根據需要調整字體大小 */
+    opacity: 0;
+    animation: fadeInTitle 2s forwards 0s;
+  }
+  @keyframes fadeInTitle {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    90% {
+        opacity: 1;
+      }
+    100%{
+        opacity: 0;
+    }
+  }
