@@ -55,7 +55,7 @@
   color: white;
   font-size: 1px;
   opacity: 0;
-  animation: fadeInTitle 0.3s forwards 0.5s;
+  animation: fadeInTitle 0.3s forwards ;
   /* 延遲 0.5 秒開始淡入 */
 }
 
