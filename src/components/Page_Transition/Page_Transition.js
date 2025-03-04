@@ -17,7 +17,7 @@ const Page_Transition = ({ page_title, onAnimationEnd }) => {
         const timer = setTimeout(() => {
             setAnimationActive(false);
             if (onAnimationEnd) onAnimationEnd();
-        }, 1500);
+        }, 1000000000);
         return () => clearTimeout(timer);
     }, [onAnimationEnd]);
     return (
@@ -25,7 +25,7 @@ const Page_Transition = ({ page_title, onAnimationEnd }) => {
             {animationActive && (
                 <div className="page_transition_container">
                     <div className="transition_circle">
-                        <span className="page_title">{page_title}</span>
+                        <p className="page_title">{page_title}</p>
                     </div>
                 </div>
             )}
