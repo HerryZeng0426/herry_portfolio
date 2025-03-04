@@ -6,57 +6,49 @@
   width: 100vw;
   height: 100vh;
   background-color: white;
-  /* 背景色可依需求修改 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
+  overflow: hidden;
 }
 
-/* 中央黑色圓圈，初始尺寸較小 */
+/* 中央黑色圓圈，從小到大放大 */
 .transition_circle {
-  position: relative;
-  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;         /* 初始小圓尺寸 */
   height: 50px;
   background-color: black;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  /* 擴展動畫 */
-  animation: page_transition_expand_circle 2s forwards;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center center;
+  animation: page_transition_expand_circle 1.8s forwards;
 }
 
-
-/* 擴展圓圈動畫：從原始大小迅速擴展 */
+/* 擴展圓圈動畫 */
 @keyframes page_transition_expand_circle {
   0% {
-    transform: scale(0);
-
+    transform: translate(-50%, -50%) scale(0);
   }
-
   50% {
-    transform: scale(50);
-    /* 數值越大，圓圈擴展得越滿 */
-
+    transform: translate(-50%, -50%) scale(50);
+    /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
   }
-
   100% {
-    transform: scale(30);
-    /* 數值越大，圓圈擴展得越滿 */
-
+    transform: translate(-50%, -50%) scale(0);
+    /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
   }
-
 }
 
-/* 頁面名稱文字，稍後淡入 */
+/* 頁面名稱文字：獨立於圓圈，不會隨圓圈放大 */
 .page_title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  font-size: 1px;
+  font-size: 50px;     /* 根據需要調整字體大小 */
   opacity: 0;
-  animation: fadeInTitle 0.3s forwards ;
-  /* 延遲 0.5 秒開始淡入 */
+  animation: fadeInTitle 1.5s forwards 0.3s;
 }
 
 /* 文字淡入動畫 */
@@ -64,8 +56,10 @@
   0% {
     opacity: 0;
   }
-
-  100% {
+  50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
