@@ -17,7 +17,7 @@ const Page_Transition = ({ page_title, onAnimationEnd }) => {
         const timer = setTimeout(() => {
             setAnimationActive(false);
             if (onAnimationEnd) onAnimationEnd();
-        }, 1800);
+        }, 1300);
         return () => clearTimeout(timer);
     }, [onAnimationEnd]);
     return (

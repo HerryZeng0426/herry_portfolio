@@ -34,7 +34,7 @@ const About_page_transition = ({ onAnimationEnd }) => {
             setAbout_animationActive(false)
             //如果有調用，就拿來用(setAbout_animationActive(false)時候)
             if (onAnimationEnd) onAnimationEnd()
-        }, 2500) 
+        }, 2300) 
         //清理函式 當 effect 結束時用來清除先前設定的定時器
         return () => clearTimeout(timer)
     }, [onAnimationEnd])
