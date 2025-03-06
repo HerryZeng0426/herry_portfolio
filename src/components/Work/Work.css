@@ -47,9 +47,42 @@
     margin-top: 5%;
     /* 与其他元素保持间距 */
 }
+.work_follow {
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    background-color: rgba(101, 101, 101, 0.7); 
+    /* 半透明背景 */
+    width: 100px;
+    /* 圆形宽度 */
+    height: 100px;
+    /* 圆形高度 */
+    border-radius: 100%;
+    /* 圆形效果 */
+    position: fixed;
+    top: 0;
+    /* 动态设置，通过 JS 修改 */
+    left: 0;
+    /* 动态设置，通过 JS 修改 */
+    pointer-events: none;
+    /* 确保不会阻挡鼠标事件 */
+    z-index: 1001;
+    /* 显示在最上方 */
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    text-align: center;
+    /* 多行文字居中对齐 */
+    box-sizing: border-box;
+    /* 包含内边距 */
+    transition: opacity 0.3s ease-in-out;
 
+}
 /* 總體樣式保持不變 */
-.Secura_work {
+.Secura {
     transition: 0.3s ease;
     position: relative;
     display: block;
@@ -57,7 +90,7 @@
     z-index: 1;
 }
 
-.Secura_work img {
+.Secura img {
     position: relative;
     display: block;
     width: 100%;
@@ -65,12 +98,12 @@
     z-index: 2;
 }
 
-.Secura_work:hover {
+.Secura:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
 
-.gradient_fill {
+.gradient_fill_secura {
     position: absolute;
     top: 0;
     left: 0;
@@ -82,7 +115,7 @@
     pointer-events: none;
 }
 
-.Secura_work:hover .gradient_fill {
+.Secura:hover .gradient_fill_secura {
     width: 100%;
 }
 
@@ -140,7 +173,7 @@
     /* 鼠标悬停时，背景层填满整个宽度 */
 }
 
-.childcare {
+.Childcare {
     transition: 0.3s ease;
     position: relative;
     display: block;
@@ -149,7 +182,7 @@
     z-index: 1;
 }
 
-.childcare img {
+.Childcare img {
     position: relative;
     /* 图片与背景层共存 */
 
@@ -162,7 +195,7 @@
     /* 确保图片位于背景层上方 */
 }
 
-.childcare:hover {
+.Childcare:hover {
     /* 渐变背景颜色 */
     cursor: pointer;
     transform: scale(1.05);
@@ -187,13 +220,13 @@
     /* 防止渐变背景层阻碍鼠标事件 */
 }
 
-.childcare:hover .gradient_fill_childcare {
+.Childcare:hover .gradient_fill_childcare {
     width: 100%;
     /* 鼠标悬停时，背景层填满整个宽度 */
 }
 
 
-.metro {
+.Metro {
     transition: 0.3s ease;
     position: relative;
     display: block;
@@ -202,7 +235,7 @@
     z-index: 1;
 }
 
-.metro img {
+.Metro img {
     position: relative;
     /* 图片与背景层共存 */
 
@@ -215,7 +248,7 @@
     /* 确保图片位于背景层上方 */
 }
 
-.metro:hover {
+.Metro:hover {
     /* 渐变背景颜色 */
     cursor: pointer;
     transform: scale(1.05);
@@ -240,12 +273,12 @@
     /* 防止渐变背景层阻碍鼠标事件 */
 }
 
-.metro:hover .gradient_fill_metro {
+.Metro:hover .gradient_fill_metro {
     width: 100%;
     /* 鼠标悬停时，背景层填满整个宽度 */
 }
 
-.chishime {
+.Chishime {
     transition: 0.3s ease;
     position: relative;
     display: block;
@@ -254,7 +287,7 @@
     z-index: 1;
 }
 
-.chishime img {
+.Chishime img {
     position: relative;
     /* 图片与背景层共存 */
 
@@ -267,7 +300,7 @@
     /* 确保图片位于背景层上方 */
 }
 
-.chishime:hover {
+.Chishime:hover {
     /* 渐变背景颜色 */
     cursor: pointer;
     transform: scale(1.05);
@@ -292,7 +325,7 @@
     /* 防止渐变背景层阻碍鼠标事件 */
 }
 
-.chishime:hover .gradient_fill_chishime {
+.Chishime:hover .gradient_fill_chishime {
     width: 100%;
     /* 鼠标悬停时，背景层填满整个宽度 */
 }
@@ -304,7 +337,7 @@
     font-size: 20px;
     color: white;
     padding: 5px 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(101, 101, 101, 0.7); 
     /* 半透明背景 */
     width: 100px;
     /* 圆形宽度 */
@@ -331,6 +364,8 @@
     /* 多行文字居中对齐 */
     box-sizing: border-box;
     /* 包含内边距 */
+    transition: opacity 0.3s ease-in-out;
+
 }
 
 
@@ -369,7 +404,7 @@
     /* 宽度占满容器 */
     height: 0%;
     /* 初始高度为 0 */
-    background: linear-gradient(to top, #d3d3d3, #000000);
+    background: #000000;
     /* 渐变背景颜色，从底部向上 */
     z-index: 1;
     /* 确保伪元素在文字下方 */

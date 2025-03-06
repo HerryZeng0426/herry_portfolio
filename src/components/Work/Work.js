@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react'
+import { gsap } from 'gsap';
 import Page_Transition from '../Page_Transition/Page_Transition'
 import work_metro from '../imgs/work_metro.png'
 import work_childcare from '../imgs/work_childcare.png'
@@ -35,7 +36,7 @@ const Work = () => {
     window.scrollTo(0, 0); // 當組件掛載時滾動到頂部
   }, []);
 
-
+  const [mouseOnWork, setMouseOnWork] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mouseOnContact, setMouseOnContact] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -52,16 +53,37 @@ const Work = () => {
     }
   };
 
-
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
+  const handleMouseMove_Work = (e) => {
+    gsap.to('.work_follow' , {
+      x:e.clientX + 5 ,
+      y : e.clientY + 5 , 
+      duration : 0.7 , 
+      ease:'power2.out'
+    })
   };
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter_Work = () => {
+    setMouseOnWork(true);
+  };
+
+  const handleMouseLeave_Work = () => {
+    setMouseOnWork(false);
+  };
+
+  const handleMouseMove_Contact = (e) => {
+    gsap.to(".contact_follow", {
+      x: e.clientX + 5,
+      y: e.clientY + 5,
+      duration: 0.7, // 設定動畫持續時間，讓它緩緩跟隨
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseEnter_Contact = () => {
     setMouseOnContact(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave_Contact = () => {
     setMouseOnContact(false);
   };
 
@@ -141,15 +163,20 @@ const Work = () => {
 
 
 
-
-
+  const Works_info = [
+    { name: "Until", image: Until, path: "/until", gradientClass: "gradient_fill_until" },
+    { name: "Secura", image: Secura_work, path: "/secura", gradientClass: "gradient_fill_secura" },
+    { name: "Chishime", image: chishime, path: "/chishime", gradientClass: "gradient_fill_chishime" },
+    { name: "Childcare", image: childcare, path: "/childcare", gradientClass: "gradient_fill_childcare" },
+    { name: "Metro", image: metro, path: "/metro", gradientClass: "gradient_fill_metro" }
+  ]
 
 
 
 
   return (
     <div>
-                  <Page_Transition page_title='Work'></Page_Transition>
+      <Page_Transition page_title='Work'></Page_Transition>
 
       {!Mobile_mode && <div>
         {isAnimating && <div
@@ -167,55 +194,39 @@ const Work = () => {
           <img src={Work_Title} className='Work_Title'></img>
 
           <div className='works'>
-            <div className='Until' onClick={() => navigate('/until')}>
-              <div className="gradient_fill_until"></div>
-              <img src={Until} ></img>
-            </div>
+            {Works_info.map((work) => (
+              <div
+                key={work.name}
+                className={work.name}
+                onClick={() => navigate(work.path)}
+                onMouseMove={handleMouseMove_Work}
+                onMouseEnter={handleMouseEnter_Work}
+                onMouseLeave={handleMouseLeave_Work}
+              >
+                <div className={work.gradientClass}></div>
+                <img src={work.image} alt={work.name} />
+              </div>
+            ))}
 
-
-            <div className='Secura_work' onClick={() => navigate('/secura')}>
-              <div className="gradient_fill"></div>
-              <img src={Secura_work} ></img>
-            </div>
-
-
-            <div className='chishime' onClick={() => navigate('/chishime')}>
-              <div className="gradient_fill_chishime" ></div>
-              <img src={chishime} ></img>
-            </div>
-
-            <div className='childcare' onClick={() => navigate('/childcare')}>
-              <div className="gradient_fill_childcare"></div>
-              <img src={childcare} ></img>
-            </div>
-
-            <div className='metro' onClick={() => navigate('/metro')}>
-              <div className="gradient_fill_metro"></div>
-              <img src={metro} ></img>
-            </div>
-
-
+            {mouseOnWork && (
+              <p className="work_follow" >View</p>
+            )}
           </div>
+
 
 
         </div>
 
-        <div className="To_Be_Continued_Container" onClick={handleToWork}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}>
+        <div className="To_Be_Continued_Container" onClick={() => navigate('/contact')}
+          onMouseMove={handleMouseMove_Contact}
+          onMouseEnter={handleMouseEnter_Contact}
+          onMouseLeave={handleMouseLeave_Contact}>
           <p className="To_Be_Continued">
             To Be Continued <span class="dots"></span>
           </p>
+
           {mouseOnContact && (
-            <p className='contact_follow'
-              style={{
-                top: mousePosition.y + 5, // 动态设置 top
-                left: mousePosition.x + 5, // 动态设置 left
-              }}
-            >
-              Contact me
-            </p>
+            <p className="contact_follow" >Contact me</p>
           )}
 
         </div>

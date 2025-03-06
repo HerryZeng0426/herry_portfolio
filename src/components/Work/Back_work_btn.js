@@ -110,7 +110,7 @@ const Back_work_btn = () => {
             }
             {
                 Mobile_mode && <div>
-                <button className={`mobile_Back_work_button ${isvisible ? 'show' : ''}`} onClick={() => handle_to_page_animation('Work' , '/work')}>
+                <button className={`mobile_Back_work_button ${isvisible ? 'show' : ''}`} onClick={() => navigate('/work')}>
                     <span className='Mobile_All_work'>All Work</span>
                 </button>
             </div>
