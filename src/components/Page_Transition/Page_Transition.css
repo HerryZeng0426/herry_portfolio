@@ -48,7 +48,7 @@
   color: white;
   font-size: 50px;     /* 根據需要調整字體大小 */
   opacity: 0;
-  animation: fadeInTitle 1.5s forwards 0.3s;
+  animation: fadeInTitle 1.3s forwards 0.3s;
 }
 
 /* 文字淡入動畫 */
@@ -62,4 +62,74 @@
   100% {
     opacity: 0;
   }
+}
+
+
+@media (max-width: 768px) {
+  /* 整個轉場遮罩，覆蓋全螢幕 */
+.page_transition_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* 中央黑色圓圈，從小到大放大 */
+.transition_circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;         /* 初始小圓尺寸 */
+  height: 25px;
+  background-color: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center center;
+  animation: mobile_page_transition_expand_circle 1.3s forwards;
+}
+
+/* 擴展圓圈動畫 */
+@keyframes mobile_page_transition_expand_circle {
+  0% {
+    transform: translate(-50%, -50%) scale(25);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(50);
+    /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    /* scale 值可依螢幕大小調整，確保能覆蓋全螢幕 */
+  }
+}
+
+/* 頁面名稱文字：獨立於圓圈，不會隨圓圈放大 */
+.page_title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 50px;     /* 根據需要調整字體大小 */
+  opacity: 0;
+  animation: fadeInTitle 1s forwards 0.3s;
+}
+
+/* 文字淡入動畫 */
+@keyframes mobile_fadeInTitle {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 }
