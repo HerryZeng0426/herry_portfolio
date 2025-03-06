@@ -292,7 +292,7 @@ const Menu = () => {
 
                                 <p
                                     className={`Burger_home ${clickmenuitem === 'Home' ? 'Burger_active' : ''}`}
-                                    onClick={() => { setClickmenuitem('Home'); navigate('/home') }}
+                                    onClick={() => { setClickmenuitem('Home'); navigate('/herry') }}
                                     >Home</p>
                                 <p
                                     className={`Burger_work ${clickmenuitem === 'Work' ? 'Burger_active' : ''}`}
