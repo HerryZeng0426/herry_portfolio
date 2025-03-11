@@ -17,18 +17,6 @@
 
 }
 
-.Work_Title {
-    align-self: flex-start;
-    /* 让标题靠左对齐 */
-    margin-left: 20%;
-    /* 设置偏左的距离 */
-    margin-top: 10%;
-    /* 添加顶部间距 */
-    width: 390px;
-    height: auto;
-    max-width: 80%;
-    /* 根据需要调整标题的最大宽度 */
-}
 
 .works {
     display: flex;
@@ -47,11 +35,12 @@
     margin-top: 5%;
     /* 与其他元素保持间距 */
 }
+
 .work_follow {
     font-size: 20px;
     color: white;
     padding: 5px 10px;
-    background-color: rgba(101, 101, 101, 0.7); 
+    background-color: rgba(101, 101, 101, 0.7);
     /* 半透明背景 */
     width: 100px;
     /* 圆形宽度 */
@@ -81,6 +70,7 @@
     transition: opacity 0.3s ease-in-out;
 
 }
+
 /* 總體樣式保持不變 */
 .Secura {
     transition: 0.3s ease;
@@ -337,7 +327,7 @@
     font-size: 20px;
     color: white;
     padding: 5px 10px;
-    background-color: rgba(101, 101, 101, 0.7); 
+    background-color: rgba(101, 101, 101, 0.7);
     /* 半透明背景 */
     width: 100px;
     /* 圆形宽度 */
@@ -593,11 +583,108 @@
     }
 }
 
-@media (min-width: 1920px) {
-    .Work_Title {
-        margin-left: 25%;
-    }
+.Work_top_section {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 7%;
+    gap: 450px;
 }
+
+.Work_title {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.Work_title_1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.Work_title_2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #656565;
+}
+
+.Work_category {
+    display: flex;
+    align-items: center;
+}
+
+.Work_category_btn {
+    position: absolute;
+    overflow: hidden;
+    background-color: #000;
+    height: 60px;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: color 0.5s ease-in-out, width 0.3s ease-in-out;
+    z-index: 1;
+    transform: translateX(-50%);
+    /* 讓按鈕的變化不影響父級寬度 */
+    margin-bottom: 5%;
+}
+
+.category0 {
+    width: 50px;
+}
+
+.category1 {
+    width: 75px;
+}
+
+.category2 {
+    width: 135px;
+}
+
+.Work_category_btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #a3a3a3;
+    transition: height 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.category0::before {
+    border-radius: 35%;
+}
+
+.category1::before {
+    border-radius: 30%;
+
+}
+
+.category2::before {
+    border-radius: 20%;
+}
+
+.Work_category_btn:hover::before {
+    height: 100%;
+}
+
+.Work_category_btn:hover {
+    color: #000000;
+}
+
+.hover_text {
+    font-size: 15px;
+}
+
+@media (min-width: 1920px) {}
 
 /* 新增圓形動畫樣式 */
 .circle_fill {
@@ -683,18 +770,88 @@
 
     }
 
-    .Work_Title {
-        align-self: flex-start;
-        /* 让标题靠左对齐 */
-        margin-left: 5%;
-        /* 设置偏左的距离 */
-        margin-top: 25%;
-        /* 添加顶部间距 */
-        width: 100%;
-        height: auto;
-        max-width: 80%;
-        /* 根据需要调整标题的最大宽度 */
+    .Work_top_section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15%;
+        gap: 50px;
     }
+
+    .Work_title {
+        margin-left: -28%;
+        /* 往左移動 20px，可自行調整 */
+
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+
+    .Work_title_1 {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: -5px;
+    }
+
+    .Work_title_2 {
+        font-size: 15px;
+        font-weight: 500;
+        color: #656565;
+    }
+
+    .Work_category_btn {
+        position: absolute;
+        overflow: hidden;
+        background-color: #000;
+        height: 50px;
+        border-radius: 100px;
+        color: #ffffff;
+        font-size: 20px;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        padding-left: 15px;
+        padding-right: 15px;
+        transition:width 0.3s ease-out;
+        z-index: 1;
+        left: 15%; /* 基準點設為左側 */
+        margin-bottom: 5%;
+    }
+
+    .Work_category_btn::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #000000;
+        transition: height 0.5s ease-in-out;
+        z-index: -1;
+    }
+    .Work_category_btn:hover {
+        color: #ffffff;
+    }
+    
+    .category0 {
+        width: 30px;
+        transform: translateX(-50%);
+    }
+
+    .category1 {
+        width: 70px;
+        transform: translateX(-35%);
+    }
+
+    .category2 {
+        width: 125px;
+        transform: translateX(-23%);
+
+    }
+
 
     .All_Work_section {
         margin-top: 15%;
@@ -704,7 +861,8 @@
         display: flex;
         flex-direction: column;
     }
-    .Work_section{
+
+    .Work_section {
         margin-bottom: 15%;
         width: 100%;
         display: flex;
@@ -714,7 +872,8 @@
     .Work_img {
         width: 100%;
     }
-    .circle_title{
+
+    .circle_title {
         font-size: 50px;
 
     }

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap';
 import Page_Transition from '../Page_Transition/Page_Transition'
 import work_metro from '../imgs/work_metro.png'
@@ -6,7 +6,7 @@ import work_childcare from '../imgs/work_childcare.png'
 import work_chishime from '../imgs/work_chishime.png'
 import work_secura from '../imgs/work_secura.png'
 import Mobile_link from '../imgs/Mobile_link.png'
-import until from '../imgs/work_until.png'
+import work_until from '../imgs/work_until.png'
 import { useMediaQuery } from 'react-responsive';
 import Secura_logo from '../imgs/secura_logo.png'
 import Until_logo from '../imgs/Until_logo.png'
@@ -19,6 +19,7 @@ import Secura_work from '../imgs/Secura_work.png'
 import Work_Title from '../imgs/Work_Title.png'
 import Menu from '../Menu/Menu'
 import '../Work/Work.css'
+import { use } from 'react';
 
 
 
@@ -28,7 +29,20 @@ import '../Work/Work.css'
 
 
 const Work = () => {
+  const navigate = useNavigate()
 
+  window.addEventListener('mousewheel', function (event) {
+    if (event.ctrlKey === true || event.metaKey) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  // 針對 Firefox
+  window.addEventListener('DOMMouseScroll', function (event) {
+    if (event.ctrlKey === true || event.metaKey) {
+      event.preventDefault();
+    }
+  }, { passive: false });
 
   const Mobile_mode = useMediaQuery({ maxWidth: 768 })
 
@@ -54,11 +68,11 @@ const Work = () => {
   };
 
   const handleMouseMove_Work = (e) => {
-    gsap.to('.work_follow' , {
-      x:e.clientX + 5 ,
-      y : e.clientY + 5 , 
-      duration : 0.7 , 
-      ease:'power2.out'
+    gsap.to('.work_follow', {
+      x: e.clientX + 5,
+      y: e.clientY + 5,
+      duration: 0.7,
+      ease: 'power2.out'
     })
   };
 
@@ -87,91 +101,85 @@ const Work = () => {
     setMouseOnContact(false);
   };
 
-  const navigate = useNavigate()
-
-  window.addEventListener('mousewheel', function (event) {
-    if (event.ctrlKey === true || event.metaKey) {
-      event.preventDefault();
-    }
-  }, { passive: false });
-
-  // 針對 Firefox
-  window.addEventListener('DOMMouseScroll', function (event) {
-    if (event.ctrlKey === true || event.metaKey) {
-      event.preventDefault();
-    }
-  }, { passive: false });
-
-
-
-  // //跳轉到頁面動畫
-  // const handle_to_work_page = (work_title, page_src) => {
-  //   // 先刪除可能存在的舊動畫元素 , Vercel託管會保留上一個dom，如果按了返回鍵，會保留.circle_fill, .circle_title動畫
-  //   //solution:在 handle_to_work_page 跳轉前刪除舊的動畫元素：
-  //   document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
-
-  //   document.body.style.overflow = "hidden";
-
-  //   // 記錄狀態 (處理返回鍵)
-  //   sessionStorage.setItem("navigated", "true");
-
-  //   // 創建填充動畫的圓形
-  //   const circle = document.createElement("div");
-  //   circle.classList.add("circle_fill");
-
-  //   // 創建動態標題
-  //   const dynamic_title = document.createElement("p");
-  //   dynamic_title.textContent = work_title;
-  //   dynamic_title.classList.add("circle_title");
-
-  //   document.body.appendChild(circle);
-  //   document.body.appendChild(dynamic_title);
-
-  //   // 啟動動畫
-  //   setTimeout(() => {
-  //     circle.classList.add("active");
-  //     dynamic_title.classList.add("show");
-  //   }, 10);
-
-  //   // 1.3 秒後跳轉
-  //   setTimeout(() => {
-  //     window.location.href = page_src;
-  //   }, 1300);
-  // };
-
-  // //在返回時 (pageshow 事件) 確保動畫被移除
-  // // 監聽 `pageshow` 確保返回時清除動畫
-  // window.addEventListener("pageshow", () => {
-  //   if (sessionStorage.getItem("navigated") === "true") {
-  //     sessionStorage.removeItem("navigated");
-  //     document.body.style.overflow = "auto";
-
-  //     document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
-  //   }
-  // });
-
-
-  // // 確保從 `page_src` 返回時清除動畫
-  // window.addEventListener("DOMContentLoaded", () => {
-  //   if (sessionStorage.getItem("navigated") === "true") {
-  //     sessionStorage.removeItem("navigated");
-  //     document.body.style.overflow = "auto";
-
-  //     document.querySelectorAll(".circle_fill, .circle_title").forEach(el => el.remove());
-  //   }
-  // });
-
 
 
   const Works_info = [
-    { name: "Until", image: Until, path: "/until", gradientClass: "gradient_fill_until" },
-    { name: "Secura", image: Secura_work, path: "/secura", gradientClass: "gradient_fill_secura" },
-    { name: "Chishime", image: chishime, path: "/chishime", gradientClass: "gradient_fill_chishime" },
-    { name: "Childcare", image: childcare, path: "/childcare", gradientClass: "gradient_fill_childcare" },
-    { name: "Metro", image: metro, path: "/metro", gradientClass: "gradient_fill_metro" }
+    { category: 'Development', name: "Until", image: Until, path: "/until", gradientClass: "gradient_fill_until" },
+    { category: 'Development', name: "Secura", image: Secura_work, path: "/secura", gradientClass: "gradient_fill_secura" },
+    { category: 'Design', name: "Chishime", image: chishime, path: "/chishime", gradientClass: "gradient_fill_chishime" },
+    { category: 'Design', name: "Childcare", image: childcare, path: "/childcare", gradientClass: "gradient_fill_childcare" },
+    { category: 'Design', name: "Metro", image: metro, path: "/metro", gradientClass: "gradient_fill_metro" }
   ]
 
+  const Works_info_mobile = [
+    { category: 'Development', name: "Until", image: work_until, path: "/until" },
+    { category: 'Development', name: "Secura", image: work_secura, path: "/secura" },
+    { category: 'Design', name: "Chishime", image: work_chishime, path: "/chishime" },
+    { category: 'Design', name: "Childcare", image: work_childcare, path: "/childcare" },
+    { category: 'Design', name: "Metro", image: work_metro, path: "/metro" }
+  ]
 
+  const Work_categories = ['All', 'Design', 'Development']
+
+  const [Work_categoriesindex, setWork_categoriesindex] = useState(0);
+
+  const [hoverIndex, setHoverIndex] = useState(null);
+
+  const [trigger_change_category_anim, setTrigger_change_category_anim] = useState(false)
+
+  const btnRef = useRef(null);
+
+  const [iscategory_btn_animating, setIscategory_btn_animating] = useState(false)
+
+  const Work_categories_changes_Ref = useRef(null);
+
+
+  const handle_click_categories_btn = () => {
+    if (iscategory_btn_animating) return
+    setIscategory_btn_animating(true); // 設置為動畫進行中，避免連續點擊
+
+    setWork_categoriesindex((preindex) => (preindex + 1) % Work_categories.length)
+    setHoverIndex(null)
+    gsap.to(btnRef.current,
+      { rotation: "+=360", duration: 1, ease: 'power1.out', onComplete: () => setIscategory_btn_animating(false) });
+  }
+
+  const handleCategoryClick = () => {
+    setTrigger_change_category_anim(true); // 設定動畫觸發狀態
+    handle_click_categories_btn(); // 切換分類
+  };
+
+  const handleCategoryClick_mobile = () => {
+    setWork_categoriesindex((preindex) => (preindex + 1) % Work_categories.length)
+
+  };
+
+  const Filter_work_categories = Works_info.filter(work =>
+    Work_categories[Work_categoriesindex] === "All" || work.category === Work_categories[Work_categoriesindex]
+  )
+
+  useEffect(() => {
+    if (trigger_change_category_anim && Work_categories_changes_Ref.current) {
+      gsap.fromTo(
+        Work_categories_changes_Ref.current.children,
+        { opacity: 0 }, // 初始狀態（完全透明）
+        { opacity: 1, duration: 0.3, stagger: 0.3, ease: "power1.out" } // 透明度變為 1
+      );
+      setTrigger_change_category_anim(false); // 動畫執行後重置狀態
+    }
+  }, [Filter_work_categories, trigger_change_category_anim]); // 只有在點擊後變化時才會播放動畫
+
+  const handle_mouseon_categorybtn = () => {
+    setHoverIndex((Work_categoriesindex + 1) % Work_categories.length);
+  }
+
+  const handle_mouseleave_categorybtn = () => {
+    setHoverIndex(null);
+  };
+
+  const Filter_work_categories_mobile = Works_info_mobile.filter(work =>
+    Work_categories[Work_categoriesindex] === 'All' || work.category === Work_categories[Work_categoriesindex]
+  )
 
 
   return (
@@ -191,10 +199,25 @@ const Work = () => {
 
           <Menu></Menu>
 
-          <img src={Work_Title} className='Work_Title'></img>
+          <div className='Work_top_section'>
+            <div className='Work_title'>
+              <p className='Work_title_1'>Imperfect,<br></br>But Striving.</p>
+              <p className='Work_title_2'>Always Learning and Improving.</p>
+            </div>
 
-          <div className='works'>
-            {Works_info.map((work) => (
+            <div className='Work_category'>
+              <div className={`Work_category_btn category${Work_categoriesindex} ${hoverIndex !== null ? "hover_text" : ""}`}
+                ref={btnRef}
+                onClick={handleCategoryClick}
+                onMouseEnter={handle_mouseon_categorybtn}
+                onMouseLeave={handle_mouseleave_categorybtn}>
+                {hoverIndex !== null ? Work_categories[hoverIndex] : Work_categories[Work_categoriesindex]}
+              </div>
+            </div>
+          </div>
+
+          <div className='works' ref={Work_categories_changes_Ref}>
+            {Filter_work_categories.map((work) => (
               <div
                 key={work.name}
                 className={work.name}
@@ -237,32 +260,28 @@ const Work = () => {
 
           <Menu></Menu>
 
-          <img src={Work_Title} className='Work_Title'></img>
-
-          <div className='All_Work_section'>
-
-            <div className='Work_section' onClick={() => navigate('/until')}>
-              <img className='Work_img' src={until}></img>
+          <div className='Work_top_section'>
+            <div className='Work_title'>
+              <p className='Work_title_1'>Imperfect,<br></br>But Striving.</p>
+              <p className='Work_title_2'>Always Learning and Improving.</p>
             </div>
 
-            <div className='Work_section' onClick={() => navigate('/secura')}>
-              <img className='Work_img' src={work_secura}></img>
+            <div className='Work_category'>
+              <div className={`Work_category_btn category${Work_categoriesindex} ${hoverIndex !== null ? "hover_text" : ""}`}
+                onClick={handleCategoryClick_mobile}
+                onMouseEnter={handle_mouseon_categorybtn}
+                onMouseLeave={handle_mouseleave_categorybtn}>
+                {Work_categories[Work_categoriesindex]}
+              </div>
             </div>
+          </div>
 
-            <div className='Work_section' onClick={() => navigate('/chishime')}>
-              <img className='Work_img' src={work_chishime}></img>
-            </div>
-
-            <div className='Work_section'>
-              <img className='Work_img' src={work_childcare} onClick={() => navigate('/childcare')}></img>
-            </div>
-
-            <div className='Work_section'>
-              <img className='Work_img' src={work_metro} onClick={() => navigate('/metro')}></img>
-            </div>
-
-
-
+          <div className="All_Work_section" ref={Work_categories_changes_Ref}>
+            {Filter_work_categories_mobile.map((work) => (
+              <div key={work.name} className="Work_section" onClick={() => navigate(work.path)}>
+                <img className="Work_img" src={work.image} alt={work.name} />
+              </div>
+            ))}
           </div>
 
         </div>
