@@ -133,6 +133,9 @@ const Work = () => {
 
   const Work_categories_changes_Ref = useRef(null);
 
+  //適用於mobile裝置的提示按鈕動畫
+  
+
 
   const handle_click_categories_btn = () => {
     if (iscategory_btn_animating) return
@@ -151,6 +154,7 @@ const Work = () => {
 
   const handleCategoryClick_mobile = () => {
     setWork_categoriesindex((preindex) => (preindex + 1) % Work_categories.length)
+    setTrigger_change_category_anim(true); // 設定動畫觸發狀態
 
   };
 
@@ -162,8 +166,9 @@ const Work = () => {
     if (trigger_change_category_anim && Work_categories_changes_Ref.current) {
       gsap.fromTo(
         Work_categories_changes_Ref.current.children,
-        { opacity: 0 }, // 初始狀態（完全透明）
-        { opacity: 1, duration: 0.3, stagger: 0.3, ease: "power1.out" } // 透明度變為 1
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, stagger: 0.2, ease: "power3.in" } // 更快顯示
+
       );
       setTrigger_change_category_anim(false); // 動畫執行後重置狀態
     }
@@ -267,13 +272,16 @@ const Work = () => {
             </div>
 
             <div className='Work_category'>
-              <div className={`Work_category_btn category${Work_categoriesindex} ${hoverIndex !== null ? "hover_text" : ""}`}
+              <div className={`Work_category_btn category${Work_categoriesindex}`}
                 onClick={handleCategoryClick_mobile}
                 onMouseEnter={handle_mouseon_categorybtn}
                 onMouseLeave={handle_mouseleave_categorybtn}>
                 {Work_categories[Work_categoriesindex]}
               </div>
+
             </div>
+
+
           </div>
 
           <div className="All_Work_section" ref={Work_categories_changes_Ref}>

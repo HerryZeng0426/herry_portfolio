@@ -125,7 +125,7 @@ const About = () => {
     const [skillcircleani_play, setSkillcircleani_play] = useState(false);
 
     useEffect(() => {
-        
+
         const Skill_circle_ani = lottie.loadAnimation({
             container: skillcircleani_Ref.current,
             renderer: "svg",
@@ -140,8 +140,8 @@ const About = () => {
 
             const elementTop = skillcircleani_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
             const windowHeight = window.innerHeight; // 取得視窗的高度
-        
-            if (elementTop <= windowHeight * 0.8 && !skillcircleani_play) { 
+
+            if (elementTop <= windowHeight * 0.8 && !skillcircleani_play) {
                 // 當元素進入視窗 80% 的高度內時觸發動畫
                 Skill_circle_ani.play();
                 setSkillcircleani_play(true);
@@ -189,79 +189,79 @@ const About = () => {
         };
     }, []);
 
-       //Contact go to work circle  動畫介紹  
-       const contact_work_btn_Ref = useRef(null);
-       const [contact_work_btn_play, setContact_work_btn_play] = useState(false);
-   
-       useEffect(() => {
-           
-           const Contact_work_ani = lottie.loadAnimation({
-               container: contact_work_btn_Ref.current,
-               renderer: "svg",
-               loop: false, // 只播放一次
-               autoplay: false, // 預設不播放
-               animationData: Contact_work_btn, // 修正 JSON 變數名稱
-           });
-   
-           // 監聽滾動事件
-           const handleScroll = () => {
-               if (!contact_work_btn_Ref.current) return; // 確保 ref 存在
-   
-               const elementTop = contact_work_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
-               const windowHeight = window.innerHeight; // 取得視窗的高度
-           
-               if (elementTop <= windowHeight * 0.8 && !contact_work_btn_play) { 
-                   // 當元素進入視窗 80% 的高度內時觸發動畫
-                   Contact_work_ani.play();
-                   setContact_work_btn_play(true);
-               }
-           };
-   
-           window.addEventListener("scroll", handleScroll);
-   
-           return () => {
-               window.removeEventListener("scroll", handleScroll);
-               Contact_work_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
-           };
-       }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
-       
-       //Contact go to touch circle  動畫介紹  
-       const contact_touch_btn_Ref = useRef(null);
-       const [contact_touch_btn_play, setContact_touch_btn_play] = useState(false);
-   
-       useEffect(() => {
-           
-           const Contact_touch_ani = lottie.loadAnimation({
-               container: contact_touch_btn_Ref.current,
-               renderer: "svg",
-               loop: false, // 只播放一次
-               autoplay: false, // 預設不播放
-               animationData: Contact_touch_btn, // 修正 JSON 變數名稱
-           });
-   
-           // 監聽滾動事件
-           const handleScroll = () => {
-               if (!contact_touch_btn_Ref.current) return; // 確保 ref 存在
-   
-               const elementTop = contact_touch_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
-               const windowHeight = window.innerHeight; // 取得視窗的高度
-           
-               if (elementTop <= windowHeight * 0.8 && !contact_touch_btn_play) { 
-                   // 當元素進入視窗 80% 的高度內時觸發動畫
-                   Contact_touch_ani.play();
-                   setContact_touch_btn_play(true);
-               }
-           };
-   
-           window.addEventListener("scroll", handleScroll);
-   
-           return () => {
-               window.removeEventListener("scroll", handleScroll);
-               Contact_touch_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
-           };
-       }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+    //Contact go to work circle  動畫介紹  
+    const contact_work_btn_Ref = useRef(null);
+    const [contact_work_btn_play, setContact_work_btn_play] = useState(false);
 
-       const handle_call_me = () => {
+    useEffect(() => {
+
+        const Contact_work_ani = lottie.loadAnimation({
+            container: contact_work_btn_Ref.current,
+            renderer: "svg",
+            loop: false, // 只播放一次
+            autoplay: false, // 預設不播放
+            animationData: Contact_work_btn, // 修正 JSON 變數名稱
+        });
+
+        // 監聽滾動事件
+        const handleScroll = () => {
+            if (!contact_work_btn_Ref.current) return; // 確保 ref 存在
+
+            const elementTop = contact_work_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
+            const windowHeight = window.innerHeight; // 取得視窗的高度
+
+            if (elementTop <= windowHeight * 0.8 && !contact_work_btn_play) {
+                // 當元素進入視窗 80% 的高度內時觸發動畫
+                Contact_work_ani.play();
+                setContact_work_btn_play(true);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            Contact_work_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
+        };
+    }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+
+    //Contact go to touch circle  動畫介紹  
+    const contact_touch_btn_Ref = useRef(null);
+    const [contact_touch_btn_play, setContact_touch_btn_play] = useState(false);
+
+    useEffect(() => {
+
+        const Contact_touch_ani = lottie.loadAnimation({
+            container: contact_touch_btn_Ref.current,
+            renderer: "svg",
+            loop: false, // 只播放一次
+            autoplay: false, // 預設不播放
+            animationData: Contact_touch_btn, // 修正 JSON 變數名稱
+        });
+
+        // 監聽滾動事件
+        const handleScroll = () => {
+            if (!contact_touch_btn_Ref.current) return; // 確保 ref 存在
+
+            const elementTop = contact_touch_btn_Ref.current.getBoundingClientRect().top; // 取得元素距離視窗頂部的位置
+            const windowHeight = window.innerHeight; // 取得視窗的高度
+
+            if (elementTop <= windowHeight * 0.8 && !contact_touch_btn_play) {
+                // 當元素進入視窗 80% 的高度內時觸發動畫
+                Contact_touch_ani.play();
+                setContact_touch_btn_play(true);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            Contact_touch_ani.destroy(); // 銷毀動畫實例，避免記憶體洩漏
+        };
+    }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
+
+    const handle_call_me = () => {
         window.location.href = "tel:0987887336"
     }
 
@@ -359,7 +359,7 @@ const About = () => {
         <div>
             <About_page_transition ></About_page_transition>
             {!Mobile_mode &&
-            
+
                 <div className='About_background'>
                     <Menu></Menu>
 
@@ -452,7 +452,12 @@ const About = () => {
                 <div className='Mobile_about_background'>
 
                     <Menu></Menu>
-                    <img className='about_tittle' src={about_tittle}></img>
+                    <div className='About_title'>
+                        <p className="About_title1">
+                            <span className="outlined_text">Empathy</span> is my<br />core essence.
+                        </p>
+                        <p className='About_title2'>Also the goal of design.</p>
+                    </div>
 
                     <div className='Get_know_me_section'>
                         <div class="seperate_line"></div>
@@ -466,8 +471,9 @@ const About = () => {
                     <img className='Aboutme_img' src={Aboutme_img}></img>
 
                     <div className='Intro_skill_section'>
-                        <img className='intro_my_skill_title' src={intro_my_skill_title} alt="My Skills" />
-
+                        <div className='Intro_my_skill_title'>
+                            <p className='Intro_my_skill_title_text'>What skills do I have?</p>
+                        </div>
                         <div className='Skill_ani_container'>
                             <div ref={skillcircleani_Ref} className='skill_circle_ani' onClick={handle_click_skill} />
 
@@ -484,17 +490,21 @@ const About = () => {
                     </div>
 
                     <div className='Inspiration_section'>
-                        <img className='design_inspiration_title' src={design_inspiration_title}></img>
+
+                        <div className='design_inspiration_title'>
+                            <p className='design_inspiration_title_text'>Design inspiration<br />for this website.</p>
+
+                        </div>
                         <div className='dime_btn_section'>
                             <div class="seperate_line"></div>
                             <img className='dime_btn' src={dime_btn} onClick={handle_show_dime_description}></img>
                         </div>
                         <p className={`Dime_description ${dime_description_show ? 'show' : ''}`}>
-                                I visited Canada in summer 2024 and was inspired by the city's beauty and a unique skateboard store called Dime, which has a simple yet refined street style. My website reflects this straightforward design with my personal touch.
-                            </p>
+                            I visited Canada in summer 2024 and was inspired by the city's beauty and a unique skateboard store called Dime, which has a simple yet refined street style. My website reflects this straightforward design with my personal touch.
+                        </p>
                         <div className='dime_img_container'>
                             <img src={Dime_img[keys[currentimg]]} className={transition ? 'transition_in' : 'transition_out'}></img>
-                           
+
                         </div>
 
                     </div>
@@ -504,10 +514,10 @@ const About = () => {
                         <div className='work_contact_btn_container'>
                             <img className='Letswork_title' src={Letswork_title}></img>
                             <div ref={contact_work_btn_Ref} className='contact_work_btn' onClick={() => navigate('/work')} />
-                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')}/>
+                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')} />
 
                         </div>
-                        <a  className='gmail_container' href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'>
+                        <a className='gmail_container' href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'>
                             <p className='gmail_text'>herry20030426@gmail.com</p>
                             <img src={contact_click} className='contact_click'></img>
                         </a>
@@ -519,7 +529,7 @@ const About = () => {
 
                         </a>
 
-                        
+
 
                     </div>
                 </div>
