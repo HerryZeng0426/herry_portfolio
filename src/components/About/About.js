@@ -575,7 +575,7 @@ const About = () => {
                         <p className={`Dime_description ${dime_description_show ? 'show' : ''}`}>
                             I visited Canada in summer 2024 and was inspired by the city's beauty and a unique skateboard store called Dime, which has a simple yet refined street style. My website reflects this straightforward design with my personal touch.
                         </p>
-                        <div className='dime_img_container'>
+                        <div className='Mobile_dime_img_container'>
                             <img src={Dime_img[keys[currentimg]]} className={transition ? 'transition_in' : 'transition_out'}></img>
 
                         </div>

@@ -966,7 +966,7 @@
 
 
     /* 讓 `.dime_img_container` 置中 */
-    .dime_img_container {
+    .Mobile_dime_img_container {
         display: flex;
         justify-content: center;
         /* 水平置中 */
@@ -981,7 +981,7 @@
 
 
     /* 確保圖片本身也置中 */
-    .dime_img_container img {
+    .Mobile_dime_img_container img {
         margin-top: 0%;
         width: 90%;
         height: auto;
