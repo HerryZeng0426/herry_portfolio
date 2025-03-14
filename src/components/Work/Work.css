@@ -834,7 +834,6 @@
         /* 基準點設為左側 */
         margin-bottom: 5%;
         animation: breathingLight 3s infinite alternate ease-in-out;
-
     }
 
     .Work_category_btn::before {

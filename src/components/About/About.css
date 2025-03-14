@@ -1,86 +1,456 @@
-.About_background {
-    background-size: cover;
+.About_background {}
 
-    background-image: url('../imgs//BACKGROUND.png');
-    position: relative;
-    /* 移除 overflow: hidden; */
-    /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */
+.About_title {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 讓容器本身置中 */
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
 
-.intro_container {
-    display: flex;
-    justify-content: center;
-    /* 圖片集中 */
-    align-items: center;
+.About_title1 {
+    font-size: 60px;
+    font-weight: 500;
+    color: #000;
+    /* 其他字的顏色 */
+    margin-bottom: 0%;
+    align-self: flex-start;
+    /* 讓文字內容靠左 */
+    text-align: left;
+    /* 確保文字內部左對齊 */
+}
+
+.outlined_text {
+    color: transparent;
+    /* 讓字體填充透明 */
+    -webkit-text-stroke: 1px black;
+    /* 黑色邊框 */
+}
+
+.About_title2 {
+    align-self: flex-end;
+    /* 讓文字內容靠左 */
+    text-align: left;
+    /* 確保文字內部左對齊 */
+    font-size: 25px;
+    font-weight: 500;
+    color: #868686;
+    /* 其他字的顏色 */
+}
+
+/* 讓分界線左右置中 */
+.seperate_line {
     width: 100%;
-    /* 確保父容器寬度充滿螢幕 */
-    height: 100vh;
-    /* 垂直置中 */
-    gap: 5%;
-    /* 兩張圖片的間距，可自行調整為更小或更大 */
+    /* 控制線條的長度 */
+    height: 1px;
+    background-color: #d7d7d7;
+    /* 黑色分界線 */
+    margin-top: 35px;
+    /* 可調整與上方的距離 */
+}
+
+
+.Aboutme_container {
+    display: flex;
+    align-items: flex-start;
+    /* 讓圖片和內容的上邊對齊 */
+    justify-content: center;
+    /* 讓整個區塊置中 */
+    gap: 100px;
+    /* 縮小 gap，讓兩邊更靠近 */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 200px;
+    /* 減少 padding，讓內容更居中 */
+    padding-top: 150px;
+    /* 減少上邊距 */
 }
 
 /* 確保圖片保持比例縮放 */
-.introduce_img {
-    width: 25%;
-
-    display: block;
+.Aboutme_img {
+    width: 35%;
+    /* 調整大小，讓內容區塊不會太遠 */
+    display: flex;
+    object-fit: cover;
 }
 
-.intro_text {
-    width: 25%;
-
-    display: block;
+.Aboutme_section {
+    display: flex;
+    margin-top: -2%;
+    flex-direction: column;
+    width: 50%;
+    /* 讓內容區塊有足夠的空間 */
 }
 
-.inspiration_container {
+/* 讓標題對齊 */
+.Aboutme_title {
+    font-size: 100px;
+    font-weight: 500;
+    position: absolute;
+    /* 讓圖片變成背景 如果 不加 absolute，Dime_background 會佔據一個實際的區塊*/
+    top: 52%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    opacity: 0.035;
+    z-index: -1;
+    /* 確保背景比文字層級低 */
+}
+
+/* 讓文字區塊更寬 */
+.Aboutme_text {
+    color: #000000;
+    width: 60%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5
+}
+
+.Intro_skill_section {
+    margin-top: 12%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* 讓內容垂直排列 */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    /* 設定標題與動畫之間的間距 */
+
+
+}
+
+
+.Intro_my_skill_title {
+    display: flex;
+    margin-left: 0%;
+    align-self: center;
+
+}
+
+.Intro_my_skill_title_text {
+    font-size: 50px;
+    font-weight: 500;
+    color: #000;
+    /* 其他字的顏色 */
+}
+
+.Skill_ani_container {
+    position: relative;
+    /* 設定相對定位，讓內部元素以它為基準 */
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* 圖片集中 */
     align-items: center;
-    width: 100%;
-    /* 確保父容器寬度充滿螢幕 */
-    height: 100vh;
-    /* 垂直置中 */
-    gap: 5%;
-    /* 兩張圖片的間距，可自行調整為更小或更大 */
+
 }
 
-.inspiration_text {
-    width: 60%;
-    display: block;
-    transform: translateY(-5%);
+/* 動畫區塊 */
+.skill_circle_ani {
+    width: 600px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    /* 設定相對定位，確保圖片可以覆蓋在上方 */
 }
 
-.img_container {
-    width: 25%;
-    height: 10%;
+.design_des_img {
     position: absolute;
-    transform: translate(-60%, 20%);
-}
-
-.img_container img {
-    width: 100%;
+    top: 50%;
+    left: 43%;
+    /* 可根據不同裝置調整 */
+    width: 290px;
     height: auto;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    pointer-events: none;
+    /* 確保隱藏時不影響點擊 */
+}
+
+/* 進場動畫 */
+.design_des_img.show {
+    animation: Description_in_ani 0.5s ease-in-out forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes Description_in_ani {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* 退出動畫 */
+.design_des_img.hide {
+    animation: Description_out_ani 0.5s ease-in-out forwards;
     opacity: 0;
 }
 
-.img_container img.transition_in {
+@keyframes Description_out_ani {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/*要加這段才有退出動畫*/
+/* 額外控制隱藏 */
+.hidden {
+    visibility: hidden;
+}
+
+.development_des_img {
+    position: absolute;
+    top: 50%;
+    left: 56%;
+    /* 可根據不同裝置調整 */
+    width: 290px;
+    height: auto;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    pointer-events: none;
+    /* 確保隱藏時不影響點擊 */
+}
+
+/* 進場動畫 */
+.development_des_img.show {
+    animation: Description_in_ani 0.5s ease-in-out forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes Description_in_ani {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* 退出動畫 */
+.development_des_img.hide {
+    animation: Description_out_ani 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes Description_out_ani {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/* 額外控制隱藏 */
+.hidden {
+    visibility: hidden;
+}
+
+@keyframes btn_shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translate(-5px, -5px);
+    }
+
+    50% {
+        transform: translate(5px, -5px);
+    }
+
+    75% {
+        transform: translate(-5px, 5px);
+    }
+}
+
+.skill_click_arrow {
+    width: 5%;
+    position: absolute;
+    left: 65%;
+    margin-top: 35%;
+    animation: btn_shake 3s infinite ease-in-out;
+
+}
+
+.Inspiration_section {
+    margin-top: 12%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+}
+
+.design_inspiration_title {
+    position: relative;
+    /* 讓內部元素可用絕對定位 */
+    display: flex;
+    align-items: center;
+    /* 讓文字與背景對齊 */
+    justify-content: center;
+    /* 讓內容置中 */
+    width: 100%;
+}
+
+.design_inspiration_title_text {
+    font-size: 50px;
+    font-weight: 500;
+    position: relative;
+    /* 確保文字在前面 */
+    z-index: 2;
+    /* 讓文字層級比背景高 */
+}
+
+.Dime_background {
+    position: absolute;
+    /* 讓圖片變成背景 如果 不加 absolute，Dime_background 會佔據一個實際的區塊*/
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    /* 讓背景居中 */
+    width: 30%;
+    /* 調整大小，讓它像背景 */
+    opacity: 0.03;
+    z-index: 1;
+    /* 確保背景比文字層級低 */
+}
+
+.Dime_description {
+    width: 50%;
+    font-size: 20px;
+    color: #868686;
+    line-height: 1.5
+}
+
+.dime_img_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin-top: 7%;
+    margin-bottom: 20%;
+}
+
+.dime_img_container img {
+    position: absolute;
+    transition: transform 2s ease;
+}
+
+.Dime_logo {
+    width: 250px;
+    opacity: 0;
+    position: absolute;
+    /* 確保可以定位 */
+    top: 35%;
+    left: 15%;
+    transition: opacity 1s ease-out;
+}
+
+.Dime_logo.dimelogo_visible {
+    opacity: 0.3;
+    z-index: 0;
+    animation: appear 2s ease-in-out forwards;
+}
+
+.Dime_logo.dimelogo_hidden {
+    opacity: 0;
+    animation: disappear 1s ease-in-out forwards;
+}
+
+.Dime_logo.dimelogo_visible:hover {
     opacity: 1;
 }
 
-.img_container img.transition_out {
-    opacity: 0;
+/* 進場動畫 */
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.3;
+    }
+}
+
+/* 退場動畫 */
+@keyframes disappear {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.Dime_img1 {
+    transform: rotate(-12deg) translateX(-20px) translateY(-10px);
+    width: 390px;
+
+}
+
+.Dime_img3 {
+    transform: rotate(5deg) translateX(-20px) translateY(-10px);
+    width: 390px;
+
+}
+
+.Dime_img2 {
+    transform: rotate(-5deg) translateX(-20px) translateY(-10px);
+    width: 390px;
+
+}
+
+.Dime_img1.dime_visible {
+    transform: rotate(0) translateX(-250px) translateY(-65px);
+
+}
+
+.Dime_img3.dime_visible {
+    transform: rotate(0) translateX(325px) translateY(75px);
+
+}
+
+.Dime_img2.dime_visible {
+    transform: rotate(0) translateX(-125px) translateY(300px);
+
 }
 
 .ramp {
     position: fixed;
     /* 固定定位 */
-    bottom: 0;
+    bottom: -3%;
     /* 距離視窗底部20px */
     left: 50%;
     /* 水平定位在視窗的50% */
@@ -135,7 +505,7 @@
     /* 滑板圖片寬度 */
     height: auto;
     /* 高度自動調整 */
-    bottom: 75px;
+    bottom: 7%;
     /* 距離頁面底部的基準位置 */
     left: 0;
     /* 初始水平位置在左側 */
@@ -154,7 +524,8 @@
     .skateboard {
         width: 125px;
         /* 大尺寸 */
-        bottom: 90px;
+        bottom: 5%;
+
     }
 }
 
@@ -262,18 +633,14 @@
 
 @media (max-width : 768px) {
     .Mobile_about_background {
-        width: 100vw;
-        min-height: 100vh;
-
+        align-items: center;
         display: flex;
         flex-direction: column;
-        /* 讓內部元素垂直排列 */
-        align-items: center;
-        /* 讓內容水平置中 */
         justify-content: flex-start;
-        /* 內容從上方開始排列 */
+        min-height: 100vh;
         padding-top: 5vh;
-        /* 可調整頂部間距 */
+        width: 100vw;
+        overflow-x: hidden;
     }
 
     .About_title {
@@ -300,6 +667,7 @@
     }
 
     .About_title2 {
+        align-self: flex-start;
         font-size: 20px;
         font-weight: 500;
         color: #868686;
