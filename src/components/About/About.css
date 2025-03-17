@@ -56,59 +56,60 @@
 
 .Aboutme_container {
     display: flex;
-    align-items: flex-start;
-    /* 讓圖片和內容的上邊對齊 */
-    justify-content: center;
-    /* 讓整個區塊置中 */
-    gap: 100px;
-    /* 縮小 gap，讓兩邊更靠近 */
-    max-width: 1200px;
+    align-items: flex-start; /* 讓圖片和內容對齊頂部 */
+    justify-content: center; /* 讓整個區塊左右置中 */
+    gap: 80px; /* 控制圖片和內容的間距 */
+    max-width: 1000px;
     width: 100%;
-    margin: 0 auto;
-    padding-left: 200px;
-    /* 減少 padding，讓內容更居中 */
-    padding-top: 150px;
-    /* 減少上邊距 */
+    margin: 125px auto;
 }
 
-/* 確保圖片保持比例縮放 */
-.Aboutme_img {
-    width: 35%;
-    /* 調整大小，讓內容區塊不會太遠 */
+/* 加入圖片的外層 div，確保與內容區塊同一高度 */
+.Aboutme_img_wrapper {
     display: flex;
-    object-fit: cover;
-}
-
-.Aboutme_section {
-    display: flex;
-    margin-top: -2%;
-    flex-direction: column;
+    align-items: flex-start; /* 確保圖片與標題對齊 */
     width: 50%;
-    /* 讓內容區塊有足夠的空間 */
 }
 
-/* 讓標題對齊 */
+.Aboutme_img {
+    width: 90%; /* 讓圖片填滿 wrapper */
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* 內容放右邊，並與圖片上方對齊 */
+.Aboutme_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    min-height: 100%; /* 確保與圖片等高 */
+}
+
+/* 讓標題與圖片對齊，並與文字有重疊感 */
 .Aboutme_title {
     font-size: 100px;
     font-weight: 500;
+    opacity: 0.05;
     position: absolute;
-    /* 讓圖片變成背景 如果 不加 absolute，Dime_background 會佔據一個實際的區塊*/
-    top: 52%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    opacity: 0.035;
-    z-index: -1;
-    /* 確保背景比文字層級低 */
+    top: -75%; /* 讓標題靠上 */
+    left: -30%;
+    white-space: nowrap;
+    z-index: 0; /* 讓它在背景層 */
 }
 
-/* 讓文字區塊更寬 */
+/* 文字區塊，確保它不會被標題完全覆蓋 */
 .Aboutme_text {
+    position: relative;
     color: #000000;
-    width: 60%;
+    width: 100%;
     font-size: 20px;
     font-weight: 500;
-    line-height: 1.5
+    line-height: 1.5;
+    z-index: 1; /* 讓文字在標題上層 */
 }
+
 
 .Intro_skill_section {
     margin-top: 12%;

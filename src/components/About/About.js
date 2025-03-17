@@ -400,15 +400,18 @@ const About = () => {
 
                     </div>
                     <div className='Aboutme_container'>
-                        <img className='Aboutme_img' src={Aboutme_img}></img>
+                        <div className='Aboutme_img_wrapper'>
+                            <img className='Aboutme_img' src={Aboutme_img} alt="About me" />
+                        </div>
+
                         <div className='Aboutme_section'>
                             <p className='Aboutme_title'>About me</p>
-                            <p className='Aboutme_text'>I am Herry Zeng, a university student at STUST. I am passionate about exploring the fields of interaction and UI / UX design. Although I don't have much experience, I assure you that I will keep improving.
-
-
+                            <p className='Aboutme_text'>
+                                I am Herry Zeng, a university student at STUST. I am passionate about exploring the fields of interaction and UI / UX design. Although I don't have much experience, I assure you that I will keep improving.
                             </p>
                         </div>
                     </div>
+
 
                     <div className='Intro_skill_section' >
                         <div className='Intro_my_skill_title'>
