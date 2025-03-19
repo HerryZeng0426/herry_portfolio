@@ -541,94 +541,79 @@
     }
 }
 
-.recently_container {
-    margin-top: 6%;
+.Recently_container {
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
-    /* 垂直排列 */
     align-items: center;
-    /* 水平居中 */
-    justify-content: center;
-    /* 垂直居中 */
-
-    /* 設置容器的高度和寬度為視窗的大小 */
-
-
 }
-
-.recently {
-    width: 15%;
+.Recently_title{
+    font-size: 50px;
+    font-weight: 500;
+    z-index: 2;
 }
-
-.ca {
-    width: 50%;
-
-}
-
-.ca2 {
-    width: 20%;
-    border-radius: 30px;
-}
-
-.climb {
-    width: 20%;
-    border-radius: 30px;
-}
-
-.recent_img {
-    margin-top: 2%;
+.Recently_activity_section {
     display: flex;
-    gap: 100px;
-    flex-direction: row;
-    /* 垂直排列圖片 */
-    align-items: center;
-    /* 水平居中 */
-    justify-content: center;
-    /* 垂直居中 */
-}
-
-.earth_container {
+    align-items: center; /* 讓文字與線條垂直對齊 */
+    justify-content: center; /* 讓內容置中 */
+    width: 70%;
     position: relative;
-    /* 父容器設為相對定位 */
-    width: 100%;
-    max-width: 550px;
-    /* 根據需要調整 */
+}
+
+.seperate_line_recently {
+    flex-grow: 1; /* 讓線條填滿可用空間 */
+    border-bottom: 1px solid #d7d7d7; /* 設定底部線條 */
+    height: 0; /* 避免影響 layout */
+    
+}
+
+.Recently_activity_name {
+    font-size: 25px;
+    white-space: nowrap; /* 避免換行 */
+    background: white; /* 讓背景覆蓋線條 */
+    padding: 5px;
+    position: relative;
+    z-index: 1; /* 確保文字在線條上方 */
+    left: -15%;
+    width: auto;
+}
+
+.Earth_section{
+    position: relative; /* 設定相對定位，確保內部圖片不影響外部佈局 */
+
     margin: 0 auto;
-    /* 水平居中容器 */
-}
-
-.earth {
+    max-width: 500px;
+    position: relative;
     width: 100%;
-    /* Earth 圖片填滿容器 */
-    display: block;
 }
-
-.country {
-    position: absolute;
-    /* 絕對定位 */
+.country{
     height: auto;
-    transition: transform 0.3s ease;
-    /* 添加過渡效果 */
-
+    position: absolute;
 }
 
-.canada {
+.canada_map{
+    opacity: 0.3;
+    left: 0;
     top: 15%;
-    /* 根據 Earth 圖片設計調整位置 */
-    left: 0%;
-}
+    transition: opacity 0.5s ease-in-out; /* 設定透明度變化動畫 */
 
-.taiwan {
-    top: 50%;
-    /* 根據 Earth 圖片設計調整位置 */
-    left: 70%;
 }
-
-.canada {
+.canada_map:hover{
     cursor: pointer;
+    opacity: 1;
+
 }
 
-.taiwan:hover {
+.taiwan_map{
+    opacity: 0.3;
+    left:83%;
+    top: 50%;
+    transition: opacity 0.5s ease-in-out; /* 設定透明度變化動畫 */
+
+}
+.taiwan_map:hover{
+    opacity: 1;
+
     cursor: pointer;
 }
 
@@ -1005,6 +990,7 @@
     .design_inspiration_title {
         display: flex;
         align-self: flex-start;
+        width: auto;
         margin-left: 5%;
 
     }
@@ -1015,6 +1001,7 @@
         font-weight: 500;
         color: #000;
         /* 其他字的顏色 */
+        
     }
 
     .dime_btn_section {

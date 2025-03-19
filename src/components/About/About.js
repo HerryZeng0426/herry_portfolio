@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { gsap } from "gsap";
 import Figma_background1 from '../imgs/Figma_background1.png'
 import Figma_background2 from '../imgs/Figma_background2.png'
 import Figma_backgorund from '../imgs/Figma_background.png'
@@ -53,6 +54,7 @@ import taiwan from '../imgs/taiwan.png'
 
 const About = () => {
 
+    //防止使用者滾動滑鼠
     window.addEventListener('mousewheel', function (event) {
         if (event.ctrlKey === true || event.metaKey) {
             event.preventDefault();
@@ -79,39 +81,7 @@ const About = () => {
     ]
 
 
-    const [ishovered_taiwan, setIshovered_taiwan] = useState(false)
-    const [mousePosition_taiwan, setMousePosition_taiwan] = useState({ x: 0, y: 0 });
-    const [ishovered_canada, setIshovered_canada] = useState(false)
-    const [mousePosition_canada, setMousePosition_canada] = useState({ x: 0, y: 0 });
-    // 當滑鼠進入 taiwan 圖片時觸發
-    const handleMouseEnter = () => {
-        setIshovered_taiwan(true);
-    };
-
-    // 當滑鼠離開 taiwan 圖片時觸發
-    const handleMouseLeave = () => {
-        setIshovered_taiwan(false);
-    };
-
-    // 當滑鼠在 taiwan 圖片上移動時更新滑鼠位置
-    const handleMouseMove = (e) => {
-        setMousePosition_taiwan({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseEnter_canada = () => {
-        setIshovered_canada(true);
-    };
-
-    // 當滑鼠離開 taiwan 圖片時觸發
-    const handleMouseLeave_canada = () => {
-        setIshovered_canada(false);
-    };
-
-    // 當滑鼠在 taiwan 圖片上移動時更新滑鼠位置
-    const handleMouseMove_canada = (e) => {
-        setMousePosition_canada({ x: e.clientX, y: e.clientY });
-    };
-
+    //For mobile device to display or close the description
     const [aboutme_description_show, setAboutme_description_show] = useState(false)
 
     const [dime_description_show, setDime_description_show] = useState(false)
@@ -129,8 +99,6 @@ const About = () => {
     const skillcircleani_Ref = useRef(null);
     const [skillcircleani_play, setSkillcircleani_play] = useState(false);
     const [select_skill, setSelect_skill] = useState(null)
-
-
 
     useEffect(() => {
 
@@ -164,7 +132,6 @@ const About = () => {
         };
     }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
 
-
     const handle_click_skill = (event) => {
         const { clientX } = event; // 取得點擊時的 X 軸位置和目標元素
         const skillani_container = skillcircleani_Ref.current
@@ -176,10 +143,7 @@ const About = () => {
         }
         else {
             setSelect_skill(Development); // 點擊右邊，顯示右邊圖片
-
         }
-
-
     }
 
     //點其它地方setSelect_skill就null
@@ -197,7 +161,7 @@ const About = () => {
         };
     }, []);
 
-
+    //Dime 
     const Dime_imgs_Ref = useRef(null)
     const [isdime_imgs_Visible, setIsdime_imgs_Visible] = useState(false);
 
@@ -245,16 +209,6 @@ const About = () => {
         setDimensions({ maxX, maxY });
     };
 
-    const getCaSrc = () => {
-        if (ishovered_taiwan) {
-            return shoushan;
-        } else if (ishovered_canada) {
-            return ca;
-        }
-        else {
-            return explore
-        }
-    };
 
     useEffect(() => {
         // 監聽窗口大小變化
@@ -295,15 +249,6 @@ const About = () => {
         return () => clearInterval(interval);
     }, [keys.length]);
 
-
-    const handle_to_shoushan = () => {
-        navigate('/shoushan')
-    }
-
-    const handle_to_canada = () => {
-        navigate('/canada')
-
-    }
 
     //Contact go to work circle  動畫介紹  
     const contact_work_btn_Ref = useRef(null);
@@ -381,6 +326,21 @@ const About = () => {
         window.location.href = "tel:0987887336"
     }
 
+    //Recently activity container
+    const [Recently_activity_name, setRecently_activity_name] = useState('Explore')
+    const Recently_activity_name_Ref = useRef(null)
+
+
+    useEffect(() => {
+        if (Recently_activity_name_Ref.current) {
+            gsap.fromTo(
+                Recently_activity_name_Ref.current,
+                { y: 20, opacity: 0 }, // 文字從下方開始，透明度為 0
+                { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" } // 滑動進入動畫
+            );
+        }
+    }, [Recently_activity_name]);
+
 
     return (
         <div>
@@ -452,66 +412,31 @@ const About = () => {
                     </div>
 
 
-                    <div className='recently_container '>
-                        <img className='recently' src={recently}></img>
-                        <img className='ca' src={getCaSrc()}></img>
-                        <div className='earth_container'>
-                            <img src={earth}></img>
-                            <img src={canada} className='country canada'
-                                onClick={handle_to_canada}
-                                onMouseEnter={handleMouseEnter_canada}
-                                onMouseLeave={handleMouseLeave_canada}
-                                onMouseMove={handleMouseMove_canada}></img>
-
-                            <img src={taiwan} className='country taiwan'
-                                onClick={handle_to_shoushan}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                                onMouseMove={handleMouseMove}></img>
+                    <div className='Recently_container'>
+                        <p className='Recently_title'>Recently</p>
+                        <div className='Recently_activity_section'>
+                            <p className='seperate_line_recently'></p>
+                            <p className='Recently_activity_name' ref={Recently_activity_name_Ref}>{Recently_activity_name}</p>
                         </div>
-                        {ishovered_canada && (
-                            <img
-                                src={ca2}
-                                alt="Extra"
-                                className="ca_img"
-                                style={{
-                                    width: '10%',
-                                    borderRadius: '25px',
-                                    position: 'fixed',
-                                    top: mousePosition_canada.y + 10, // 加一些偏移，避免遮蓋滑鼠
-                                    left: mousePosition_canada.x + 10,
-                                    pointerEvents: 'none', // 讓圖片不影響滑鼠事件
-                                    zIndex: 1001, // 確保圖片顯示在最前面
-                                }}
-                            />
-                        )}
+                        <div className='Earth_section'  >
+                            <img className='earth' src={earth} ></img>
+                            <img className='country canada_map' src={canada}
+                                onMouseEnter={() => { setRecently_activity_name('Montreal') ;  }}
+                                onMouseLeave={() => { setRecently_activity_name('Explore');}} >
+                            </img>
+                            <img className='country taiwan_map' src={taiwan}
+                                onMouseEnter={() => { setRecently_activity_name('Shoushan'); }}
+                                onMouseLeave={() => { setRecently_activity_name('Explore') ; }}>
+                            </img>
 
-                        {ishovered_taiwan && (
-                            <img
-                                src={climb}
-                                alt="Extra"
-                                className="climb_img"
-                                style={{
-                                    width: '10%',
-                                    borderRadius: '25px',
-                                    position: 'fixed',
-                                    top: mousePosition_taiwan.y + 10, // 加一些偏移，避免遮蓋滑鼠
-                                    left: mousePosition_taiwan.x + 10,
-                                    pointerEvents: 'none', // 讓圖片不影響滑鼠事件
-                                    zIndex: 1001, // 確保圖片顯示在最前面
-                                }}
-                            />
-                        )}
-                        <br></br>
-                        <br></br>
-                        <br></br>
+                        </div>
 
-
-                        {/* <div className='recent_img'>
-                        <img className='ca2' src={ca2}></img>
-                        <img className='climb' src={climb}></img>
-                   </div > */}
                     </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+
                     <img className='ramp' src={ramp}></img>
 
                     <img
