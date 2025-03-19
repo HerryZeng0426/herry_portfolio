@@ -291,7 +291,7 @@
     }
 }
 
-.skill_click_arrow {
+.Intro_skill_section .Click_directory {
     width: 5%;
     position: absolute;
     left: 65%;
@@ -551,6 +551,7 @@
     font-size: 50px;
     font-weight: 500;
     z-index: 2;
+    margin-bottom: -1%;
 }
 .Recently_activity_section {
     display: flex;
@@ -615,6 +616,27 @@
     opacity: 1;
 
     cursor: pointer;
+}
+.Recently_container .Click_directory{
+    position: relative;
+    left: 15%;
+    animation: btn_shake 3s infinite ease-in-out;
+    margin-top: -5%;
+}
+.Recently_follow_img{
+    width: 12%;
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    transition: opacity 1s ease-in-out;
 }
 
 @media (max-width : 768px) {

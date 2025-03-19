@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Click_directory from '../svgs/click_directory.svg'
 import { gsap } from "gsap";
 import Figma_background1 from '../imgs/Figma_background1.png'
 import Figma_background2 from '../imgs/Figma_background2.png'
@@ -249,6 +250,29 @@ const About = () => {
         return () => clearInterval(interval);
     }, [keys.length]);
 
+    //Hover 在地球照片出現在滑鼠旁動畫
+    const [mouseonRecently, setMouseonRecently] = useState(false)
+    const [hoverrecently_imgsrc, setHoverrecently_imgsrc] = useState(null)
+
+    const handleMouseMove_Recently = (e) => {
+        gsap.to('.Recently_follow_img', {
+            x: e.clientX + 5,
+            y: e.clientY + 5,
+            duration: 0.7,
+            ease: 'power2.out'
+        })
+    };
+    const handleMouseEnter_Recently = (imagesrc) => {
+        setMouseonRecently(true);
+        setHoverrecently_imgsrc(imagesrc)
+    };
+
+    const handleMouseLeave_Recently = () => {
+        setMouseonRecently(false);
+        setHoverrecently_imgsrc(null)
+    };
+
+
 
     //Contact go to work circle  動畫介紹  
     const contact_work_btn_Ref = useRef(null);
@@ -386,7 +410,9 @@ const About = () => {
                         </div>
 
                         {!select_skill &&
-                            <img src={skill_click_arrow} className='skill_click_arrow'></img>
+                            // <img src={skill_click_arrow} className='skill_click_arrow'></img>
+                            <img className='Click_directory' src={Click_directory} alt="Click Directory" width="75" height="75" />
+
                         }
 
 
@@ -418,20 +444,46 @@ const About = () => {
                             <p className='seperate_line_recently'></p>
                             <p className='Recently_activity_name' ref={Recently_activity_name_Ref}>{Recently_activity_name}</p>
                         </div>
-                        <div className='Earth_section'  >
+                        <div className='Earth_section'>
                             <img className='earth' src={earth} ></img>
                             <img className='country canada_map' src={canada}
-                                onMouseEnter={() => { setRecently_activity_name('Montreal') ;  }}
-                                onMouseLeave={() => { setRecently_activity_name('Explore');}} >
+                                onClick={() => navigate('/canada')}
+                                onMouseMove={handleMouseMove_Recently}
+                                onMouseEnter={() => { setRecently_activity_name('Canada'); handleMouseEnter_Recently(ca2); }}
+                                onMouseLeave={() => { setRecently_activity_name('Explore'); handleMouseLeave_Recently() }} >
                             </img>
                             <img className='country taiwan_map' src={taiwan}
-                                onMouseEnter={() => { setRecently_activity_name('Shoushan'); }}
-                                onMouseLeave={() => { setRecently_activity_name('Explore') ; }}>
+                                onClick={() => navigate('/shoushan')}
+                                onMouseMove={handleMouseMove_Recently}
+                                onMouseEnter={() => { setRecently_activity_name('Kaohsiung'); handleMouseEnter_Recently(climb) }}
+                                onMouseLeave={() => { setRecently_activity_name('Explore'); handleMouseLeave_Recently() }}>
                             </img>
-
                         </div>
+                        <img className='Click_directory' src={Click_directory} alt="Click Directory" width="75" height="75" />
 
+                        {mouseonRecently &&
+                            <img src={hoverrecently_imgsrc} className='Recently_follow_img'></img>
+                        }
                     </div>
+                    {/* <div className='Contact_section'>
+                        <img className='contact_logo' src={contact_logo} onClick={() => navigate('/herry')}></img>
+
+                        <div className='work_contact_btn_container'>
+                            <img className='Letswork_title' src={Letswork_title}></img>
+                            <div ref={contact_work_btn_Ref} className='contact_work_btn' onClick={() => navigate('/work')} />
+                            <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')} />
+                        </div>
+                        <a className='gmail_container' href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'>
+                            <p className='gmail_text'>herry20030426@gmail.com</p>
+                            <img src={contact_click} className='contact_click'></img>
+                        </a>
+                        <div class="contact_seperate_line"></div>
+
+                        <a className='phone_container' onClick={handle_call_me}>
+                            <p className='phone_text'>0987887336</p>
+                            <img src={contact_click} className='contact_click'></img>
+                        </a>
+                    </div> */}
                     <br></br>
                     <br></br>
                     <br></br>
@@ -518,7 +570,6 @@ const About = () => {
                             <img className='Letswork_title' src={Letswork_title}></img>
                             <div ref={contact_work_btn_Ref} className='contact_work_btn' onClick={() => navigate('/work')} />
                             <div ref={contact_touch_btn_Ref} className='contact_touch_btn' onClick={() => navigate('/contact')} />
-
                         </div>
                         <a className='gmail_container' href='https://mail.google.com/mail/?view=cm&fs=1&to=herry20030426@gmail.com'>
                             <p className='gmail_text'>herry20030426@gmail.com</p>
@@ -529,11 +580,7 @@ const About = () => {
                         <a className='phone_container' onClick={handle_call_me}>
                             <p className='phone_text'>0987887336</p>
                             <img src={contact_click} className='contact_click'></img>
-
                         </a>
-
-
-
                     </div>
                 </div>
 
