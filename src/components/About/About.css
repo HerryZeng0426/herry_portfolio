@@ -639,6 +639,187 @@
     transition: opacity 1s ease-in-out;
 }
 
+.Contact_section {
+    margin-top: 15%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.Herry_logo_contact{
+    position: absolute;
+    top: -5%;
+}
+.contact_logo {
+    display: none;
+}
+
+.work_contact_btn_container {
+    position: relative;
+    /* 讓內部元素可絕對定位 */
+    display: flex;
+
+    width: 100%;
+    margin-top: 5%;
+}
+
+.Letswork_title {
+    width: 50%;
+    /* 限制最大寬度，避免過大 */
+    /* 調整與上方的距離 */
+    align-self: flex-start;
+    margin-left: 15%;
+    margin-top: 5%;
+    z-index: 2;
+}
+
+.contact_work_btn {
+    width: 50%;
+    max-width: 500px;
+    /* 限制最大寬度，防止過大 */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 100%;
+    /* 讓按鈕與 `.Letswork_title` 重疊 */
+    left:25%;
+    /* 讓按鈕正中央對齊 */
+    z-index: 0;
+    /* 讓按鈕在 `.Letswork_title` 之下 */
+    animation: conatct_work_btn_shake 5s infinite ease-in-out;
+    opacity: 0.5;
+
+}
+.contact_work_btn:hover {
+    cursor: pointer;
+    opacity: 1;
+    animation:conatct_work_btn_shake 5s infinite ease-in-out , contact_btn_opacity 0.5s  ease-in-out ;
+
+}
+
+.contact_touch_btn {
+    width: 50%;
+    max-width: 500px;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    /* 讓按鈕與 `.Letswork_title` 重疊 */
+    left: 55%;
+    /* 讓按鈕正中央對齊 */
+    z-index: 0;
+    /* 讓按鈕在 `.Letswork_title` 之下 */
+    animation: conatct_touch_btn_shake 5s infinite ease-in-out 
+}
+.contact_touch_btn:hover {
+    opacity:1;
+    cursor: pointer;
+    animation:conatct_touch_btn_shake 5s infinite ease-in-out , contact_btn_opacity 0.5s  ease-in-out ;
+}
+@keyframes conatct_touch_btn_shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translate(-15px, -21px);
+    }
+
+    50% {
+        transform: translate(17px, -21px);
+    }
+
+    75% {
+        transform: translate(-15px, 24px);
+    }
+}
+
+@keyframes conatct_work_btn_shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translate(21px, 15px);
+    }
+
+    50% {
+        transform: translate(-15px, 21px);
+    }
+
+    75% {
+        transform: translate(15px, -21px);
+    }
+}
+@keyframes contact_btn_opacity {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.gmail_container {
+    margin-top: 35%;
+    display: flex;
+    justify-content: space-between;
+    /* 讓文字與按鈕左右對齊 */
+    align-items: center;
+    /* 確保垂直居中對齊 */
+    width: 70%;
+}
+
+/* Gmail 文字 */
+.gmail_text {
+    font-size: 25px;
+    color: #ffffff;
+    letter-spacing: 1px;
+
+}
+
+.phone_container {
+    display: flex;
+    justify-content: space-between;
+    /* 讓文字與按鈕左右對齊 */
+    align-items: center;
+    /* 確保垂直居中對齊 */
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+/* Gmail 文字 */
+.phone_text {
+    font-size: 25px;
+    color: #ffffff;
+    letter-spacing: 1px;
+
+}
+
+.contact_seperate_line {
+    width: 75%;
+    /* 控制線條的長度 */
+    height: 0.5px;
+    background-color: #d7d7d7;
+    /* 黑色分界線 */
+    margin-top: 15px;
+    /* 可調整與上方的距離 */
+    margin-bottom: 15px;
+
+}
+
 @media (max-width : 768px) {
     .Mobile_about_background {
         align-items: center;
@@ -1117,6 +1298,7 @@
         width: 50%;
         max-width: 300px;
         /* 限制最大寬度，防止過大 */
+        opacity: 1;
 
         display: flex;
         align-items: center;
@@ -1136,7 +1318,7 @@
 
     .contact_touch_btn {
         width: 50%;
-
+        opacity: 1;
         display: flex;
         align-items: center;
         justify-content: center;

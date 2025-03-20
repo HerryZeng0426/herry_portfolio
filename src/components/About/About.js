@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Herry from '../imgs/logo.png'
 import Click_directory from '../svgs/click_directory.svg'
 import { gsap } from "gsap";
 import Figma_background1 from '../imgs/Figma_background1.png'
@@ -250,9 +251,35 @@ const About = () => {
         return () => clearInterval(interval);
     }, [keys.length]);
 
+
+    //Recently activity container
+    const [Recently_activity_name, setRecently_activity_name] = useState('Explore')
+    const Recently_activity_name_Ref = useRef(null)
+
+
+    useEffect(() => {
+        if (Recently_activity_name_Ref.current) {
+            gsap.fromTo(
+                Recently_activity_name_Ref.current,
+                { y: 20, opacity: 0 }, // 文字從下方開始，透明度為 0
+                { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" } // 滑動進入動畫
+            );
+        }
+    }, [Recently_activity_name]);
+
+
     //Hover 在地球照片出現在滑鼠旁動畫
     const [mouseonRecently, setMouseonRecently] = useState(false)
     const [hoverrecently_imgsrc, setHoverrecently_imgsrc] = useState(null)
+
+    //先把照片預先加載，不然Hover時候才加載太慢
+    useEffect(() => {
+        const preloadImages = [ca2, climb]; // 這裡放所有可能的圖片
+        preloadImages.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    },[])
 
     const handleMouseMove_Recently = (e) => {
         gsap.to('.Recently_follow_img', {
@@ -310,12 +337,14 @@ const About = () => {
         };
     }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
 
+
+
     //Contact go to touch circle  動畫介紹  
     const contact_touch_btn_Ref = useRef(null);
     const [contact_touch_btn_play, setContact_touch_btn_play] = useState(false);
 
-    useEffect(() => {
 
+    useEffect(() => {
         const Contact_touch_ani = lottie.loadAnimation({
             container: contact_touch_btn_Ref.current,
             renderer: "svg",
@@ -346,24 +375,34 @@ const About = () => {
         };
     }, []); // 只需要在掛載時運行一次，不要加 `[skillcircleani_play]`
 
+
+    const [isContactVisible, setIsContactVisible] = useState(false);
+    const Contact_section_Ref = useRef(null)
+    //當頁面進入到 Contact_section 時候，就不出現 ramp skateboard 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsContactVisible(entry.isIntersecting);
+            },
+            { root: null, rootMargin: "0px", threshold: 0.3 } // ✅ 調整 threshold (30% 出現在畫面內就觸發)
+        );
+
+        if (Contact_section_Ref.current) {
+            observer.observe(Contact_section_Ref.current);
+        }
+
+        return () => {
+            if (Contact_section_Ref.current) {
+                observer.unobserve(Contact_section_Ref.current);
+            }
+        };
+    }, []);
+
+
     const handle_call_me = () => {
         window.location.href = "tel:0987887336"
     }
 
-    //Recently activity container
-    const [Recently_activity_name, setRecently_activity_name] = useState('Explore')
-    const Recently_activity_name_Ref = useRef(null)
-
-
-    useEffect(() => {
-        if (Recently_activity_name_Ref.current) {
-            gsap.fromTo(
-                Recently_activity_name_Ref.current,
-                { y: 20, opacity: 0 }, // 文字從下方開始，透明度為 0
-                { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" } // 滑動進入動畫
-            );
-        }
-    }, [Recently_activity_name]);
 
 
     return (
@@ -465,7 +504,15 @@ const About = () => {
                             <img src={hoverrecently_imgsrc} className='Recently_follow_img'></img>
                         }
                     </div>
-                    {/* <div className='Contact_section'>
+
+                   
+                    <div className='Contact_section' ref={Contact_section_Ref }>
+                    {!isContactVisible && (
+                        <>
+                            <img  className='Herry_logo_contact' src={Herry}></img>
+                        </>
+                       
+                    )}
                         <img className='contact_logo' src={contact_logo} onClick={() => navigate('/herry')}></img>
 
                         <div className='work_contact_btn_container'>
@@ -479,26 +526,25 @@ const About = () => {
                         </a>
                         <div class="contact_seperate_line"></div>
 
-                        <a className='phone_container' onClick={handle_call_me}>
+                        <a className='phone_container' >
                             <p className='phone_text'>0987887336</p>
                             <img src={contact_click} className='contact_click'></img>
                         </a>
-                    </div> */}
-                    <br></br>
-                    <br></br>
-                    <br></br>
+                    </div>
 
 
-                    <img className='ramp' src={ramp}></img>
+                    {!isContactVisible && (<>
+                        <img className='ramp' src={ramp}></img>
 
-                    <img
-                        src={skateboard}
-                        alt="Skateboard"
-                        className="skateboard"
-                        style={{
-                            transform: `translate(${position.x}px, ${position.y}px)`,
-                        }}
-                    />
+                        <img
+                            src={skateboard}
+                            alt="Skateboard"
+                            className="skateboard"
+                            style={{
+                                transform: `translate(${position.x}px, ${position.y}px)`,
+                            }}
+                        />
+                    </>)}
                 </div>}
             {
                 Mobile_mode &&

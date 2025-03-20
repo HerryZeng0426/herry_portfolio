@@ -197,6 +197,7 @@
 
 .close {
     background-color: #000000;
+    border: 0.1px solid #252525;
 
 }
 
@@ -311,6 +312,7 @@
     width: 35%;
     /* 宽度 50% */
     background-color: #000000;
+    border: 0.1px solid #252525;
     /* 背景颜色 */
     z-index: 50;
     display: flex;
