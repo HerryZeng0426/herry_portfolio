@@ -416,9 +416,9 @@ const About = () => {
 
                     <div className='About_title'>
                         <p className="About_title1">
-                            <span className="outlined_text">Empathy</span> is my core essence.
+                            <span className="outlined_text">Empathy</span> is my core essence
                         </p>
-                        <p className='About_title2'>Also the goal of design.</p>
+                        <p className='About_title2'>Also the goal of design</p>
                         <div class="seperate_line"></div>
 
                     </div>
@@ -507,12 +507,7 @@ const About = () => {
 
                    
                     <div className='Contact_section' ref={Contact_section_Ref }>
-                    {!isContactVisible && (
-                        <>
-                            <img  className='Herry_logo_contact' src={Herry}></img>
-                        </>
-                       
-                    )}
+              
                         <img className='contact_logo' src={contact_logo} onClick={() => navigate('/herry')}></img>
 
                         <div className='work_contact_btn_container'>

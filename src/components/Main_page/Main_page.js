@@ -68,8 +68,8 @@ const Main_page = () => {
 
                 <div class="student_flip_container">
                     <div class="student_flip">
-                        <p class="university">University Student</p>
-                        <p class="STUST">STUST</p>
+                        <p class="Graduate">Graduate Student</p>
+                        <p class="THU">THU</p>
                     </div>
                 </div>
             </div>
@@ -81,9 +81,9 @@ const Main_page = () => {
                     <Menu></Menu>
                     <img className='Mobile_Herry' src={Herry}></img>
                     <div className='Mobile_name_student'>
-                        <img src={Mobile_name} className='Mobile_name'></img>
+                        <p className='Mobile_name'>Herry Zeng</p>
                         <img src={Mobile_line} className='Mobile_line'></img>
-                        <img src={Mobile_student} className='Mobile_student'></img>
+                        <p className='Mobile_student'>Graduate Student</p>
                     </div>
 
                 </div>

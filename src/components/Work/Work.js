@@ -52,6 +52,7 @@ const Work = () => {
 
   const [mouseOnWork, setMouseOnWork] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const [mouseOnContact, setMouseOnContact] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
