@@ -1,4 +1,10 @@
 import { React, useEffect, useState, useRef } from 'react'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import canada5 from '../imgs/canada5.JPG'
+import canada4 from '../imgs/canada4.JPG'
+import canada3 from '../imgs/canada3.JPG'
+import canada2 from '../imgs/canada2.jpeg'
+import canada1 from '../imgs/canada1.png'
 import workshop_3d_img from '../imgs/workshop_3d_img.png'
 import workshop_ui_ux_img from '../svgs/workshop_ui_ux_img.svg'
 import Me_and_Kevin from '../imgs/Me_and_Kevin.JPG'
@@ -16,6 +22,7 @@ import me_and_kevin from '../imgs/me_and_kevin.png'
 import me_designing from '../imgs/me_designing.png'
 import '../Canada/Canada.css'
 
+gsap.registerPlugin(ScrollTrigger);
 
 
 
@@ -185,7 +192,22 @@ const Canada = () => {
 
 
     //管理 點了 What I learned btn 會出現的切換動畫
-
+    const Workshop_section_Ref = useRef(null)
+    const [isclick_workshop_btn, setIsclick_workshop_btn] = useState(false)
+    const handle_click_workshop_btn = () => {
+        setIsclick_workshop_btn(!isclick_workshop_btn)
+        //點選 what I learned btn 會跳轉到 Workshop_section 部分 
+        if (!isclick_workshop_btn) {
+            setTimeout(() => {
+                Workshop_section_Ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 150); // 稍微延遲一下，確保展開動畫已開始
+        }
+        else {
+            setTimeout(() => {
+                Me_and_Kevin_container_Ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 150); // 稍微延遲一下，確保展開動畫已開始
+        }
+    }
 
     //管理 workshop 照片的動畫效果
 
@@ -215,6 +237,32 @@ const Canada = () => {
         setMouseonworkshop_section(false);
         gsap.to(workbtnFollow_Ref.current, { opacity: 0, scale: 0.5, duration: 0.3, ease: "power2.out" });
     };
+
+
+    //滾動到 Canada_imgs_container 會有的效果
+    useEffect(() => {
+
+
+        const targets = [".canada1", ".canada3", ".canada5"];
+      
+        targets.forEach((selector) => {
+          gsap.to(selector, {
+            y: -150, // 回到原本位置（反方向移動）,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".Canada_imgs_container",
+              start: "top bottom", // 區塊出現在視窗底部時開始
+              end: "bottom top",   // 區塊離開視窗頂部時結束
+              scrub:true,         // 滾動綁定動畫（滑順）
+            }
+          });
+        });
+      
+        return () => {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+      }, []);
+      
 
     const handle_to_work_page = () => {
         navigate('/work')
@@ -269,22 +317,23 @@ const Canada = () => {
                     <p className='Canada_section3_text'>
                         Kevin is my uncle's great partner, an outstanding designer, and the UX Director at Shopify.
                         During this trip, I had the opportunity to attend his workshop, which was truly inspiring.
-                        I am very grateful for his insights. In the workshop, I learned about:
-                        <span className='view_workshop_btn' >→ What I learned</span>
+                        I am very grateful for his insights. In the workshop, I learned about :
+                        <span className='view_workshop_btn' onClick={handle_click_workshop_btn}>→ What I learned</span>
                     </p>
                 </div>
             </div>
 
-            <div className='Workshop_skills_section'
-                onClick={handle_to_work_page}
-                onMouseMove={handleMouseMove_Workshop_seciton}
-                onMouseEnter={handleMouseEnter_Workshop_seciton}
-                onMouseLeave={handleMouseLeave_Workshop_section}
-            >
+            <div className={`Workshop_skills_section ${isclick_workshop_btn ? 'display' : ''}`}
+                ref={Workshop_section_Ref} >
                 {mouseonworkshop_section &&
                     (<p className="work_follow" ref={workbtnFollow_Ref}>Work</p>)
                 }
-                <div className='Workshop_ui_ux_section'>
+                <div className='Workshop_ui_ux_section'
+                    onClick={handle_to_work_page}
+                    onMouseMove={handleMouseMove_Workshop_seciton}
+                    onMouseEnter={handleMouseEnter_Workshop_seciton}
+                    onMouseLeave={handleMouseLeave_Workshop_section}
+                >
                     <img src={workshop_ui_ux_img} className='workshop_ui_ux_img' />
                     <div className='workshop_ui_ux_text_section'>
                         <p className='title'>UI & UX <br></br>Design & Development</p>
@@ -293,7 +342,12 @@ const Canada = () => {
                         </p>
                     </div>
                 </div>
-                <div className='Workshop_3d_section'>
+                <div className='Workshop_3d_section'
+                    onClick={handle_to_work_page}
+                    onMouseMove={handleMouseMove_Workshop_seciton}
+                    onMouseEnter={handleMouseEnter_Workshop_seciton}
+                    onMouseLeave={handleMouseLeave_Workshop_section}
+                >
                     <div className="Workshop_skills_background"></div>
                     <img src={workshop_3d_img} className='workshop_3d_img' />
                     <div className='workshop_3d_text_section'>
@@ -306,6 +360,17 @@ const Canada = () => {
                 </div>
             </div>
 
+            <div className='Canada_imgs_container'>
+                <p className='Canada_imgs_title'>Scenery in the frame</p>
+                <div className='Canada_imgs_section'>
+                    <img className='canada1' src={canada1}></img>
+                    <img className='canada2' src={canada2}></img>
+                    <img className='canada3' src={canada3}></img>
+                    <img className='canada4' src={canada4}></img>
+                    <img className='canada5' src={canada5}></img>
+                </div>
+
+            </div>
 
             <div className='mountain'>
                 <img src={NEXT} className='NEXT' onClick={handle_to_next}></img>

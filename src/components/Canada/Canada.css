@@ -254,10 +254,12 @@
     position: relative;
     top: 25px; /* 調整數值讓它稍微向上移動 */
     transition: transform 0.5s ;
+    animation: btn_shake 3s infinite linear;
+
 }
+
 .Workshop_skills_section {
     gap: 150px;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     /* 水平置中 */
@@ -265,11 +267,20 @@
     /* 讓內部區塊底部對齊 */
     width: 100%;
     /* 確保它能填滿視口 */
-    margin-top: 12%;
+    margin-top: 7%;
     position: relative; /* 讓內部背景 div 絕對定位 */
-
-
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-width 0.6s ease, max-height 0.6s ease ,  0.6s ease;
+    opacity: 0;
 }
+.Workshop_skills_section.display {
+    max-height: 900px;
+    max-width: 100%; /* 設定足夠大以容納內容 */
+    opacity: 1;
+  }
+
 .work_follow {
     font-size: 20px;
     color: white;
@@ -294,21 +305,34 @@
 .Workshop_skills_background {
     position: absolute;
     top: 12%; /* 讓背景對齊 .workshop_3d_img */
-    left: 0;
-    width: 100%;
+    left: 0;        /* 靠右 */
+    width: 90%;
     height: 90%;
     background-color: #fff6f6; /* 你可以換成任何顏色 */
     z-index: -1; /* 確保背景在內容的底層 */
+}
+.Workshop_ui_ux_section , .Workshop_3d_section {
+    cursor: pointer;
 }
 .view_workshop_btn:hover{
     transform: scale(1.1);
 }
 .workshop_ui_ux_img{
     width: 35vw;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
+}
+.workshop_ui_ux_img:hover{
+    opacity: 1;
 }
 .workshop_3d_img{
     width: 20vw;
     margin-top: 35%;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
+}
+.workshop_3d_img:hover{
+    opacity: 1;
 }
 .workshop_ui_ux_text_section .title{
     font-size: 2.3vw;
@@ -328,8 +352,37 @@
     color: #868686;
     line-height: 1.3;
     width: 20vw;
+}    
+.Canada_imgs_container{
+    margin-top: 15%;
 }
-
+.Canada_imgs_title{
+    font-size: 6vw;
+    align-self: flex-start;
+    margin-left: 15%;
+}
+.Canada_imgs_section {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    padding: 100px 0; /* 加 padding 才能讓 scroll 有空間觸發 */
+  }
+  
+  .Canada_imgs_section img {
+    width: 18vw;
+    transition: transform 0.3s ease;
+  }
+  
+.canada1 {
+    transform: translateY(50%);
+  }
+  .canada3 {
+    transform: translateY(35%);
+  }
+  .canada5 {
+    transform: translateY(30%);
+  }
+  
 
 .mountain {
     position: relative;
