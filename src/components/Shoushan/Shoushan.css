@@ -1,231 +1,221 @@
-.shoushan_background {
-    background-color: aliceblue;
+.shoushan_background {}
 
-    background-size: cover;
+.Shoushan_title {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 讓容器本身置中 */
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
 
+.Shoushan_title1 {
+    font-size: 60px;
+    font-weight: 500;
+    color: #000;
+    /* 其他字的顏色 */
+    margin-bottom: 0%;
+    align-self: flex-start;
+    /* 讓文字內容靠左 */
+    text-align: left;
+    /* 確保文字內部左對齊 */
+}
+
+.outlined_text {
+    color: transparent;
+    /* 讓字體填充透明 */
+    -webkit-text-stroke: 1px black;
+    /* 黑色邊框 */
+}
+
+.Shoushan_title2 {
+    align-self: flex-end;
+    /* 讓文字內容靠左 */
+    text-align: left;
+    /* 確保文字內部左對齊 */
+    font-size: 25px;
+    font-weight: 500;
+    color: #868686;
+    /* 其他字的顏色 */
+}
+
+.Shoushan_section1_container {
+    gap: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 125px;
+    /* 可選：如果不想要額外偏移 */
+}
+
+.Shoushan_section1_img_container {
+    width: 70%;
+    height: 700px;
+    /* 確保高度固定 */
+
+    overflow: hidden;
+    /* 讓超出的部分隱藏 */
     position: relative;
-    /* 移除 overflow: hidden; */
-    /* 或使用 overflow: auto; 或 overflow-y: scroll; 根據需求決定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.first_hiking {
+.Shoushan_section1_img {
+    position: absolute;
+    height: 900px;
+    object-fit: cover;
 
+}
+
+.Shoushan_section1 {
     display: flex;
     flex-direction: column;
-    /* 垂直排列內部元素 */
-    align-items: center;
-    /* 將所有子元素水平置中 */
-    justify-content: center;
-    /* （可選）將所有子元素垂直置中 */
-    /* 你可以根據需要添加其他樣式，例如高度、寬度、背景等 */
-}
-
-.first_hiking_img {
-    margin-top: 5%;
-    width: 50%;
-}
-
-.first_hiking_imgs {
-    display: flex;
-    flex-direction: row;
-    /* 水平排列圖片 */
-    gap: 50px;
-    /* 圖片之間的間距，可以根據需要調整 */
-    margin-top: 20px;
-    /* 主圖片與圖片列之間的間距 */
-}
-
-.first_hiking_imgs img {
-    /* 可選：設定圖片的大小或其他樣式 */
-    width: 250px;
-    /* 例如設定每張圖片的寬度為100px */
-    height: auto;
-    transition: transform 0.3s ease;
-    /* 添加過渡效果 */
-
+    justify-content: flex-end;
+    position: relative;
+    width: 70%;
 
 }
 
-.first_hiking_img1:hover {
-    transform: scale(1.1);
-    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
+.Shoushan_section1_title {
+    font-size: 6.5vw;
+    font-weight: 500;
+    opacity: 0.05;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 0;
 }
 
-.first_hiking_img2:hover {
-    transform: scale(1.1);
-    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
-}
-
-.first_hiking_img3:hover {
-    transform: scale(1.1);
-    /* 放大到原來的1.7倍（100px * 1.7 = 170px） */
-}
-
-.kh {
-    margin-top: 15%;
-    display: flex;
-    flex-direction: column;
-    /* 垂直排列內部元素 */
-    align-items: center;
-    /* 將所有子元素水平置中 */
-    justify-content: center;
-    /* （可選）將所有子元素垂直置中 */
-    /* 你可以根據需要添加其他樣式，例如高度、寬度、背景等 */
-}
-
-
-/* 容器設定 */
-.kh_container {
+.Shoushan_section1_text {
+    color: #000;
+    font-size: 1.3vw;
+    font-weight: 500;
+    line-height: 1.5;
     position: relative;
     width: 100%;
-    /* 根據最大圖片寬度調整 */
-    height: 500px;
-    /* 根據最大圖片高度調整 */
-    overflow: hidden;
-    /* 防止圖片放大後溢出容器 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 共用圖片樣式 */
-.kh_container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* 保持圖片比例 */
-    transition: opacity 1s ease, transform 0.3s ease;
-    cursor: pointer;
-    /* 可選：懸停時顯示手指圖示 */
-}
-
-/* 初始狀態 */
-.kh1_1 {
-    opacity: 1;
     z-index: 1;
-    transform: translate(-50%, -50%) scale(1);
+    top: -2vw;
 }
 
-.kh2_1 {
-    opacity: 0;
-    z-index: 2;
-    transform: translate(-50%, -50%) scale(1);
+.Shoushan_imgs_container {
+    margin-top: 15vw;
+    position: relative;
 }
 
-/* 懸停效果 */
-.kh_container:hover .kh2_1 {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    /* 輕微放大 */
+.Shoushan_imgs_container_background {
+    position: absolute;
+    /* 讓背景對齊 .workshop_3d_img */
+    left: 0;
+    /* 靠右 */
+    width: 100%;
+    height: 60%;
+    background-color: #f6fdf5;
+    /* 你可以換成任何顏色 */
+    z-index: -1;
+    /* 確保背景在內容的底層 */
 }
 
-.kh_container:hover .kh1_1 {
-    opacity: 0;
+.Shoushan_imgs_title {
+    font-size: 6vw;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.Shoushan_imgs_section {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    padding: 100px 0;
+    /* 加 padding 才能讓 scroll 有空間觸發 */
+}
+
+.Shoushan_imgs_section img {
+    width: 18vw;
+    transition: transform 0.3s ease;
+}
+.hike2{
+    transform: translateY(35%);
+}
+.hike3 {
+    transform: translateY(50%);
+}
+
+.hike4 {
+    transform: translateY(65%);
+
+}
+
+.hike5 {
+    transform: translateY(80%);
+
+}
+
+.hike6 {
+    transform: translateY(95%);
+
 }
 
 .where {
     bottom: 0;
-    margin-top: 15%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     width: 100%;
-    height: 900px;
+    height: auto;
     overflow: hidden;
 }
 
 .where_img {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    width: 75vw;
 }
 
 .go_CANADA {
-    transform: translateY(150%);
-    z-index: 2;
-    /* 位於背景圖片上方 */
-    height: auto;
-    margin-bottom: 20px;
-    /* 與下方圖片的間距 */
-    cursor: pointer;
+    width: 20vw;
+    position: absolute;
+    top: 5%;
+    transform: rotate(-5deg);
 }
 
 .go_CANADA:hover {
-    transform: translateY(150%) rotate(5deg);
-    z-index: 2;
-    /* 位於背景圖片上方 */
-    height: auto;
-    margin-bottom: 20px;
-    /* 與下方圖片的間距 */
     cursor: pointer;
+    transform: rotate(-0deg);
+
 }
 
-/* 下方圖片 */
 .go_WORK {
-    transform: translateY(150%);
-    z-index: 2;
-    /* 位於背景圖片上方 */
-    height: auto;
+    width: 20vw;
+    position: absolute;
+    top: 35%;
+    transform: rotate(5deg);
 }
 
 .go_WORK:hover {
-    transform: translateY(150%) rotate(5deg);
     cursor: pointer;
+    transform: rotate(0deg);
+
 }
 
 .contact_img {
-    transform: translate(200%, 0%) rotate(5deg);
-    /* 位於背景圖片上方 */
-    height: auto;
+    width: 12vw;
+    position: absolute;
+    left: 70%;
+    top: 27%;
     z-index: 1;
-
+    transform: rotate(5deg);
 }
-
-
-
-
 
 .contact_img:hover {
-    transform: translate(200%, 0%) rotate(0deg);
+    cursor: pointer;
+    transform: rotate(0deg);
 
-    cursor: pointer;
 }
 
-@media (min-width: 1920px) {
-   .go_CANADA{
-    transform: translateY(50%);
-   }
-   .go_CANADA:hover {
-    transform: translateY(50%) rotate(5deg);
-    z-index: 2;
-    /* 位於背景圖片上方 */
-    height: auto;
-    margin-bottom: 20px;
-    /* 與下方圖片的間距 */
-    cursor: pointer;
-}
-.go_WORK{
-    transform: translateY(75%);
-}
-.go_WORK:hover {
-    transform: translateY(75%) rotate(5deg);
-    cursor: pointer;
-}
-.contact_img{
-    transform: translate(200%, -15%) rotate(5deg);
-    /* 位於背景圖片上方 */
-    height: auto;
-    z-index: 1;
-}
-.contact_img:hover {
-    transform: translate(200%, -15%) rotate(0deg);
-
-    cursor: pointer;
-}
-}

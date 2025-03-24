@@ -355,6 +355,16 @@
 }    
 .Canada_imgs_container{
     margin-top: 15%;
+    position: relative;
+}
+.Canada_imgs_container_background{
+    position: absolute;
+    top: 5%; /* 讓背景對齊 .workshop_3d_img */
+    left: 0;        /* 靠右 */
+    width: 100%;
+    height: 75%;
+    background-color: #f5f5f5; /* 你可以換成任何顏色 */
+    z-index: -1; /* 確保背景在內容的底層 */
 }
 .Canada_imgs_title{
     font-size: 6vw;
@@ -401,7 +411,7 @@
     /* 垂直居中 */
     /* 移除 margin-top，避免影響布局 */
     /* margin-top: 50%; */
-    margin-top: 0;
+    margin-top: -6vw;
 }
 
 .mountain_img {
@@ -410,7 +420,6 @@
     bottom: 0;
     /* 定位於容器底部 */
     width: 105%;
-    height: 500px;
     display: block;
     /* 將圖片設置為 block 元素 */
     margin: 0;
@@ -421,8 +430,10 @@
 
 }
 
-.NEXT {
+.mountain p {
     transform: translateY(50px);
+    font-size: 3.5vw;
+    font-weight: 500;
     /* 根據需求調整或移除 */
     display: block;
     /* 將圖片設置為 block 元素 */
@@ -431,29 +442,34 @@
     padding: 0;
     /* 移除默認 padding */
     z-index: 100;
+    animation: next_wave 2s infinite ;
 }
-
+@keyframes next_wave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
 .mountain_img,
-.NEXT {
+.mountain p {
     margin: 0;
     padding: 0;
     display: block;
     /* 確保所有圖片都是 block 元素 */
 }
-
 .sun {
-    transform: translateY(100%);
+    transform: translateY(150%);
     transition: transform 0.6s ease;
+    width:20vw;
 }
 
-.NEXT {
+.mountain p {
     transition: transform 0.3s ease;
 }
 
-.NEXT:hover {
+.mountain p:hover {
     cursor: pointer;
 }
 
-.NEXT:hover~.sun {
-    transform: translateY(-35%);
+.mountain p:hover~.sun {
+    transform: translateY(-50%);
 }

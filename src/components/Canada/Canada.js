@@ -1,4 +1,5 @@
 import { React, useEffect, useState, useRef } from 'react'
+import mountain from '../svgs/mountain.svg'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import canada5 from '../imgs/canada5.JPG'
 import canada4 from '../imgs/canada4.JPG'
@@ -16,7 +17,6 @@ import Menu from '../Menu/Menu';
 import { useNavigate } from 'react-router-dom';
 import sun from '../imgs/Sun.png'
 import NEXT from '../imgs/NEXT.png'
-import mountain from '../imgs/mountain.png'
 import me_and_kevin_together_img from '../imgs/me_and_kevin_together_img.png'
 import me_and_kevin from '../imgs/me_and_kevin.png'
 import me_designing from '../imgs/me_designing.png'
@@ -241,20 +241,22 @@ const Canada = () => {
 
     //滾動到 Canada_imgs_container 會有的效果
     useEffect(() => {
-
-
-        const targets = [".canada1", ".canada3", ".canada5"];
+        const animations = [
+          { selector: ".canada1", y: -175 },
+          { selector: ".canada3", y: -125 },
+          { selector: ".canada5", y: -250 },
+        ];
       
-        targets.forEach((selector) => {
+        animations.forEach(({ selector, y }) => {
           gsap.to(selector, {
-            y: -150, // 回到原本位置（反方向移動）,
+            y,
             ease: "none",
             scrollTrigger: {
               trigger: ".Canada_imgs_container",
-              start: "top bottom", // 區塊出現在視窗底部時開始
-              end: "bottom top",   // 區塊離開視窗頂部時結束
-              scrub:true,         // 滾動綁定動畫（滑順）
-            }
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
           });
         });
       
@@ -267,7 +269,7 @@ const Canada = () => {
     const handle_to_work_page = () => {
         navigate('/work')
     }
-    const handle_to_next = () => {
+    const handle_to_shoushan = () => {
         navigate('/shoushan')
     }
 
@@ -362,6 +364,7 @@ const Canada = () => {
 
             <div className='Canada_imgs_container'>
                 <p className='Canada_imgs_title'>Scenery in the frame</p>
+                <div className="Canada_imgs_container_background"></div>
                 <div className='Canada_imgs_section'>
                     <img className='canada1' src={canada1}></img>
                     <img className='canada2' src={canada2}></img>
@@ -373,7 +376,7 @@ const Canada = () => {
             </div>
 
             <div className='mountain'>
-                <img src={NEXT} className='NEXT' onClick={handle_to_next}></img>
+                <p onClick={handle_to_shoushan}>Next</p>
                 <img src={sun} className='sun'></img>
                 <img src={mountain} className='mountain_img'></img>
 
