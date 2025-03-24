@@ -163,9 +163,8 @@
     width: 100%;
     text-align: center;
     right: 15%;
-    top: 26%;
     /* 控制標題距離上方的位置，讓它稍微覆蓋文字 */
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     /* 確保在不同解析度下，標題能正確定位 */
 }
 
@@ -276,7 +275,7 @@
     opacity: 0;
 }
 .Workshop_skills_section.display {
-    max-height: 900px;
+    max-height: 100%;
     max-width: 100%; /* 設定足夠大以容納內容 */
     opacity: 1;
   }
@@ -426,12 +425,11 @@
     /* 移除默認 margin */
     padding: 0;
     /* 移除默認 padding */
-    transform: translateY(15px);
+    transform: translateY(5vw);
 
 }
 
 .mountain p {
-    transform: translateY(50px);
     font-size: 3.5vw;
     font-weight: 500;
     /* 根據需求調整或移除 */
