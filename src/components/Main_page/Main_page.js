@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import hover_contact_anim from '../Animations/hover_contact_anim.json'
+import hover_about_anim from '../Animations/hover_about_anim.json'
+import hover_work_anim from '../Animations/hover_work_anim.json'
+import Lottie from "lottie-react";
+import { gsap } from 'gsap';
+import { useNavigate } from 'react-router-dom';
+import mainpage_background2 from '../svgs/main_page_background2.svg'
+import main_page_title2 from '../svgs/main_page_title2.svg'
+import main_page_title from '../svgs/main_page_title.svg'
+import mainpage_background from '../svgs/main_page_background.svg'
+import Main_img from '../imgs/Aboutme_img.png'
 import Page_Transition from '../Page_Transition/Page_Transition';
 import Mobile_line from '../imgs/Mobile_line.png'
 import Mobile_student from '../imgs/Mobile_student.png'
@@ -41,9 +52,9 @@ const Main_page = () => {
 
     const Mobile_mode = useMediaQuery({ maxWidth: 768 })
 
+    const navigate = useNavigate()
 
-
-
+    const [hover_on_menu, setHover_on_menu] = useState(null);
 
 
 
@@ -51,28 +62,60 @@ const Main_page = () => {
     return (
         <div>
             <Page_Transition page_title='Home'></Page_Transition>
-            {!Mobile_mode && <div className='background_main_page'>
-                <div className='main_page_country_container'>
-                    <img src={country} className='main_page_country' alt="Country" />
-                </div>
-                <Menu></Menu>
-                <img className='Herry' src={Herry}></img>
-
-
-                <div className='name_flip_container' >
-                    <div className='name_flip'>
-                        <img className='english_name' src={english_name}></img>
-                        <img className='chinese_name' src={chinese_name}></img>
+            {!Mobile_mode &&
+                <div className='Main_page_container'>
+                    <div className='Main_page_main_section'>
+                        <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>
+                        <img className='Main_img' src={Main_img} />
+                        <img className='main_page_title' src={main_page_title} />
+                        <img className='main_page_title2' src={main_page_title2} />
+                        <img className='mainpage_background2' src={mainpage_background2} />
+                    </div>
+                    <div className='Menu_section'>
+                        <div className='Menu_work_section' onMouseEnter={() => setHover_on_menu('work')} onMouseLeave={() => setHover_on_menu(null)}>
+                            <p className='Menu_work' onClick={() => navigate('/work')}>Work</p>
+                            <div className="Menu_work_anim_section">
+                                {hover_on_menu === 'work' ? (
+                                    <Lottie
+                                        animationData={hover_work_anim}
+                                        loop={true}
+                                        autoplay={true}
+                                        style={{ width: '7.5vw', transform: 'translatey(-0.5vw)' }}
+                                    />
+                                ) : (
+                                    <div style={{ width: '7.5vw', }} />)}
+                            </div>
+                        </div>
+                        <div className='Menu_about_section' onMouseEnter={() => setHover_on_menu('about')} onMouseLeave={() => setHover_on_menu(null)}>
+                            <p className='Menu_about' onClick={() => navigate('/about')}>About</p>
+                            <div className="Menu_about_anim_section">
+                                {hover_on_menu === 'about' ? (
+                                    <Lottie
+                                        animationData={hover_about_anim}
+                                        loop={true}
+                                        autoplay={true}
+                                        style={{ width: '21vw', transform: 'translatey(-0.1vw)' }}
+                                    />
+                                ) : (
+                                    <div style={{ width: '21vw', }} />)}
+                            </div>
+                        </div>
+                        <div className='Menu_contact_section' onMouseEnter={() => setHover_on_menu('contact')} onMouseLeave={() => setHover_on_menu(null)}>
+                            <p className='Menu_contact' onClick={() => navigate('/contact')}>Contact</p>
+                            <div className="Menu_contact_anim_section">
+                                {hover_on_menu === 'contact' ? (
+                                    <Lottie
+                                        animationData={hover_contact_anim}
+                                        loop={true}
+                                        autoplay={true}
+                                        style={{ width: '23vw', transform: 'translatey(-0.75vw)' }}
+                                    />
+                                ) : (
+                                    <div style={{ width: '23vw', }} />)}
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="student_flip_container">
-                    <div class="student_flip">
-                        <p class="Graduate">Graduate Student</p>
-                        <p class="THU">THU</p>
-                    </div>
-                </div>
-            </div>
             }
 
             {Mobile_mode && <>

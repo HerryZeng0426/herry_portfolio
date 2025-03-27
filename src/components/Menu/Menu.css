@@ -24,7 +24,7 @@
 
 /* Logo 設定 */
 .Home {
-    width: 300PX;
+    width: 18vw;
     /* 可依需求調整 Logo 大小 */
     height: auto;
     cursor: pointer;
@@ -33,7 +33,6 @@
 
 /* right_menu 專門容納選單文字 */
 .right_menu {
-    font-weight: 500;
     display: flex;
     gap: 50px;
     /* 每個選項間距 */
@@ -49,10 +48,11 @@
     padding: 0;
     color: black;
     /* 與背景形成對比的顏色 */
-    font-size: 35px;
+    font-size: 2.3vw;
     /* 字體大小可自行調整 */
     cursor: pointer;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .About,
@@ -75,8 +75,8 @@
     left: 50%;
     transform: translateX(-50%) scaleX(0);
     /* 初始為縮小狀態 */
-    width: 150%;
-    height: 50px;
+    width: 130%;
+    height: 120%;
     background-image: url('../imgs/tape2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -105,8 +105,8 @@
     /* 視實際需求調整 */
     left: 50%;
     transform: translateX(-50%);
-    width: 150%;
-    height: 50px;
+    width: 130%;
+    height: 120%;
     background-image: url('../imgs/tape2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,8 +132,8 @@
     left: 50%;
     transform: translateX(-50%) scaleX(0);
     /* 初始為縮小狀態 */
-    width: 125%;
-    height: 50px;
+    width: 120%;
+    height: 75%;
     background-image: url('../imgs/tape.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -155,8 +155,8 @@
     /* 調整膠帶的相對位置 */
     left: 50%;
     transform: translateX(-50%);
-    width: 125%;
-    height: 50px;
+    width: 120%;
+    height: 75%;
     /* 膠帶高度，依需求可調整 */
     background-image: url('../imgs//tape.png');
     background-repeat: no-repeat;
@@ -173,8 +173,8 @@
     /* 距離頁面頂部 20px */
     right: 50px;
     /* 距離頁面右側 20px */
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
     color: #fff;
     border-radius: 50%;
     /* 圓形 */
@@ -309,7 +309,7 @@
     right: 0;
     height: 100%;
     /* 高度填满 */
-    width: 35%;
+    width: 30%;
     /* 宽度 50% */
     background-color: #000000;
     border: 0.1px solid #252525;
@@ -325,11 +325,11 @@
     top: -20px;
     color: #ffffff;
     /* 字体颜色为白色 */
-    font-size: 75px;
+    font-size: 3.5vw;
     /* 字体大小 */
     text-align: center;
     /* 文本居中 */
-    margin: 5px 0;
+    margin: 15px 0;
     /* 每个菜单项的上下间距 */
     cursor: pointer;
     text-decoration: none;
@@ -360,8 +360,8 @@
     left: 50%;
     transform: translateX(-50%) scaleX(0);
     /* 初始為縮小狀態 */
-    width: 150%;
-    height: 75px;
+    width: 130%;
+    height: 100%;
     background-image: url('../imgs/tape2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -391,8 +391,8 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 150%;
-    height: 75px;
+    width: 130%;
+    height: 100%;
     background-image: url('../imgs/tape2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -430,12 +430,13 @@
 .burgermenu_gmail {
     cursor: pointer;
     transition: transform 0.3s ease;
+    width: 5vw;
 }
 
 .burgermenu_instagram {
     cursor: pointer;
     transition: transform 0.3s ease;
-
+    width: 5vw;
 }
 
 .burgermenu_gmail:hover {

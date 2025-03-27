@@ -1,216 +1,159 @@
-/* 全螢幕背景示意，如需背景圖可自行添加 */
-.background_main_page {
-    background-size: cover;
-    /* 填滿容器 */
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../imgs//BACKGROUND.png');
-    position: relative;
-    overflow: hidden;
-    /* 視需求而定 */
-}
-
-
-
-.Herry {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: contain;
-}
-
-.main_page_country_container {
-    position: relative;
-    /* 使內部絕對定位元素相對於此容器 */
-    width: 100%;
-    /* 父容器佔滿寬度 */
-    height: 100vh;
-    /* 根據需求調整高度 */
-    overflow: hidden;
-    /* 隱藏溢出的部分 */
+.Main_page_container {
+    background-image: url('/src/components/svgs/main_page_background.svg');
+    background-size: 95%;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-}
-
-/* .country 圖片樣式 */
-.main_page_country {
-    position: absolute;
-    /* 絕對定位 */
-    top: 15%;
-    /* 根據需求調整垂直位置 */
-    left: 6%;
-    /* 初始水平位置 */
-    transform: translateX(-100%);
-    /* 初始從左側滑入 */
-    width: 35%;
-    /* 根據需求調整寬度 */
-    height: auto;
-    /* 保持圖片比例 */
-    transition: transform 0.5s ease;
-    /* 添加平滑過渡效果 */
-    cursor: pointer;
-    /* 可選：顯示手型光標 */
-}
-
-/* 懸停時改變位置 */
-.main_page_country_container:hover .main_page_country {
-    transform: translateX(-18%);
-    /* 滑入到原位 */
-}
-
-.name_flip_container {
-
-    perspective: 500px;
-    width: 200px;
-    /* 固定尺寸可依需求調整 */
-    height: 150px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-260%, -80%);
-    /* 標準置中 */
-
-}
-
-.name_flip {
-    width: 150%;
-    /* 使用100%確保不放大脫離容器 */
-    height: 150%;
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-
-}
-
-.english_name,
-.chinese_name {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
-.english_name {
+.Main_page_main_section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ✅ Main image 固定在左下 */
+.Main_img {
+    position: absolute;
+    left: 15vw;
+    bottom: 0;
+    width: 36vw;
+    z-index: 1;
+}
+
+/* ✅ Title 固定在右上 */
+.main_page_title {
+    position: absolute;
+    right: 14.63vw;
+    bottom: 33.5vw;
+    width: 38vw;
     z-index: 2;
-    animation: wave 2s infinite;
-
-
 }
 
-.chinese_name {
-    transform: rotateY(180deg);
-
-}
-
-.name_flip_container:hover .name_flip {
-
-    transform: rotateY(180deg);
-
-}
-
-
-@keyframes wave {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        /* 初始位置 */
-    }
-
-    50% {
-        transform: translateY(-12px);
-        /* 波峰 */
-    }
-}
-
-.student_flip_container {
-    display: flex;
-    /* 使用 Flexbox 布局 */
-    align-items: center;
-    /* 垂直居中对齐 */
-    justify-content: center;
-    /* 水平居中对齐 */
-    perspective: 1000px;
-    /* 提供3D效果 */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(65%, -50%);
-}
-
-.student_flip {
-    position: relative;
-    width: 375px;
-    /* 文字容器宽度 */
-    height: 200px;
-    /* 高度根据需求调整 */
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.Graduate,
-.THU {
+/* ✅ 第二層 Title 在中下偏右 */
+.main_page_title2 {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    line-height: 100px;
-    font-size: 50px;
+    left: 41.8vw;
+    bottom: 0vw;
+    width: 20vw;
+    z-index: 3;
+}
+
+.mainpage_background2 {
+    position: absolute;
+    right: 0;
+    bottom: -5vw;
+    width: 55vw;
+    z-index: -1;
+}
+
+.Menu_section {
+    position: absolute;
+    right: 1vw;
+    bottom: 12vw;
+    z-index: 3;
+}
+
+.Menu_section p {
+    font-size: 2.5vw;
     font-weight: 500;
-    text-align: center;
-    backface-visibility: hidden;
-    white-space: nowrap;
-    /* 防止换行 */
+    margin: 0;
 }
 
-.Graduate {
-    transform: rotateY(0deg);
-    /* 初始正面 */
-    animation: wave 2.3s infinite;
-
+.Menu_work_section {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    cursor: pointer;
+    position: relative;
+    margin-top: 3vw;
 }
 
-.THU {
-    transform: rotateY(180deg);
-    /* 初始背面 */
-    letter-spacing: 15px;
-
+.Menu_work_anim_section {
+    display: flex;
+    align-items: center;
+    /* 控制 Work 和動畫的間距 */
+    width: 7vw;
+    height: 3vw;
 }
 
-.student_flip:hover {
-    transform: rotateY(180deg);
-    /* 鼠标悬停触发翻转 */
+.Menu_work_section:hover .Menu_work {
+    opacity: 0.05;
+    transition: opacity 0.5s ease;
 }
 
-.static_student {
-    font-size: 24px;
-    margin-left: 20px;
-    /* 靠右侧固定的间距 */
-    white-space: nowrap;
-    text-align: center;
-    line-height: 100px;
+.Menu_work {
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.Menu_about_section {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    cursor: pointer;
+    position: relative;
+    margin-top: 3vw;
+}
+
+.Menu_about {
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.Menu_about_anim_section {
+    display: flex;
+    align-items: center;
+    /* 控制 Work 和動畫的間距 */
+    width: 21vw;
+    height: 3vw;
+}
+
+.Menu_about_section:hover .Menu_about {
+    opacity: 0.05;
+    transition: opacity 0.5s ease;
+}
+
+.Menu_contact_section {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    cursor: pointer;
+    position: relative;
+    margin-top: 3vw;
+}
+
+.Menu_contact {
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.Menu_contact_anim_section {
+    display: flex;
+    align-items: center;
+    width: 23vw;
+    height: 3vw;
+}
+
+.Menu_contact_section:hover .Menu_contact {
+    opacity: 0.05;
+    transition: opacity 0.5s ease;
+}
+
+.main_img_descrption {
+    position: absolute;
+    left: 2vw;
+    bottom: 1vw;
+    font-size: 1vw;
+    z-index: 12;
     font-weight: 500;
 }
-
-@keyframes wave {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        /* 初始位置 */
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
 
 @media (max-width: 768px) {
     .Mobile_background_main_page {
@@ -222,10 +165,12 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        align-items: center; /* 確保內容在水平方向居中 */
-        justify-content: center; /* 垂直居中 */
+        align-items: center;
+        /* 確保內容在水平方向居中 */
+        justify-content: center;
+        /* 垂直居中 */
     }
-    
+
 
     .Mobile_Herry {
         height: 100%;
@@ -255,7 +200,7 @@
 
     .Mobile_line {
         width: 90%;
-        
+
 
     }
 
