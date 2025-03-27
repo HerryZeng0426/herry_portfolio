@@ -18,7 +18,7 @@
     height: 100vh;
 }
 
-/* ✅ Main image 固定在左下 */
+
 .Main_img {
     position: absolute;
     left: 15vw;
@@ -27,7 +27,6 @@
     z-index: 1;
 }
 
-/* ✅ Title 固定在右上 */
 .main_page_title {
     position: absolute;
     right: 14.63vw;
@@ -36,13 +35,25 @@
     z-index: 2;
 }
 
-/* ✅ 第二層 Title 在中下偏右 */
+@keyframes main_page_title2_wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1vw);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
 .main_page_title2 {
     position: absolute;
     left: 41.8vw;
     bottom: 0vw;
     width: 20vw;
     z-index: 3;
+    animation: main_page_title2_wave 5s ease-in-out infinite;
 }
 
 .mainpage_background2 {

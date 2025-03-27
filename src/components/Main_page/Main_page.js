@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import hover_contact_anim from '../Animations/hover_contact_anim.json'
 import hover_about_anim from '../Animations/hover_about_anim.json'
 import hover_work_anim from '../Animations/hover_work_anim.json'
@@ -56,8 +56,56 @@ const Main_page = () => {
 
     const [hover_on_menu, setHover_on_menu] = useState(null);
 
+    const mainImgRef = useRef(null);
+
+    
+    //偵測是否滾動滑鼠滾輪
+    const menuWorkRef = useRef(null);
+    const menuAboutRef = useRef(null);
+    const menuContactRef = useRef(null);
 
 
+    useEffect(() => {
+        const handleScroll = () => {
+          gsap.to(menuWorkRef.current, {
+            x: -15,
+            duration: 0.3,
+            delay: 0, // 立即
+            ease: 'power2.out',
+          });
+      
+          gsap.to(menuAboutRef.current, {
+            x: -15,
+            duration: 0.3,
+            delay: 0.1, // 滾動後 0.1 秒
+            ease: 'power2.out',
+          });
+      
+          gsap.to(menuContactRef.current, {
+            x: -15,
+            duration: 0.3,
+            delay: 0.3, // 滾動後 0.3 秒
+            ease: 'power2.out',
+          });
+      
+          // 還原動畫（往右回來）
+          setTimeout(() => {
+            gsap.to([menuWorkRef.current, menuAboutRef.current, menuContactRef.current], {
+              x: 0,
+              duration: 0.5,
+              ease: 'power2.out',
+              stagger: 0.1, // 依序回來
+            });
+          }, 300);
+        };
+      
+        window.addEventListener('wheel', handleScroll);
+      
+        return () => {
+          window.removeEventListener('wheel', handleScroll);
+        };
+      }, []);
+      
 
     return (
         <div>
@@ -73,7 +121,7 @@ const Main_page = () => {
                     </div>
                     <div className='Menu_section'>
                         <div className='Menu_work_section' onMouseEnter={() => setHover_on_menu('work')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_work' onClick={() => navigate('/work')}>Work</p>
+                            <p className='Menu_work' onClick={() => navigate('/work')} ref={menuWorkRef}>Work</p>
                             <div className="Menu_work_anim_section">
                                 {hover_on_menu === 'work' ? (
                                     <Lottie
@@ -87,21 +135,21 @@ const Main_page = () => {
                             </div>
                         </div>
                         <div className='Menu_about_section' onMouseEnter={() => setHover_on_menu('about')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_about' onClick={() => navigate('/about')}>About</p>
+                            <p className='Menu_about' onClick={() => navigate('/about')} ref={menuAboutRef}>About</p>
                             <div className="Menu_about_anim_section">
                                 {hover_on_menu === 'about' ? (
                                     <Lottie
                                         animationData={hover_about_anim}
                                         loop={true}
                                         autoplay={true}
-                                        style={{ width: '21vw', transform: 'translatey(-0.1vw)' }}
+                                        style={{ width: '21vw', transform: 'translatey(-0.3vw)' }}
                                     />
                                 ) : (
                                     <div style={{ width: '21vw', }} />)}
                             </div>
                         </div>
                         <div className='Menu_contact_section' onMouseEnter={() => setHover_on_menu('contact')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_contact' onClick={() => navigate('/contact')}>Contact</p>
+                            <p className='Menu_contact' onClick={() => navigate('/contact')} ref={menuContactRef}>Contact</p>
                             <div className="Menu_contact_anim_section">
                                 {hover_on_menu === 'contact' ? (
                                     <Lottie
