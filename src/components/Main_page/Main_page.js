@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import DIGITAL_DESIGN_anim from '../Animations/DIGITAL_DESIGN_anim.json'
 import hover_contact_anim from '../Animations/hover_contact_anim.json'
 import hover_about_anim from '../Animations/hover_about_anim.json'
 import hover_work_anim from '../Animations/hover_work_anim.json'
@@ -56,9 +57,17 @@ const Main_page = () => {
 
     const [hover_on_menu, setHover_on_menu] = useState(null);
 
-    const mainImgRef = useRef(null);
+    const Title2_anim_Ref = useRef(null);
 
-    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            Title2_anim_Ref.current?.play();
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+
     //偵測是否滾動滑鼠滾輪
     const menuWorkRef = useRef(null);
     const menuAboutRef = useRef(null);
@@ -67,45 +76,45 @@ const Main_page = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-          gsap.to(menuWorkRef.current, {
-            x: -15,
-            duration: 0.3,
-            delay: 0, // 立即
-            ease: 'power2.out',
-          });
-      
-          gsap.to(menuAboutRef.current, {
-            x: -15,
-            duration: 0.3,
-            delay: 0.1, // 滾動後 0.1 秒
-            ease: 'power2.out',
-          });
-      
-          gsap.to(menuContactRef.current, {
-            x: -15,
-            duration: 0.3,
-            delay: 0.3, // 滾動後 0.3 秒
-            ease: 'power2.out',
-          });
-      
-          // 還原動畫（往右回來）
-          setTimeout(() => {
-            gsap.to([menuWorkRef.current, menuAboutRef.current, menuContactRef.current], {
-              x: 0,
-              duration: 0.5,
-              ease: 'power2.out',
-              stagger: 0.1, // 依序回來
+            gsap.to(menuWorkRef.current, {
+                x: -15,
+                duration: 0.3,
+                delay: 0, // 立即
+                ease: 'power2.out',
             });
-          }, 300);
+
+            gsap.to(menuAboutRef.current, {
+                x: -15,
+                duration: 0.3,
+                delay: 0.1, // 滾動後 0.1 秒
+                ease: 'power2.out',
+            });
+
+            gsap.to(menuContactRef.current, {
+                x: -15,
+                duration: 0.3,
+                delay: 0.3, // 滾動後 0.3 秒
+                ease: 'power2.out',
+            });
+
+            // 還原動畫（往右回來）
+            setTimeout(() => {
+                gsap.to([menuWorkRef.current, menuAboutRef.current, menuContactRef.current], {
+                    x: 0,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    stagger: 0.1, // 依序回來
+                });
+            }, 300);
         };
-      
+
         window.addEventListener('wheel', handleScroll);
-      
+
         return () => {
-          window.removeEventListener('wheel', handleScroll);
+            window.removeEventListener('wheel', handleScroll);
         };
-      }, []);
-      
+    }, []);
+
 
     return (
         <div>
@@ -116,7 +125,10 @@ const Main_page = () => {
                         <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>
                         <img className='Main_img' src={Main_img} />
                         <img className='main_page_title' src={main_page_title} />
-                        <img className='main_page_title2' src={main_page_title2} />
+                        <div className='Menu_Tittle2_anim_section' >
+                            {/* 用新版的 lottieRef  */}
+                            <Lottie animationData={DIGITAL_DESIGN_anim} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ width: '23vw', transform: 'translatey(0vw)' }}></Lottie>
+                        </div>
                         <img className='mainpage_background2' src={mainpage_background2} />
                     </div>
                     <div className='Menu_section'>

@@ -33,9 +33,10 @@
     bottom: 33.5vw;
     width: 38vw;
     z-index: 2;
+
 }
 
-@keyframes main_page_title2_wave {
+@keyframes main_page_title_wave {
     0% {
       transform: translateY(0);
     }
@@ -47,14 +48,16 @@
     }
   }
   
-.main_page_title2 {
+.Menu_Tittle2_anim_section{
     position: absolute;
-    left: 41.8vw;
-    bottom: 0vw;
-    width: 20vw;
-    z-index: 3;
-    animation: main_page_title2_wave 5s ease-in-out infinite;
-}
+    bottom: 3.5vw;
+    left: 39.25vw;
+    display: flex;
+    align-items: center;
+    width: 23vw;
+    height: 3vw;
+    z-index: 2;
+    animation: main_page_title_wave 5s ease-in-out infinite}
 
 .mainpage_background2 {
     position: absolute;
