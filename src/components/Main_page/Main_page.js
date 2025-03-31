@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import DIGITAL_DESIGN_anim_mobile from '../Animations/DIGITAL_DESIGN_anim_mobile.json'
+import main_page_title_mobile from '../svgs/main_page_title_mobile.svg'
+import main_page_background2_mobile from '../svgs/main_page_background2_mobile.svg'
 import DIGITAL_DESIGN_anim from '../Animations/DIGITAL_DESIGN_anim.json'
 import hover_contact_anim from '../Animations/hover_contact_anim.json'
 import hover_about_anim from '../Animations/hover_about_anim.json'
@@ -109,89 +112,82 @@ const Main_page = () => {
         };
 
         window.addEventListener('wheel', handleScroll);
+        window.addEventListener('scroll' , handleScroll)
 
         return () => {
             window.removeEventListener('wheel', handleScroll);
+            window.addEventListener('scroll' , handleScroll)
+
         };
     }, []);
+
 
 
     return (
         <div>
             <Page_Transition page_title='Home'></Page_Transition>
-            {!Mobile_mode &&
-                <div className='Main_page_container'>
-                    <div className='Main_page_main_section'>
-                        <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>
-                        <img className='Main_img' src={Main_img} />
-                        <img className='main_page_title' src={main_page_title} />
-                        <div className='Menu_Tittle2_anim_section' >
-                            {/* 用新版的 lottieRef  */}
-                            <Lottie animationData={DIGITAL_DESIGN_anim} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ width: '23vw', transform: 'translatey(0vw)' }}></Lottie>
-                        </div>
-                        <img className='mainpage_background2' src={mainpage_background2} />
+            <div className='Main_page_container'>
+                <div className='Main_page_main_section'>
+                    <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>
+                    <img className='Main_img' src={Main_img} />
+                    <img className='main_page_title' src={main_page_title} />
+                    <img className='main_page_title_mobile' src={main_page_title_mobile}></img>
+                    <div className='Menu_Tittle2_anim_section' >
+                        {/* 用新版的 lottieRef  */}
+                        <Lottie className='DIGITAL_DESIGN_anim' animationData={DIGITAL_DESIGN_anim} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ width: '23vw', transform: 'translatey(0vw)' }}></Lottie>
+                        <Lottie className='DIGITAL_DESIGN_anim_mobile' animationData={DIGITAL_DESIGN_anim_mobile} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ transform: 'translatey(-15vw)' }}></Lottie>
+
                     </div>
-                    <div className='Menu_section'>
-                        <div className='Menu_work_section' onMouseEnter={() => setHover_on_menu('work')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_work' onClick={() => navigate('/work')} ref={menuWorkRef}>Work</p>
-                            <div className="Menu_work_anim_section">
-                                {hover_on_menu === 'work' ? (
-                                    <Lottie
-                                        animationData={hover_work_anim}
-                                        loop={true}
-                                        autoplay={true}
-                                        style={{ width: '7.5vw', transform: 'translatey(-0.5vw)' }}
-                                    />
-                                ) : (
-                                    <div style={{ width: '7.5vw', }} />)}
-                            </div>
+                    <img className='mainpage_background2' src={mainpage_background2} />
+                    <img className='main_page_background2_mobile' src={main_page_background2_mobile}></img>
+                </div>
+                <div className='Menu_section'>
+                    <div className='Menu_work_section' onMouseEnter={() => setHover_on_menu('work')} onMouseLeave={() => setHover_on_menu(null)}>
+                        <p className='Menu_work' onClick={() => navigate('/work')} ref={menuWorkRef}>Work</p>
+                        <div className="Menu_work_anim_section">
+                            {hover_on_menu === 'work' ? (
+                                <Lottie
+                                    animationData={hover_work_anim}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '7.5vw', transform: 'translatey(-0.5vw)' }}
+                                />
+                            ) : (
+                                <div style={{ width: '7.5vw', }} />)}
                         </div>
-                        <div className='Menu_about_section' onMouseEnter={() => setHover_on_menu('about')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_about' onClick={() => navigate('/about')} ref={menuAboutRef}>About</p>
-                            <div className="Menu_about_anim_section">
-                                {hover_on_menu === 'about' ? (
-                                    <Lottie
-                                        animationData={hover_about_anim}
-                                        loop={true}
-                                        autoplay={true}
-                                        style={{ width: '21vw', transform: 'translatey(-0.3vw)' }}
-                                    />
-                                ) : (
-                                    <div style={{ width: '21vw', }} />)}
-                            </div>
+                    </div>
+                    <div className='Menu_about_section' onMouseEnter={() => setHover_on_menu('about')} onMouseLeave={() => setHover_on_menu(null)}>
+                        <p className='Menu_about' onClick={() => navigate('/about')} ref={menuAboutRef}>About</p>
+                        <div className="Menu_about_anim_section">
+                            {hover_on_menu === 'about' ? (
+                                <Lottie
+                                    animationData={hover_about_anim}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '21vw', transform: 'translatey(-0.3vw)' }}
+                                />
+                            ) : (
+                                <div style={{ width: '21vw', }} />)}
                         </div>
-                        <div className='Menu_contact_section' onMouseEnter={() => setHover_on_menu('contact')} onMouseLeave={() => setHover_on_menu(null)}>
-                            <p className='Menu_contact' onClick={() => navigate('/contact')} ref={menuContactRef}>Contact</p>
-                            <div className="Menu_contact_anim_section">
-                                {hover_on_menu === 'contact' ? (
-                                    <Lottie
-                                        animationData={hover_contact_anim}
-                                        loop={true}
-                                        autoplay={true}
-                                        style={{ width: '23vw', transform: 'translatey(-0.75vw)' }}
-                                    />
-                                ) : (
-                                    <div style={{ width: '23vw', }} />)}
-                            </div>
+                    </div>
+                    <div className='Menu_contact_section' onMouseEnter={() => setHover_on_menu('contact')} onMouseLeave={() => setHover_on_menu(null)}>
+                        <p className='Menu_contact' onClick={() => navigate('/contact')} ref={menuContactRef}>Contact</p>
+                        <div className="Menu_contact_anim_section">
+                            {hover_on_menu === 'contact' ? (
+                                <Lottie
+                                    animationData={hover_contact_anim}
+                                    loop={true}
+                                    autoplay={true}
+                                    style={{ width: '23vw', transform: 'translatey(-0.75vw)' }}
+                                />
+                            ) : (
+                                <div style={{ width: '23vw', }} />)}
                         </div>
                     </div>
                 </div>
-            }
+            </div>
 
-            {Mobile_mode && <>
-                <div className='Mobile_background_main_page'>
 
-                    <Menu></Menu>
-                    <img className='Mobile_Herry' src={Herry}></img>
-                    <div className='Mobile_name_student'>
-                        <p className='Mobile_name'>Herry Zeng</p>
-                        <img src={Mobile_line} className='Mobile_line'></img>
-                        <p className='Mobile_student'>Graduate Student</p>
-                    </div>
-
-                </div>
-            </>
-            }
         </div>
 
     )

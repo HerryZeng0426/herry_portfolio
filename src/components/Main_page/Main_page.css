@@ -33,22 +33,27 @@
     bottom: 33.5vw;
     width: 38vw;
     z-index: 2;
+}
 
+.main_page_title_mobile {
+    display: none;
 }
 
 @keyframes main_page_title_wave {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
+
     50% {
-      transform: translateY(-1vw);
+        transform: translateY(-1vw);
     }
+
     100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
-  
-.Menu_Tittle2_anim_section{
+}
+
+.Menu_Tittle2_anim_section {
     position: absolute;
     bottom: 3.5vw;
     left: 39.25vw;
@@ -57,7 +62,12 @@
     width: 23vw;
     height: 3vw;
     z-index: 2;
-    animation: main_page_title_wave 5s ease-in-out infinite}
+    animation: main_page_title_wave 5s ease-in-out infinite
+}
+
+.DIGITAL_DESIGN_anim_mobile {
+    display: none;
+}
 
 .mainpage_background2 {
     position: absolute;
@@ -65,6 +75,10 @@
     bottom: -5vw;
     width: 55vw;
     z-index: -1;
+}
+
+.main_page_background2_mobile {
+    display: none;
 }
 
 .Menu_section {
@@ -170,76 +184,132 @@
 }
 
 @media (max-width: 768px) {
-    .Mobile_background_main_page {
-        background-size: cover;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('../imgs/BACKGROUND.png');
+    .Main_page_container {
+        background-image: url('/src/components/svgs/Main_background_mobile.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: top;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        min-height: 100vh;
         position: relative;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 確保內容在水平方向居中 */
-        justify-content: center;
-        /* 垂直居中 */
     }
 
-
-    .Mobile_Herry {
-        height: 100%;
-    }
-
-    .Mobile_name_student {
-        position: absolute;
-        top: 65%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .Main_page_main_section {
+        position: relative;
         width: 100%;
+        height: 100vh;
     }
 
-    .Mobile_name {
-        font-size: 60px;
-        font-weight: 700;
+    .Main_img {
+        position: absolute;
+        left: 60vw;
+        bottom: -20vw;
+        transform: translateX(-70vw);
+        width: 130vw;
+        z-index: 1;
+    }
+
+    .main_img_descrption {
+        bottom: 1vw;
         color: #ffffff;
-        font-style: italic;
-        margin-bottom: 12px;
-        margin-right: 30px;
-        animation: wave 2.3s infinite;
+        font-size: 2.5vw;
+        font-weight: 100;
+        left: 2vw;
+        position: absolute;
+        z-index: 12;
+    }
+
+    .main_page_title {
+        display: none;
+    }
+
+    .main_page_title_mobile {
+        display: flex;
+        position: absolute;
+        width: 75vw;
+        bottom: 67vw;
+        left: 5vw;
+        z-index: 3;
+    }
+
+    .DIGITAL_DESIGN_anim {
+        display: none;
+    }
+
+    .DIGITAL_DESIGN_anim_mobile {
+        display: flex;
+        width: 70vw;
+
+    }
+    .Menu_Tittle2_anim_section {
+        position: absolute;
+        bottom: 9vw;
+        left: 28.3vw;
+        display: flex;
+        align-items: center;
+        width: 70vw;
+        z-index: 2;
+        animation: main_page_title_wave 5s ease-in-out infinite
+    }
+    .mainpage_background2 {
+        display: none;
+    }
+
+    .main_page_background2_mobile {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        top: 5vw;
+        z-index: -1;
+    }
+
+    .Menu_section {
+        position: absolute;
+        top: 12vw;
+        right: 9vw;
+        z-index: 3;
+    }
+
+    .Menu_section p {
+        font-size: 7vw;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .Menu_work_section {
+        display: flex;
+        margin-top: 3vw;
+        position: relative;
+    }
+
+    .Menu_work_anim_section {
+        display: none;
+    }
+
+    .Menu_about_section {
+        display: flex;
+        margin-top: 12vw;
+        position: relative;
+    }
+
+    .Menu_about_anim_section {
+        display: none;
 
     }
 
-    .Mobile_line {
-        width: 90%;
-
-
+    .Menu_contact_section {
+        align-items: center;
+        display: flex;
+        margin-top: 12vw;
     }
 
-    .Mobile_student {
-        font-size: 30px;
-        font-weight: 700;
-        color: #ffffff;
-        font-style: italic;
-        margin-right: -90px;
-        animation: wave 2s infinite;
+    .Menu_contact_anim_section {
+        display: none;
 
     }
-
-    @keyframes wave {
-
-        0%,
-        100% {
-            transform: translateY(0);
-            /* 初始位置 */
-        }
-
-        50% {
-            transform: translateY(-5px);
-            /* 波峰 */
-        }
-    }
-
 }
