@@ -65,6 +65,10 @@
     animation: main_page_title_wave 5s ease-in-out infinite
 }
 
+.DIGITAL_DESIGN_anim {
+    display: flex;
+}
+
 .DIGITAL_DESIGN_anim_mobile {
     display: none;
 }
@@ -192,8 +196,8 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        width: 100%;
-        min-height: 100vh;
+        width: 100vw;
+        height: 100vh;
         position: relative;
         overflow: hidden;
     }
@@ -245,6 +249,7 @@
         width: 70vw;
 
     }
+
     .Menu_Tittle2_anim_section {
         position: absolute;
         bottom: 9vw;
@@ -255,6 +260,7 @@
         z-index: 2;
         animation: main_page_title_wave 5s ease-in-out infinite
     }
+
     .mainpage_background2 {
         display: none;
     }
@@ -293,7 +299,7 @@
 
     .Menu_about_section {
         display: flex;
-        margin-top: 12vw;
+        margin-top: 5vw;
         position: relative;
     }
 
@@ -305,7 +311,7 @@
     .Menu_contact_section {
         align-items: center;
         display: flex;
-        margin-top: 12vw;
+        margin-top: 5vw;
     }
 
     .Menu_contact_anim_section {

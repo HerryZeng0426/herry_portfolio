@@ -60,6 +60,7 @@ const Main_page = () => {
 
     const [hover_on_menu, setHover_on_menu] = useState(null);
 
+    //讓 Title 2 的動畫延遲1.5秒再開始
     const Title2_anim_Ref = useRef(null);
 
     useEffect(() => {
@@ -70,6 +71,15 @@ const Main_page = () => {
         return () => clearTimeout(timer);
     }, []);
 
+
+    const Title2_anim_mobile_Ref = useRef(null)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            Title2_anim_mobile_Ref.current?.play()
+        }, 1500)
+        return () => clearTimeout(timer);
+    }, [])
 
     //偵測是否滾動滑鼠滾輪
     const menuWorkRef = useRef(null);
@@ -112,11 +122,11 @@ const Main_page = () => {
         };
 
         window.addEventListener('wheel', handleScroll);
-        window.addEventListener('scroll' , handleScroll)
+        window.addEventListener('scroll', handleScroll)
 
         return () => {
             window.removeEventListener('wheel', handleScroll);
-            window.addEventListener('scroll' , handleScroll)
+            window.addEventListener('scroll', handleScroll)
 
         };
     }, []);
@@ -135,7 +145,7 @@ const Main_page = () => {
                     <div className='Menu_Tittle2_anim_section' >
                         {/* 用新版的 lottieRef  */}
                         <Lottie className='DIGITAL_DESIGN_anim' animationData={DIGITAL_DESIGN_anim} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ width: '23vw', transform: 'translatey(0vw)' }}></Lottie>
-                        <Lottie className='DIGITAL_DESIGN_anim_mobile' animationData={DIGITAL_DESIGN_anim_mobile} lottieRef={Title2_anim_Ref} loop={true} autoplay={false} style={{ transform: 'translatey(-15vw)' }}></Lottie>
+                        <Lottie className='DIGITAL_DESIGN_anim_mobile' animationData={DIGITAL_DESIGN_anim_mobile} lottieRef={Title2_anim_mobile_Ref} loop={true} autoplay={false} style={{ transform: 'translatey(-15vw)' }}></Lottie>
 
                     </div>
                     <img className='mainpage_background2' src={mainpage_background2} />
