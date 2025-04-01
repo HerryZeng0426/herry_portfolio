@@ -210,17 +210,18 @@
 
     .Main_img {
         position: absolute;
-        left: 60vw;
-        bottom: -20vw;
-        transform: translateX(-70vw);
-        width: 125vw;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
         z-index: 1;
     }
 
     .main_img_descrption {
-        top: 63vw;
+        bottom: 0vw;
         color: #000000;
-        font-size: 2.5vw;
+        font-size: 3vw;
         font-weight: 100;
         left: 2vw;
         position: absolute;
@@ -235,7 +236,7 @@
         display: flex;
         position: absolute;
         width: 75vw;
-        bottom: 67vw;
+        top: 75vw;
         left: 5vw;
         z-index: 3;
     }
@@ -252,8 +253,8 @@
 
     .Menu_Tittle2_anim_section {
         position: absolute;
-        bottom: 20vw;
-        left: 24.3vw;
+        bottom: 55vw;
+        left: 29vw;
         display: flex;
         align-items: center;
         width: 70vw;
@@ -276,9 +277,10 @@
 
     .Menu_section {
         position: absolute;
-        top: 12vw;
+        top: 5vw;
         right: 9vw;
         z-index: 3;
+        display: none;
     }
 
     .Menu_section p {
