@@ -213,13 +213,13 @@
         left: 60vw;
         bottom: -20vw;
         transform: translateX(-70vw);
-        width: 130vw;
+        width: 125vw;
         z-index: 1;
     }
 
     .main_img_descrption {
-        bottom: 1vw;
-        color: #ffffff;
+        top: 63vw;
+        color: #000000;
         font-size: 2.5vw;
         font-weight: 100;
         left: 2vw;
@@ -252,8 +252,8 @@
 
     .Menu_Tittle2_anim_section {
         position: absolute;
-        bottom: 9vw;
-        left: 28.3vw;
+        bottom: 20vw;
+        left: 24.3vw;
         display: flex;
         align-items: center;
         width: 70vw;

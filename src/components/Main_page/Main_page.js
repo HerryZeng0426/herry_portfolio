@@ -69,8 +69,7 @@ const Main_page = () => {
         }, 1500);
 
         return () => clearTimeout(timer);
-    }, []);
-
+    }, [])
 
     const Title2_anim_mobile_Ref = useRef(null)
 
@@ -136,8 +135,8 @@ const Main_page = () => {
     return (
         <div>
             <Page_Transition page_title='Home'></Page_Transition>
-            <div className='Main_page_container'>
-                <div className='Main_page_main_section'>
+            <div className='Main_page_container'>             
+                 <div className='Main_page_main_section'>
                     <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>
                     <img className='Main_img' src={Main_img} />
                     <img className='main_page_title' src={main_page_title} />
