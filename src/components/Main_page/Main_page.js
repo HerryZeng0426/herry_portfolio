@@ -131,11 +131,44 @@ const Main_page = () => {
     }, []);
 
 
+    //mobile 的 menu 進場動畫
+    const Mobile_menu_ref = useRef(null)
+     useEffect(() => {
+    if (Mobile_mode) {
+      // 等畫面真正渲染好再執行動畫（延遲一個 event loop）
+      setTimeout(() => {
+        if (Mobile_menu_ref.current) {
+          const targets = Mobile_menu_ref.current.querySelectorAll('p');
+
+          // 重設狀態
+          gsap.set(targets, {
+            y: 50,
+            opacity: 0,
+            scale: 0.8,
+          });
+
+          // 執行動畫
+          gsap.to(targets, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            ease: 'back.out(1.7)',
+            stagger: 0.15,
+            duration: 0.6,
+          });
+        }
+      }, 0);
+    }
+  }, [Mobile_mode]); // 每次開啟都會跑動畫
 
     return (
         <div>
             <Page_Transition page_title='Home'></Page_Transition>
-            {Mobile_mode && <Menu></Menu>}
+            {Mobile_mode && <div className='Mobile_menu_section' ref={Mobile_menu_ref}>
+                <p onClick={() => navigate('/about')}>About</p>
+                <p onClick={() => navigate('/work')}>Work</p>
+                <p onClick={() => navigate('/contact')}>Contact</p>
+            </div>}
             <div className='Main_page_container'>
                 <div className='Main_page_main_section'>
                     <p className='main_img_descrption'>Photo by Kevin clark , 2024</p>

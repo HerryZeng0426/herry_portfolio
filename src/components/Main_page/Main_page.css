@@ -188,6 +188,58 @@
 }
 
 @media (max-width: 768px) {
+    .Mobile_menu_section {
+        display: flex;
+        flex-direction: row;
+        /* 橫向排列 */
+        gap: 20px;
+        /* 每個選項之間的間距 */
+        position: absolute;
+        right: 0;
+        bottom: 30vw;
+        z-index: 15;
+        padding: 10px;
+
+    }
+
+    .Mobile_menu_section p {
+        font-size: 25px;
+        padding: 8px 20px;
+        margin: 0;
+        border-radius: 25px;
+        background-color: #ffffff;
+        cursor: pointer;
+        animation: floatIn 0.6s ease-out forwards, floating 3s ease-in-out infinite;
+
+    }
+
+    .Mobile_menu_section p:nth-child(1) {
+        animation-delay: 0s, 0.6s;
+    }
+
+    .Mobile_menu_section p:nth-child(2) {
+        animation-delay: 0.15s, 0.75s;
+    }
+
+    .Mobile_menu_section p:nth-child(3) {
+        animation-delay: 0.3s, 0.9s;
+    }
+
+    @keyframes floating {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-6px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+
     .Main_page_container {
         background-image: url('/src/components/svgs/Main_background_mobile.svg');
         background-size: 100%;
